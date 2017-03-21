@@ -7,5 +7,6 @@ target 'Tides' do
 
   # Pods for Tides
   pod 'SwiftLint'
+  pod 'Charts', '~> 3.0.1'
 
 end

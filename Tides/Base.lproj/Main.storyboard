@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FKE-1Y-dIE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,9 +20,24 @@
                     <view key="view" contentMode="scaleToFill" id="rmY-GA-q0E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0j6-vB-GXQ" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="50" y="114" width="275" height="454"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="thM-MG-rDO" firstAttribute="top" secondItem="0j6-vB-GXQ" secondAttribute="bottom" constant="50" id="Bvb-5b-aFY"/>
+                            <constraint firstItem="0j6-vB-GXQ" firstAttribute="top" secondItem="6eR-6e-P73" secondAttribute="bottom" constant="50" id="cd7-ZU-dBO"/>
+                            <constraint firstItem="0j6-vB-GXQ" firstAttribute="leading" secondItem="rmY-GA-q0E" secondAttribute="leading" constant="50" id="fEO-fJ-lTR"/>
+                            <constraint firstAttribute="trailing" secondItem="0j6-vB-GXQ" secondAttribute="trailing" constant="50" id="qDT-ft-UPD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="k8n-13-AfY"/>
+                    <connections>
+                        <outlet property="lineChartView" destination="0j6-vB-GXQ" id="4RD-Qt-LrK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UYn-Ai-BvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,6 +68,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FKE-1Y-dIE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="qrm-OL-dH1">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
