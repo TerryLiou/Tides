@@ -98,6 +98,7 @@
 				8A19B7D31E7FD8CC00B7A275 /* Resources */,
 				5EA25EC6BCF00D1A05FE878C /* [CP] Embed Pods Frameworks */,
 				486715D70BA48190305A9860 /* [CP] Copy Pods Resources */,
+				8A19B7EA1E80CCB800B7A275 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -186,6 +187,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tides/Pods-Tides-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8A19B7EA1E80CCB800B7A275 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		C4B57F69C68EF1EA4C5239D9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -373,6 +387,7 @@
 				8A19B7E91E7FD8CC00B7A275 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
