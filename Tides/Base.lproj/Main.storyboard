@@ -6,6 +6,63 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Tides Chart View Controller-->
+        <scene sceneID="NwJ-cX-kby">
+            <objects>
+                <viewController storyboardIdentifier="TidesChartViewController" id="RaK-oK-mm6" customClass="TidesChartViewController" customModule="Tides" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6eR-6e-P73"/>
+                        <viewControllerLayoutGuide type="bottom" id="thM-MG-rDO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rmY-GA-q0E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="k8n-13-AfY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UYn-Ai-BvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2109.5999999999999" y="274.81259370314842"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="DWr-Iq-5fB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yXv-7D-UYD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="gJY-Ad-chR"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kgX-mx-zgI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RaK-oK-mm6" kind="relationship" relationship="rootViewController" id="CX7-ha-7eA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CBR-YT-FTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1168.8" y="274.81259370314842"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Qaf-WS-MeP">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FKE-1Y-dIE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="qrm-OL-dH1">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="yXv-7D-UYD" kind="relationship" relationship="viewControllers" id="WTQ-bg-l2z"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c3R-KA-DZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="229.59999999999999" y="274.81259370314842"/>
+        </scene>
+    </scenes>
 </document>

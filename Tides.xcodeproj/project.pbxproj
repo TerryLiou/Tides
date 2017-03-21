@@ -11,6 +11,7 @@
 		8A19B7DE1E7FD8CC00B7A275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */; };
 		8A19B7E01E7FD8CC00B7A275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A19B7DF1E7FD8CC00B7A275 /* Assets.xcassets */; };
 		8A19B7E31E7FD8CC00B7A275 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A19B7E11E7FD8CC00B7A275 /* LaunchScreen.storyboard */; };
+		8A19B7EC1E80D1FA00B7A275 /* TidesChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */; };
 		D810FD860288E40D815E35A4 /* Pods_Tides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		8A19B7DF1E7FD8CC00B7A275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A19B7E21E7FD8CC00B7A275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A19B7E41E7FD8CC00B7A275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesChartViewController.swift; sourceTree = "<group>"; };
 		B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -61,6 +63,7 @@
 			children = (
 				8A19B7D81E7FD8CC00B7A275 /* AppDelegate.swift */,
 				8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */,
+				8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */,
 				8A19B7DF1E7FD8CC00B7A275 /* Assets.xcassets */,
 				8A19B7E11E7FD8CC00B7A275 /* LaunchScreen.storyboard */,
 				8A19B7E41E7FD8CC00B7A275 /* Info.plist */,
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A19B7D91E7FD8CC00B7A275 /* AppDelegate.swift in Sources */,
+				8A19B7EC1E80D1FA00B7A275 /* TidesChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
