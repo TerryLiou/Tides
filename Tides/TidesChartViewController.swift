@@ -12,17 +12,27 @@ import Charts
 
 class TidesChartViewController: UIViewController, ChartViewDelegate {
     var dataEntriesForLine: [ChartDataEntry] = []
-    let yValue = [23, -31, 45, -69]
-    let xValue = [00:20, 06:00, 12:00, 18:00]
+    var amountOfData = tidesDataArray.data.count
+    var xValue = [String]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateChartWithData()
+
+        FirebaseDataManager.shared.getTidesData { (tidesData) in
+            tidesDataArray.data = tidesData
+        }
+
     }
     func updateChartWithData() {
         lineChartView.delegate = self
-        for i in 0 ... 3 {
-            let dataEntryForLine = ChartDataEntry(x: Double(i), y: Double(yValue[i]))
+        for i in 0 ..< amountOfData {
+
+            let yValue = tidesDataArray.data[i].height
+            let dataEntryForLine = ChartDataEntry(x: Double(i), y: Double(yValue))
             dataEntriesForLine.append(dataEntryForLine)
+            xValue.append(tidesDataArray.data[i].time)
+
         }
         let chartDataSet = LineChartDataSet(values: dataEntriesForLine, label: "Int")
         let chartData = LineChartData(dataSet: chartDataSet)
@@ -54,15 +64,8 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         lineChartView.snapshotView(afterScreenUpdates: false)
         lineChartView.scaleXEnabled = false
         lineChartView.scaleYEnabled = false
-        
-        var dateComponentsFormatter: DateComponentsFormatter {
-            let dateComponentsFormatter = DateComponentsFormatter()
-            dateComponentsFormatter.allowedUnits = [.hour,.minute]
-            dateComponentsFormatter.collapsesLargestUnit = true
-            dateComponentsFormatter.zeroFormattingBehavior = .pad
-            return dateComponentsFormatter
-        }
-        let xAxis: XAxis = XAxis()
+        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xValue)
+
     }
 
     @IBOutlet weak var lineChartView: LineChartView!

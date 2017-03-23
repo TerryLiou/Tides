@@ -33,7 +33,40 @@ class FirebaseDataManager {
             }
         }
     }
-    func getTidesData() {
-//        reference.
+
+    func getTidesData(completionHandler: @escaping (_ tidesData: [TidesData]) -> ()) {
+
+        reference.queryOrdered(byChild: "date").queryEqual(toValue: "20170324").observeSingleEvent(of: .value, with: { snapshot in
+
+            var tidesData = [TidesData]()
+
+            for item in snapshot.children {
+
+                guard let snap = item as? FIRDataSnapshot else { return }
+
+                guard let result = self.getData(snapshot: snap) else { return }
+
+                tidesData.append(result)
+
+            }
+            tidesData.sort { $0.order < $1.order }
+            completionHandler(tidesData)
+        })
+    }
+
+    func getData(snapshot: FIRDataSnapshot) -> TidesData? {
+
+        guard let snapValue = snapshot.value as? [String: Any] else { return nil }
+        guard let data = snapValue["date"] as? String else { return nil }
+        guard let height = snapValue["height"] as? Int else { return nil }
+        guard let location = snapValue["location"] as? String else { return nil }
+        guard let order = snapValue["order"] as? Int else { return nil }
+        guard let tide = snapValue["tide"] as? String else { return nil }
+        guard let time = snapValue["time"] as? String else { return nil }
+        guard let type = snapValue["type"] as? String else { return nil }
+
+        let tidesData = TidesData(date: data, location: location, order: order, time: time, type: type, tide: tide, height: height)
+
+        return tidesData
     }
 }

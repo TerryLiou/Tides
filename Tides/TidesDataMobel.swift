@@ -28,3 +28,7 @@ struct TidesData {
         self.height = height
     }
 }
+
+class tidesDataArray {
+    static var data: [TidesData] = []
+}
