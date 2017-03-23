@@ -8,5 +8,11 @@ target 'Tides' do
   # Pods for Tides
   pod 'SwiftLint'
   pod 'Charts', '~> 3.0.1'
+  pod 'Firebase/Core'
+  pod 'Firebase'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/RemoteConfig'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 
 end

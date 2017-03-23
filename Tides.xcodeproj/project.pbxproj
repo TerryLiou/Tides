@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A0759821E82069100E15693 /* TidesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0759811E82069100E15693 /* TidesChartView.swift */; };
 		8A0759841E82070100E15693 /* TidesDataMobel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0759831E82070100E15693 /* TidesDataMobel.swift */; };
+		8A0759861E824D7A00E15693 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A0759851E824D7A00E15693 /* GoogleService-Info.plist */; };
+		8A0759881E829B7400E15693 /* FirebaseDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0759871E829B7400E15693 /* FirebaseDataSet.swift */; };
 		8A19B7D91E7FD8CC00B7A275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B7D81E7FD8CC00B7A275 /* AppDelegate.swift */; };
 		8A19B7DE1E7FD8CC00B7A275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */; };
 		8A19B7E01E7FD8CC00B7A275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A19B7DF1E7FD8CC00B7A275 /* Assets.xcassets */; };
@@ -20,8 +21,9 @@
 /* Begin PBXFileReference section */
 		44BDC1BF2F6807E53B2CA086 /* Pods-Tides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tides.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tides/Pods-Tides.release.xcconfig"; sourceTree = "<group>"; };
 		8366772A2BBA975E5209C408 /* Pods-Tides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tides/Pods-Tides.debug.xcconfig"; sourceTree = "<group>"; };
-		8A0759811E82069100E15693 /* TidesChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesChartView.swift; sourceTree = "<group>"; };
 		8A0759831E82070100E15693 /* TidesDataMobel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesDataMobel.swift; sourceTree = "<group>"; };
+		8A0759851E824D7A00E15693 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8A0759871E829B7400E15693 /* FirebaseDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataSet.swift; sourceTree = "<group>"; };
 		8A19B7D51E7FD8CC00B7A275 /* Tides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A19B7D81E7FD8CC00B7A275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A19B7DD1E7FD8CC00B7A275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,12 +69,13 @@
 			children = (
 				8A19B7D81E7FD8CC00B7A275 /* AppDelegate.swift */,
 				8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */,
-				8A0759811E82069100E15693 /* TidesChartView.swift */,
+				8A0759871E829B7400E15693 /* FirebaseDataSet.swift */,
 				8A0759831E82070100E15693 /* TidesDataMobel.swift */,
 				8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */,
 				8A19B7DF1E7FD8CC00B7A275 /* Assets.xcassets */,
 				8A19B7E11E7FD8CC00B7A275 /* LaunchScreen.storyboard */,
 				8A19B7E41E7FD8CC00B7A275 /* Info.plist */,
+				8A0759851E824D7A00E15693 /* GoogleService-Info.plist */,
 			);
 			path = Tides;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A19B7E31E7FD8CC00B7A275 /* LaunchScreen.storyboard in Resources */,
+				8A0759861E824D7A00E15693 /* GoogleService-Info.plist in Resources */,
 				8A19B7E01E7FD8CC00B7A275 /* Assets.xcassets in Resources */,
 				8A19B7DE1E7FD8CC00B7A275 /* Main.storyboard in Resources */,
 			);
@@ -235,7 +239,7 @@
 				8A19B7D91E7FD8CC00B7A275 /* AppDelegate.swift in Sources */,
 				8A0759841E82070100E15693 /* TidesDataMobel.swift in Sources */,
 				8A19B7EC1E80D1FA00B7A275 /* TidesChartViewController.swift in Sources */,
-				8A0759821E82069100E15693 /* TidesChartView.swift in Sources */,
+				8A0759881E829B7400E15693 /* FirebaseDataSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
