@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A045F171E84DE7100DFC708 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A045F161E84DE7100DFC708 /* Charts.framework */; };
+		8A045F191E8512E200DFC708 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045F181E8512E200DFC708 /* Constant.swift */; };
 		8A0759841E82070100E15693 /* TidesDataMobel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0759831E82070100E15693 /* TidesDataMobel.swift */; };
 		8A0759861E824D7A00E15693 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A0759851E824D7A00E15693 /* GoogleService-Info.plist */; };
 		8A0759881E829B7400E15693 /* FirebaseDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0759871E829B7400E15693 /* FirebaseDataSet.swift */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		44BDC1BF2F6807E53B2CA086 /* Pods-Tides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tides.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tides/Pods-Tides.release.xcconfig"; sourceTree = "<group>"; };
 		8366772A2BBA975E5209C408 /* Pods-Tides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tides/Pods-Tides.debug.xcconfig"; sourceTree = "<group>"; };
+		8A045F161E84DE7100DFC708 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Tides-dthqtsiogjbxrgfsocmontjbwvfj/Build/Products/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
+		8A045F181E8512E200DFC708 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8A0759831E82070100E15693 /* TidesDataMobel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesDataMobel.swift; sourceTree = "<group>"; };
 		8A0759851E824D7A00E15693 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8A0759871E829B7400E15693 /* FirebaseDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataSet.swift; sourceTree = "<group>"; };
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A045F171E84DE7100DFC708 /* Charts.framework in Frameworks */,
 				D810FD860288E40D815E35A4 /* Pods_Tides.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +75,7 @@
 				8A19B7D81E7FD8CC00B7A275 /* AppDelegate.swift */,
 				8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */,
 				8A0759871E829B7400E15693 /* FirebaseDataSet.swift */,
+				8A045F181E8512E200DFC708 /* Constant.swift */,
 				8A0759831E82070100E15693 /* TidesDataMobel.swift */,
 				8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */,
 				8A19B7DF1E7FD8CC00B7A275 /* Assets.xcassets */,
@@ -92,6 +98,7 @@
 		A805EE903706DF9AD6DE9FFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A045F161E84DE7100DFC708 /* Charts.framework */,
 				B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */,
 			);
 			name = Frameworks;
@@ -238,6 +245,7 @@
 			files = (
 				8A19B7D91E7FD8CC00B7A275 /* AppDelegate.swift in Sources */,
 				8A0759841E82070100E15693 /* TidesDataMobel.swift in Sources */,
+				8A045F191E8512E200DFC708 /* Constant.swift in Sources */,
 				8A19B7EC1E80D1FA00B7A275 /* TidesChartViewController.swift in Sources */,
 				8A0759881E829B7400E15693 /* FirebaseDataSet.swift in Sources */,
 			);

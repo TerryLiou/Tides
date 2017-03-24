@@ -29,6 +29,7 @@ struct TidesData {
     }
 }
 
-class tidesDataArray {
+class TidesDataArray {
     static var data: [TidesData] = []
+    static var amountOfData = TidesDataArray.data.count
 }

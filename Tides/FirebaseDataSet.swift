@@ -34,7 +34,7 @@ class FirebaseDataManager {
         }
     }
 
-    func getTidesData(completionHandler: @escaping (_ tidesData: [TidesData]) -> ()) {
+    func getTidesData(completionHandler: @escaping (_ tidesData: [TidesData]) -> Void) {
 
         reference.queryOrdered(byChild: "date").queryEqual(toValue: "20170324").observeSingleEvent(of: .value, with: { snapshot in
 

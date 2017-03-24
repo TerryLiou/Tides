@@ -105,6 +105,10 @@
                     <navigationItem key="navigationItem" id="k8n-13-AfY"/>
                     <connections>
                         <outlet property="lineChartView" destination="0j6-vB-GXQ" id="rBw-gE-we4"/>
+                        <outlet property="selectedDate" destination="JzY-l2-eGi" id="Piw-bv-um1"/>
+                        <outlet property="selectedTide" destination="MpN-ZC-dhd" id="7oz-PI-bSJ"/>
+                        <outlet property="timeOfdry" destination="ifj-iN-B9V" id="xTj-Er-XdD"/>
+                        <outlet property="timeOfwet" destination="o4Z-74-IEM" id="j2p-wG-XxT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UYn-Ai-BvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
