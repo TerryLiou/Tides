@@ -141,10 +141,16 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
     func navigationSetUp() {
 
         let calendarImage = #imageLiteral(resourceName: "calendar").withRenderingMode(.alwaysOriginal)
-        let calendarItem = UIBarButtonItem(image: calendarImage, style: .plain, target: self, action: nil)
+        let calendarItem = UIBarButtonItem(image: calendarImage, style: .plain, target: self, action: #selector(self.showCalendar))
         self.navigationItem.rightBarButtonItem = calendarItem
         self.navigationController?.navigationBar.barTintColor = Constant.ColorCode.ballBlue
 
+    }
+    func showCalendar() {
+        guard let xibView = Bundle.main.loadNibNamed("CalendarPopUp", owner: nil, options: nil)?[0] as? CalendarPopUp else { return }
+//        xibView.calendarDelegate = self
+//        xibView.selected = currentDate
+        PopupContainer.generatePopupWithView(xibView).show()
     }
     @IBOutlet weak var lineChartView: LineChartView!
 }

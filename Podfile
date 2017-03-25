@@ -14,5 +14,6 @@ target 'Tides' do
   pod 'Firebase/RemoteConfig'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'JTAppleCalendar'
 
 end
