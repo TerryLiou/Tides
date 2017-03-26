@@ -27,6 +27,9 @@
 		8A75F1721E86447F00A6F5F3 /* PopupContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A75F1711E86447F00A6F5F3 /* PopupContainer.swift */; };
 		8A75F1741E86448C00A6F5F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A75F1731E86448C00A6F5F3 /* ViewController.swift */; };
 		8A75F1761E8644AE00A6F5F3 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A75F1751E8644AE00A6F5F3 /* Calendar.storyboard */; };
+		8A77E1B01E87604B0031A038 /* TidesSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77E1AF1E87604B0031A038 /* TidesSearchTableViewController.swift */; };
+		8A77E1B31E877CCF0031A038 /* TidesSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */; };
+		8A77E1B41E877CCF0031A038 /* TidesSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */; };
 		D810FD860288E40D815E35A4 /* Pods_Tides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,9 @@
 		8A75F1711E86447F00A6F5F3 /* PopupContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupContainer.swift; sourceTree = "<group>"; };
 		8A75F1731E86448C00A6F5F3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8A75F1751E8644AE00A6F5F3 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		8A77E1AF1E87604B0031A038 /* TidesSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesSearchTableViewController.swift; sourceTree = "<group>"; };
+		8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesSearchTableViewCell.swift; sourceTree = "<group>"; };
+		8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TidesSearchTableViewCell.xib; sourceTree = "<group>"; };
 		B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,6 +102,9 @@
 			children = (
 				8A19B7D81E7FD8CC00B7A275 /* AppDelegate.swift */,
 				8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */,
+				8A77E1AF1E87604B0031A038 /* TidesSearchTableViewController.swift */,
+				8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */,
+				8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */,
 				8A0759871E829B7400E15693 /* FirebaseDataSet.swift */,
 				8A045F181E8512E200DFC708 /* Constant.swift */,
 				8A0759831E82070100E15693 /* TidesDataMobel.swift */,
@@ -215,6 +224,7 @@
 				8A75F1661E86440300A6F5F3 /* CalendarPopUp.xib in Resources */,
 				8A75F16C1E86446500A6F5F3 /* CellView.xib in Resources */,
 				8A19B7DE1E7FD8CC00B7A275 /* Main.storyboard in Resources */,
+				8A77E1B41E877CCF0031A038 /* TidesSearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +296,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A77E1B31E877CCF0031A038 /* TidesSearchTableViewCell.swift in Sources */,
 				8A19B7D91E7FD8CC00B7A275 /* AppDelegate.swift in Sources */,
+				8A77E1B01E87604B0031A038 /* TidesSearchTableViewController.swift in Sources */,
 				8A75F1701E86447500A6F5F3 /* Extensions.swift in Sources */,
 				8A0759841E82070100E15693 /* TidesDataMobel.swift in Sources */,
 				8A045F191E8512E200DFC708 /* Constant.swift in Sources */,
