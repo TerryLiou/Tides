@@ -20,8 +20,9 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        FirebaseDataManager.shared.setTidesData()
         navigationSetUp()
-        FirebaseDataManager.shared.getTidesData { (tidesData) in
+        FirebaseDataManager.shared.getTidesData(byChild: "stationID",stationID: "500017") { (tidesData) in
             TidesDataArray.data = tidesData
             self.updateChartWithData()
             self.imformationSetUp()
@@ -34,12 +35,12 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
     func updateChartWithData() {
 
         lineChartView.delegate = self
+
         for i in 0 ..< TidesDataArray.amountOfData {
             let yValue = TidesDataArray.data[i].height
             let dataEntryForLine = ChartDataEntry(x: Double(i), y: Double(yValue))
             dataEntriesForLine.append(dataEntryForLine)
             xValue.append(TidesDataArray.data[i].time)
-
         }
 
         let chartDataSet = LineChartDataSet(values: dataEntriesForLine, label: nil)

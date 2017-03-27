@@ -10,5 +10,15 @@ import Foundation
 import UIKit
 
 class TidesSearchTableViewController: UITableViewController {
-    
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        FirebaseDataManager.shared.getTidesAmount(stationID: "5000") { tidesAmount in
+//            return tidesAmount
+//        }
+//        
+//    }
 }

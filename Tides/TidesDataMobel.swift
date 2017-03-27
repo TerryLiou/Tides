@@ -16,9 +16,10 @@ struct TidesData {
     let type: String
     let tide: String
     let height: Int
+    let stationID: String
     init(date: String, location: String, order: Int,
          time: String, type: String, tide: String,
-         height: Int) {
+         height: Int, stationID: String) {
         self.date = date
         self.location = location
         self.order = order
@@ -26,6 +27,7 @@ struct TidesData {
         self.type = type
         self.tide = tide
         self.height = height
+        self.stationID = stationID
     }
 }
 

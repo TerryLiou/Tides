@@ -23,4 +23,9 @@ struct Constant {
         static let greenBlue1 = UIColor.init(red: 13/255, green: 226/255, blue: 234/255, alpha: 1)
 
     }
+
+//    enum City {
+//        case <#case#>
+//    }
+
 }

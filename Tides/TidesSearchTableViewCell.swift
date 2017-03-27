@@ -10,15 +10,16 @@ import UIKit
 
 class TidesSearchTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var tidesStationName: UILabel!
+    @IBOutlet weak var distance: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        contentView.backgroundColor = Constant.ColorCode.greenBlue1
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
+
 }
