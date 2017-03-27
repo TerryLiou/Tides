@@ -9,17 +9,22 @@
 import Foundation
 import Firebase
 
+protocol FirebaseManagerDelegate: class {
+    func manager(didget: [TidesData])
+}
+
 class FirebaseDataManager {
     static let shared = FirebaseDataManager()
+    weak var delegate: FirebaseManagerDelegate?
     let data = "20170330"
-    let location = "新北市林口區"
-    let tide = "大潮"
-    let order = 3
-    let time = ["06:17", "12:15", "18:33"]
-    let height = [-142, 146, -162]
-    let type = ["乾潮", "滿潮", "乾潮"]
+    let location = "基隆市中正區"
+    let tide = "中潮"
+    let order = 4
+    let time = ["03:54", "10:25", "16:10", "23:26"]
+    let height = [-31, 24, -50, 29]
+    let type = ["乾潮", "滿潮", "乾潮", "滿潮"]
     let reference = FIRDatabase.database().reference().child("records")
-    let stationID = "500017"
+    let stationID = "001701"
     func setTidesData() {
         for i in 0 ..< order {
             let data = TidesData(date: self.data, location: location, order: i, time: time[i], type: type[i], tide: tide, height: height[i], stationID: stationID)
@@ -56,43 +61,41 @@ class FirebaseDataManager {
         })
     }
 
-    func getTidesAmount(stationID: String, completionHandler: @escaping (_ amountOfTides: Int) -> Void) {
-        reference.queryOrdered(byChild: "stationID").queryStarting(atValue: stationID).observeSingleEvent(of: .value, with: { snapshot in
-            
+    func getTidesAmount(stationID: String) {
+        reference.queryOrdered(byChild: Constant.TideProperty.stationID).queryStarting(atValue: stationID).observeSingleEvent(of: .value, with: { snapshot in
+
             var tidesData = [TidesData]()
-            
+
             for item in snapshot.children {
-                
+
                 guard let snap = item as? FIRDataSnapshot else { return }
-                
+
                 guard let result = self.getData(snapshot: snap) else { return }
-                
+
                 tidesData.append(result)
-                
-            }
-            tidesData.sort { $0.order < $1.order }
-            
-            var count = 0
-            for item in tidesData {
-                if item.order == 0 {
-                    count += 1
-                }
+
             }
 
-            completionHandler(count)
+            var seletedTidesData = [TidesData]()
+            for item in tidesData {
+                if item.order == 0 {
+                    seletedTidesData.append(item)
+                }
+            }
+            self.delegate?.manager(didget: seletedTidesData)
         })
     }
     func getData(snapshot: FIRDataSnapshot) -> TidesData? {
 
         guard let snapValue = snapshot.value as? [String: Any] else { return nil }
-        guard let data = snapValue["date"] as? String else { return nil }
-        guard let height = snapValue["height"] as? Int else { return nil }
-        guard let location = snapValue["location"] as? String else { return nil }
-        guard let order = snapValue["order"] as? Int else { return nil }
-        guard let tide = snapValue["tide"] as? String else { return nil }
-        guard let time = snapValue["time"] as? String else { return nil }
-        guard let type = snapValue["type"] as? String else { return nil }
-        guard let stationID = snapValue["stationID"] as? String else { return nil }
+        guard let data = snapValue[Constant.TideProperty.date] as? String else { return nil }
+        guard let height = snapValue[Constant.TideProperty.height] as? Int else { return nil }
+        guard let location = snapValue[Constant.TideProperty.location] as? String else { return nil }
+        guard let order = snapValue[Constant.TideProperty.order] as? Int else { return nil }
+        guard let tide = snapValue[Constant.TideProperty.tide] as? String else { return nil }
+        guard let time = snapValue[Constant.TideProperty.time] as? String else { return nil }
+        guard let type = snapValue[Constant.TideProperty.type] as? String else { return nil }
+        guard let stationID = snapValue[Constant.TideProperty.stationID] as? String else { return nil }
 
         let tidesData = TidesData(date: data, location: location, order: order, time: time, type: type, tide: tide, height: height, stationID: stationID)
 

@@ -24,6 +24,18 @@ struct Constant {
 
     }
 
+    struct TideProperty {
+
+        static let date = "date"
+        static let height = "height"
+        static let location = "location"
+        static let order = "order"
+        static let tide = "tide"
+        static let time = "time"
+        static let type = "type"
+        static let stationID = "stationID"
+
+    }
 //    enum City {
 //        case <#case#>
 //    }

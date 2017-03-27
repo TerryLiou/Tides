@@ -20,14 +20,13 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        FirebaseDataManager.shared.setTidesData()
-        navigationSetUp()
-        FirebaseDataManager.shared.getTidesData(byChild: "stationID",stationID: "500017") { (tidesData) in
-            TidesDataArray.data = tidesData
-            self.updateChartWithData()
-            self.imformationSetUp()
-        }
-
+        FirebaseDataManager.shared.setTidesData()
+//        navigationSetUp()
+//        FirebaseDataManager.shared.getTidesData(byChild: "stationID", stationID: "500017") { (tidesData) in
+//            TidesDataArray.data = tidesData
+//            self.updateChartWithData()
+//            self.imformationSetUp()
+//        }
     }
 
     // MARK: - updateChartWithData
@@ -58,12 +57,7 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         chartDataSet.cubicIntensity = 0.2
         chartDataSet.drawCirclesEnabled = true
         chartDataSet.valueFont = UIFont(name: "Helvetica", size: 12.0)!
-        // Gradient fill
-//        let gradientColors = [UIColor.blue.cgColor, UIColor.clear.cgColor] as CFArray
-//        let colorLocations: [CGFloat] = [1.0, 0.0]
-//        guard let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations) else { return }
-//        chartDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
-//        chartDataSet.drawFilledEnabled = true
+
         // Axes setup
         lineChartView.xAxis.labelPosition = .bottom
         lineChartView.xAxis.drawGridLinesEnabled = false
