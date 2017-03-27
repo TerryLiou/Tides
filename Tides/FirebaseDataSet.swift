@@ -95,7 +95,9 @@ class FirebaseDataManager {
         guard let tide = snapValue[Constant.TideProperty.tide] as? String else { return nil }
         guard let time = snapValue[Constant.TideProperty.time] as? String else { return nil }
         guard let type = snapValue[Constant.TideProperty.type] as? String else { return nil }
-        guard let stationID = snapValue[Constant.TideProperty.stationID] as? String else { return nil }
+        guard let ID = snapValue[Constant.TideProperty.stationID] as? String else { return nil }
+        let index = ID.index(ID.startIndex, offsetBy: 4)
+        let stationID = ID.substring(to: index)
 
         let tidesData = TidesData(date: data, location: location, order: order, time: time, type: type, tide: tide, height: height, stationID: stationID)
 

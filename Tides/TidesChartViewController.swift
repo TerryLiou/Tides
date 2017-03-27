@@ -20,13 +20,13 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        FirebaseDataManager.shared.setTidesData()
-//        navigationSetUp()
-//        FirebaseDataManager.shared.getTidesData(byChild: "stationID", stationID: "500017") { (tidesData) in
-//            TidesDataArray.data = tidesData
-//            self.updateChartWithData()
-//            self.imformationSetUp()
-//        }
+//        FirebaseDataManager.shared.setTidesData()
+        navigationSetUp()
+        FirebaseDataManager.shared.getTidesData(byChild: "stationID", stationID: "500017") { (tidesData) in
+            TidesDataArray.data = tidesData
+            self.updateChartWithData()
+            self.imformationSetUp()
+        }
     }
 
     // MARK: - updateChartWithData
