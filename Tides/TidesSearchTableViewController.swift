@@ -13,7 +13,7 @@ import MapKit
 class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tidesTableView: UITableView!
 
-    var dataAmount = [0, 0]
+    var dataAmount = [Int](repeating: 0, count: TidesDataArray.cityOrder.count)
     var seletedTidesData = [[TidesData]]()
 
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-            return dataAmount[section]
+        return dataAmount[section]
 
     }
 
@@ -41,24 +41,13 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
             cell?.tidesStationName.text = seletedTidesData[indexPath.section][indexPath.row].location
 
-
         return cell!
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        switch section {
-
-        case 0:
             return TidesDataArray.cityOrder[section]
 
-        case 1:
-            return "基隆市"
-
-        default:
-            return ""
-
-        }
     }
 
     // MARK: - setUpTableView
