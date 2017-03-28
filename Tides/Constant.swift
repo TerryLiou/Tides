@@ -34,10 +34,50 @@ struct Constant {
         static let time = "time"
         static let type = "type"
         static let stationID = "stationID"
-
     }
-//    enum City {
-//        case <#case#>
-//    }
 
+    struct Taipei {
+        static let mandarin = "新北市"
+        static let areaID = "5000"
+    }
+
+    struct Keelung {
+        static let mandarin = "基隆市"
+        static let areaID = "0017"
+    }
+
+    struct Taoyuan {
+        static let mandarin = "桃園縣"
+        static let areaID = "0003"
+    }
+
+    struct Hsinchu {
+        static let mandarin = "新竹縣"
+        static let areaID = "0004"
+    }
+
+    struct HsinchuCity {
+        static let mandarin = "新竹市"
+        static let areaID = "0018"
+    }
+
+    struct Miaoli {
+        static let mandarin = "苗栗縣"
+        static let areaID = "0005"
+    }
+
+    struct Taichung {
+        static let mandarin = "台中市"
+        static let areaID = "6000"
+    }
+
+    struct Changhua {
+        static let mandarin = "彰化縣"
+        static let areaID = "0007"
+    }
+
+    struct Yunlin {
+        static let mandarin = "雲林縣"
+        static let areaID = "0009"
+    }
 }
