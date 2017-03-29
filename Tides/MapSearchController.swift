@@ -14,8 +14,6 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
 
-
-
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -28,11 +26,21 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
         super.viewDidDisappear(animated)
         locationManager.stopUpdatingLocation()
-        
+
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+        let userLocation = locations[0]
+        let span = MKCoordinateSpanMake(0.5, 0.5)
+        let region = MKCoordinateRegionMake(userLocation.coordinate, span)
+
+        mapView.setRegion(region, animated: true)
+
     }
 
     func configLocationManager() {
-    
+
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
 
@@ -61,11 +69,6 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
         locationManager.distanceFilter = CLLocationDistance(10)
     }
 
-
-
-
-
-
     func addAnnotations() {
 
         var annotations = [Annotation]()
@@ -82,5 +85,6 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
         mapView.addAnnotations(annotations)
         mapView.showsUserLocation = true
+        mapView.userLocation.title = "我的位置"
     }
 }

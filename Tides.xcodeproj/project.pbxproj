@@ -32,6 +32,7 @@
 		8A77E1B41E877CCF0031A038 /* TidesSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */; };
 		8AF5E9011E8BA4C3009151BA /* AnnotationMobel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */; };
 		8AF5E9031E8BBFA8009151BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF5E9021E8BBFA8009151BA /* CoreLocation.framework */; };
+		8AF5E9051E8C1866009151BA /* DistanceCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5E9041E8C1866009151BA /* DistanceCalculation.swift */; };
 		8AFD96AD1E8B22CB000CC06D /* MapSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */; };
 		D810FD860288E40D815E35A4 /* Pods_Tides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TidesSearchTableViewCell.xib; sourceTree = "<group>"; };
 		8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationMobel.swift; sourceTree = "<group>"; };
 		8AF5E9021E8BBFA8009151BA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8AF5E9041E8C1866009151BA /* DistanceCalculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceCalculation.swift; sourceTree = "<group>"; };
 		8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchController.swift; sourceTree = "<group>"; };
 		B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 				8A045F181E8512E200DFC708 /* Constant.swift */,
 				8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */,
 				8A0759871E829B7400E15693 /* FirebaseDataSet.swift */,
+				8AF5E9041E8C1866009151BA /* DistanceCalculation.swift */,
 				8A0759831E82070100E15693 /* TidesDataMobel.swift */,
 			);
 			name = Model;
@@ -344,6 +347,7 @@
 				8A75F1681E86441900A6F5F3 /* CalendarPopUp.swift in Sources */,
 				8A75F16A1E86445C00A6F5F3 /* AnimationClass.swift in Sources */,
 				8A75F1721E86447F00A6F5F3 /* PopupContainer.swift in Sources */,
+				8AF5E9051E8C1866009151BA /* DistanceCalculation.swift in Sources */,
 				8A0759881E829B7400E15693 /* FirebaseDataSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

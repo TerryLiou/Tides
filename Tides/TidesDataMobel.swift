@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 struct TidesData {
     let date: String
@@ -70,4 +71,21 @@ struct TidesDataArray {
                              Constant.Changhua.mandarin,
                              Constant.Taichung.mandarin,
                              Constant.Yunlin.mandarin ]
+}
+
+struct TidesForMap {
+
+    let title: String
+    let subtitle: String
+    let coordinate: CLLocation
+    let distance: CLLocationDistance
+
+    init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D, distance: CLLocationDistance) {
+
+        self.title = title
+        self.subtitle = subtitle
+        self.coordinate = CLLocation.init(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        self.distance = distance
+
+    }
 }
