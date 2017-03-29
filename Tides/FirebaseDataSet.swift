@@ -91,43 +91,43 @@ class FirebaseDataManager {
             let taipeiTides = seletedTidesData.filter { (TidesData) -> Bool in
                 return TidesData.areaID == Constant.Taipei.areaID
             }
-            
+
             let keelungTides = seletedTidesData.filter { (TidesData) -> Bool in
                 return TidesData.areaID == Constant.Keelung.areaID
             }
-            
+
             let taoyuanTides = seletedTidesData.filter { (TidesData) -> Bool in
                 return TidesData.areaID == Constant.Taoyuan.areaID
             }
-            
+
             let hsinchuTides = seletedTidesData.filter { (TidesData) -> Bool in
                 return TidesData.areaID == Constant.Hsinchu.areaID
             }
-            
+
             let hsinchuCityTides = seletedTidesData.filter { (TidesData) -> Bool in
                 return TidesData.areaID == Constant.HsinchuCity.areaID
             }
-            
+
             let miaoliTides = seletedTidesData.filter { (TidesData) -> Bool in
                 return TidesData.areaID == Constant.Miaoli.areaID
             }
-            
+
             let changhuaTides = seletedTidesData.filter { (TidesData) -> Bool in
                 return TidesData.areaID == Constant.Changhua.areaID
             }
-            
+
             let taichungTides = seletedTidesData.filter { (TidesData) -> Bool in
                 return TidesData.areaID == Constant.Taichung.areaID
             }
-            
+
             let yunlinTides = seletedTidesData.filter { (TidesData) -> Bool in
                 return TidesData.areaID == Constant.Yunlin.areaID
             }
-            
+
              let dataAmount = [taipeiTides.count, keelungTides.count, taoyuanTides.count,
                                hsinchuTides.count, hsinchuCityTides.count, miaoliTides.count,
                                changhuaTides.count, taichungTides.count, yunlinTides.count]
-            
+
             let seletedTidesDataArray = [taipeiTides, keelungTides, taoyuanTides,
                                           hsinchuTides, hsinchuCityTides, miaoliTides,
                                           changhuaTides, taichungTides, yunlinTides]

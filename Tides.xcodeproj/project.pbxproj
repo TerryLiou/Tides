@@ -30,6 +30,7 @@
 		8A77E1B01E87604B0031A038 /* TidesSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77E1AF1E87604B0031A038 /* TidesSearchTableViewController.swift */; };
 		8A77E1B31E877CCF0031A038 /* TidesSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */; };
 		8A77E1B41E877CCF0031A038 /* TidesSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */; };
+		8AF5E9011E8BA4C3009151BA /* AnnotationMobel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */; };
 		8AFD96AD1E8B22CB000CC06D /* MapSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */; };
 		D810FD860288E40D815E35A4 /* Pods_Tides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		8A77E1AF1E87604B0031A038 /* TidesSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesSearchTableViewController.swift; sourceTree = "<group>"; };
 		8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesSearchTableViewCell.swift; sourceTree = "<group>"; };
 		8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TidesSearchTableViewCell.xib; sourceTree = "<group>"; };
+		8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationMobel.swift; sourceTree = "<group>"; };
 		8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchController.swift; sourceTree = "<group>"; };
 		B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,16 +105,11 @@
 			isa = PBXGroup;
 			children = (
 				8A19B7D81E7FD8CC00B7A275 /* AppDelegate.swift */,
-				8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */,
-				8A77E1AF1E87604B0031A038 /* TidesSearchTableViewController.swift */,
-				8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */,
-				8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */,
-				8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */,
-				8A0759871E829B7400E15693 /* FirebaseDataSet.swift */,
-				8A045F181E8512E200DFC708 /* Constant.swift */,
-				8A0759831E82070100E15693 /* TidesDataMobel.swift */,
-				8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */,
+				8AF5E8FE1E8BA447009151BA /* Controller */,
+				8AF5E8FF1E8BA475009151BA /* View */,
+				8AF5E8FD1E8BA418009151BA /* Model */,
 				8A19B7DF1E7FD8CC00B7A275 /* Assets.xcassets */,
+				8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */,
 				8A19B7E11E7FD8CC00B7A275 /* LaunchScreen.storyboard */,
 				8A19B7E41E7FD8CC00B7A275 /* Info.plist */,
 				8A0759851E824D7A00E15693 /* GoogleService-Info.plist */,
@@ -135,6 +132,36 @@
 			);
 			name = Calendar;
 			path = Tides;
+			sourceTree = "<group>";
+		};
+		8AF5E8FD1E8BA418009151BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8A045F181E8512E200DFC708 /* Constant.swift */,
+				8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */,
+				8A0759871E829B7400E15693 /* FirebaseDataSet.swift */,
+				8A0759831E82070100E15693 /* TidesDataMobel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8AF5E8FE1E8BA447009151BA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8A77E1AF1E87604B0031A038 /* TidesSearchTableViewController.swift */,
+				8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */,
+				8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		8AF5E8FF1E8BA475009151BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */,
+				8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		8DCC4F122A829342FBA2E7E2 /* Pods */ = {
@@ -300,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A77E1B31E877CCF0031A038 /* TidesSearchTableViewCell.swift in Sources */,
+				8AF5E9011E8BA4C3009151BA /* AnnotationMobel.swift in Sources */,
 				8A19B7D91E7FD8CC00B7A275 /* AppDelegate.swift in Sources */,
 				8A77E1B01E87604B0031A038 /* TidesSearchTableViewController.swift in Sources */,
 				8A75F1701E86447500A6F5F3 /* Extensions.swift in Sources */,

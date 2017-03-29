@@ -35,6 +35,12 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
     // MARK: - UITableViewDelegate
 
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        return 44.0
+
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
@@ -43,7 +49,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
     func numberOfSections(in tableView: UITableView) -> Int {
 
-        if tableView == tidesTableView {
+        if tableView === tidesTableView {
 
             return TidesDataArray.cityOrder.count
 
@@ -56,7 +62,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        if tableView == tidesTableView {
+        if tableView === tidesTableView {
 
             return dataAmount[section]
 
@@ -69,25 +75,28 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tidesTableView.dequeueReusableCell(withIdentifier: "TidesSearchTableViewCell", for: indexPath) as? TidesSearchTableViewCell
+        // swiftlint:disable force_cast
+        let cell = tidesTableView.dequeueReusableCell(withIdentifier: "TidesSearchTableViewCell") as! TidesSearchTableViewCell
+        // swiftlint:enable force_cast
+        
+        if tableView === tidesTableView {
 
-        if tableView == tidesTableView {
-
-            cell?.tidesStationName.text = seletedTidesData[indexPath.section][indexPath.row].location
+            cell.tidesStationName.text = seletedTidesData[indexPath.section][indexPath.row].location
 
         } else {
 
-            cell?.tidesStationName.text = fileredArea[indexPath.row].location
+            cell.tidesStationName.text = fileredArea[indexPath.row].location
 
         }
-        return cell!
+        return cell
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        if tableView == tidesTableView {
+        if tableView === tidesTableView {
 
             return TidesDataArray.cityOrder[section]
+
         } else {
 
             return nil
@@ -124,7 +133,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
 extension TidesSearchTableViewController: FirebaseManagerDelegate {
 
-    func manager(originTidesData:[TidesData], didgetTidesArray: [[TidesData]], didgetTidesAmount: [Int]) {
+    func manager(originTidesData: [TidesData], didgetTidesArray: [[TidesData]], didgetTidesAmount: [Int]) {
 
         originalTidesData = originTidesData
         seletedTidesData = didgetTidesArray
@@ -143,10 +152,13 @@ extension TidesSearchTableViewController: UISearchResultsUpdating {
 
         self.resultsController.tableView.delegate = self
         self.resultsController.tableView.dataSource = self
+        let tableViewCell = UINib(nibName: "TidesSearchTableViewCell", bundle: nil)
+        self.resultsController.tableView.register(tableViewCell, forCellReuseIdentifier: "TidesSearchTableViewCell")
         self.searchController = UISearchController(searchResultsController: self.resultsController)
         self.tidesTableView.tableHeaderView = self.searchController?.searchBar
         self.searchController?.searchResultsUpdater = self
         self.searchController?.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
 
     }
 
@@ -168,5 +180,4 @@ extension TidesSearchTableViewController: UISearchResultsUpdating {
         resultsController.tableView.reloadData()
 
     }
-
 }
