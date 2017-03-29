@@ -74,18 +74,42 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-            return TidesDataArray.cityOrder[section]
+        if tableView == tidesTableView {
 
+            return TidesDataArray.cityOrder[section]
+        } else {
+
+            return nil
+
+        }
     }
 
     // MARK: - setUpTableView
+
     func setUpTableView() {
         let tableViewCell = UINib(nibName: "TidesSearchTableViewCell", bundle: nil)
         tidesTableView.register(tableViewCell, forCellReuseIdentifier: "TidesSearchTableViewCell")
     }
+    @IBAction func swiftMode(_ sender: UISegmentedControl) {
+
+        switch sender.selectedSegmentIndex {
+
+        case 0:
+
+            tidesTableView.isHidden = false
+
+        default:
+
+            tidesTableView.isHidden = true
+
+        }
+    }
 }
 
+// MARK: - FirebaseManagerDelegate
+
 extension TidesSearchTableViewController: FirebaseManagerDelegate {
+
     func manager(didget: [TidesData]) {
 
         originalTidesData = didget
@@ -137,28 +161,39 @@ extension TidesSearchTableViewController: FirebaseManagerDelegate {
 
     }
 }
+
+// MARK: - UISearchResults
+
 extension TidesSearchTableViewController: UISearchResultsUpdating {
 
     func SearchBarSetUp() {
+
         self.resultsController.tableView.delegate = self
         self.resultsController.tableView.dataSource = self
         self.searchController = UISearchController(searchResultsController: self.resultsController)
         self.tidesTableView.tableHeaderView = self.searchController?.searchBar
         self.searchController?.searchResultsUpdater = self
         self.searchController?.dimsBackgroundDuringPresentation = false
+
     }
 
     func updateSearchResults(for searchController: UISearchController) {
 
         fileredArea = originalTidesData.filter({ (TidesData) -> Bool in
+
             if TidesData.location.contains((self.searchController?.searchBar.text)!) {
+
                 return true
+
             } else {
+
                 return false
+
             }
         })
 
         resultsController.tableView.reloadData()
+
     }
 
 }

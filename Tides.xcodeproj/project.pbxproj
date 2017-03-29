@@ -30,6 +30,7 @@
 		8A77E1B01E87604B0031A038 /* TidesSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77E1AF1E87604B0031A038 /* TidesSearchTableViewController.swift */; };
 		8A77E1B31E877CCF0031A038 /* TidesSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */; };
 		8A77E1B41E877CCF0031A038 /* TidesSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */; };
+		8AFD96AD1E8B22CB000CC06D /* MapSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */; };
 		D810FD860288E40D815E35A4 /* Pods_Tides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		8A77E1AF1E87604B0031A038 /* TidesSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesSearchTableViewController.swift; sourceTree = "<group>"; };
 		8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesSearchTableViewCell.swift; sourceTree = "<group>"; };
 		8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TidesSearchTableViewCell.xib; sourceTree = "<group>"; };
+		8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchController.swift; sourceTree = "<group>"; };
 		B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 				8A19B7D81E7FD8CC00B7A275 /* AppDelegate.swift */,
 				8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */,
 				8A77E1AF1E87604B0031A038 /* TidesSearchTableViewController.swift */,
+				8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */,
 				8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */,
 				8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */,
 				8A0759871E829B7400E15693 /* FirebaseDataSet.swift */,
@@ -300,6 +303,7 @@
 				8A19B7D91E7FD8CC00B7A275 /* AppDelegate.swift in Sources */,
 				8A77E1B01E87604B0031A038 /* TidesSearchTableViewController.swift in Sources */,
 				8A75F1701E86447500A6F5F3 /* Extensions.swift in Sources */,
+				8AFD96AD1E8B22CB000CC06D /* MapSearchController.swift in Sources */,
 				8A0759841E82070100E15693 /* TidesDataMobel.swift in Sources */,
 				8A045F191E8512E200DFC708 /* Constant.swift in Sources */,
 				8A75F1741E86448C00A6F5F3 /* ViewController.swift in Sources */,

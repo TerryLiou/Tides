@@ -163,6 +163,9 @@
                                 <segment title="First"/>
                                 <segment title="Second"/>
                             </segments>
+                            <connections>
+                                <action selector="swiftMode:" destination="RzS-Es-9XU" eventType="valueChanged" id="lQo-rA-gH6"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
@@ -230,10 +233,10 @@
             </objects>
             <point key="canvasLocation" x="1169" y="1015"/>
         </scene>
-        <!--View Controller-->
+        <!--Map Search Controller-->
         <scene sceneID="ugj-oY-SjO">
             <objects>
-                <viewController id="AO1-CH-PLo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapSearchController" id="AO1-CH-PLo" customClass="MapSearchController" customModule="Tides" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uT4-ZR-pyr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,6 +253,9 @@
                             <constraint firstAttribute="bottom" secondItem="shj-4S-1NW" secondAttribute="bottom" id="n6w-72-8oa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="shj-4S-1NW" id="kAO-JW-OUe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ugh-RD-Fsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
