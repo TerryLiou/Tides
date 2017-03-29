@@ -157,6 +157,7 @@ extension TidesSearchTableViewController: FirebaseManagerDelegate {
         self.seletedTidesData = [taipeiTides, keelungTides, taoyuanTides,
                                  hsinchuTides, hsinchuCityTides, miaoliTides,
                                  changhuaTides, taichungTides, yunlinTides]
+
         self.tidesTableView.reloadData()
 
     }
