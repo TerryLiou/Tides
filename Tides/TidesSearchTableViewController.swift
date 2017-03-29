@@ -78,7 +78,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         // swiftlint:disable force_cast
         let cell = tidesTableView.dequeueReusableCell(withIdentifier: "TidesSearchTableViewCell") as! TidesSearchTableViewCell
         // swiftlint:enable force_cast
-        
+
         if tableView === tidesTableView {
 
             cell.tidesStationName.text = seletedTidesData[indexPath.section][indexPath.row].location

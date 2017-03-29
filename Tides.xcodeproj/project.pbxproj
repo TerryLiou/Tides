@@ -31,6 +31,7 @@
 		8A77E1B31E877CCF0031A038 /* TidesSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */; };
 		8A77E1B41E877CCF0031A038 /* TidesSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */; };
 		8AF5E9011E8BA4C3009151BA /* AnnotationMobel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */; };
+		8AF5E9031E8BBFA8009151BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF5E9021E8BBFA8009151BA /* CoreLocation.framework */; };
 		8AFD96AD1E8B22CB000CC06D /* MapSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */; };
 		D810FD860288E40D815E35A4 /* Pods_Tides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesSearchTableViewCell.swift; sourceTree = "<group>"; };
 		8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TidesSearchTableViewCell.xib; sourceTree = "<group>"; };
 		8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationMobel.swift; sourceTree = "<group>"; };
+		8AF5E9021E8BBFA8009151BA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchController.swift; sourceTree = "<group>"; };
 		B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF5E9031E8BBFA8009151BA /* CoreLocation.framework in Frameworks */,
 				8A75F1641E8642EA00A6F5F3 /* JTAppleCalendar.framework in Frameworks */,
 				8A045F171E84DE7100DFC708 /* Charts.framework in Frameworks */,
 				D810FD860288E40D815E35A4 /* Pods_Tides.framework in Frameworks */,
@@ -176,6 +179,7 @@
 		A805EE903706DF9AD6DE9FFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AF5E9021E8BBFA8009151BA /* CoreLocation.framework */,
 				8A75F1631E8642EA00A6F5F3 /* JTAppleCalendar.framework */,
 				8A045F161E84DE7100DFC708 /* Charts.framework */,
 				B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */,
