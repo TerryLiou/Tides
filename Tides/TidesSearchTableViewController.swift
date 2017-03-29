@@ -12,6 +12,8 @@ import MapKit
 
 class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    // MARK: - Property
+
     @IBOutlet weak var tidesTableView: UITableView!
     var searchController: UISearchController?
     var resultsController = UITableViewController()
@@ -20,13 +22,25 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
     var dataAmount = [Int](repeating: 0, count: TidesDataArray.cityOrder.count)
     var seletedTidesData = [[TidesData]]()
 
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
+
         super.viewDidLoad()
         setUpTableView()
         SearchBarSetUp()
         FirebaseDataManager.shared.delegate = self
         FirebaseDataManager.shared.getTidesAmount(byDate: "20170330")
+
     }
+
+    // MARK: - UITableViewDelegate
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+
+    // MARK: - UITableViewDataSource
+
     func numberOfSections(in tableView: UITableView) -> Int {
 
         if tableView == tidesTableView {
@@ -34,6 +48,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
             return TidesDataArray.cityOrder.count
 
         } else {
+
             return 1
         }
 
@@ -50,10 +65,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
             return fileredArea.count
 
         }
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,6 +101,9 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         let tableViewCell = UINib(nibName: "TidesSearchTableViewCell", bundle: nil)
         tidesTableView.register(tableViewCell, forCellReuseIdentifier: "TidesSearchTableViewCell")
     }
+
+    // MARK: - IBAction
+
     @IBAction func swiftMode(_ sender: UISegmentedControl) {
 
         switch sender.selectedSegmentIndex {
@@ -110,53 +124,11 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
 extension TidesSearchTableViewController: FirebaseManagerDelegate {
 
-    func manager(didget: [TidesData]) {
+    func manager(originTidesData:[TidesData], didgetTidesArray: [[TidesData]], didgetTidesAmount: [Int]) {
 
-        originalTidesData = didget
-
-        let taipeiTides = didget.filter { (TidesData) -> Bool in
-            return TidesData.areaID == Constant.Taipei.areaID
-        }
-
-        let keelungTides = didget.filter { (TidesData) -> Bool in
-            return TidesData.areaID == Constant.Keelung.areaID
-        }
-
-        let taoyuanTides = didget.filter { (TidesData) -> Bool in
-            return TidesData.areaID == Constant.Taoyuan.areaID
-        }
-
-        let hsinchuTides = didget.filter { (TidesData) -> Bool in
-            return TidesData.areaID == Constant.Hsinchu.areaID
-        }
-
-        let hsinchuCityTides = didget.filter { (TidesData) -> Bool in
-            return TidesData.areaID == Constant.HsinchuCity.areaID
-        }
-
-        let miaoliTides = didget.filter { (TidesData) -> Bool in
-            return TidesData.areaID == Constant.Miaoli.areaID
-        }
-
-        let changhuaTides = didget.filter { (TidesData) -> Bool in
-            return TidesData.areaID == Constant.Changhua.areaID
-        }
-
-        let taichungTides = didget.filter { (TidesData) -> Bool in
-            return TidesData.areaID == Constant.Taichung.areaID
-        }
-
-        let yunlinTides = didget.filter { (TidesData) -> Bool in
-            return TidesData.areaID == Constant.Yunlin.areaID
-        }
-
-        self.dataAmount = [taipeiTides.count, keelungTides.count, taoyuanTides.count,
-                           hsinchuTides.count, hsinchuCityTides.count, miaoliTides.count,
-                           changhuaTides.count, taichungTides.count, yunlinTides.count]
-
-        self.seletedTidesData = [taipeiTides, keelungTides, taoyuanTides,
-                                 hsinchuTides, hsinchuCityTides, miaoliTides,
-                                 changhuaTides, taichungTides, yunlinTides]
+        originalTidesData = originTidesData
+        seletedTidesData = didgetTidesArray
+        dataAmount = didgetTidesAmount
 
         self.tidesTableView.reloadData()
 
