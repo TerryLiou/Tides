@@ -11,8 +11,14 @@ import MapKit
 
 class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
+    // MARK: - Property
+
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
+    var userCoordinate = CLLocation()
+    var tidesForMap = [TidesForMap]()
+
+    // MARk: - Life Cycle
 
     override func viewDidLoad() {
 
@@ -22,6 +28,14 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+
+        DistanceCalculation().getNearestStation(mapView: mapView, userLocation: userCoordinate.coordinate) { (tidesForMap) in
+
+            self.tidesForMap = tidesForMap
+        }
+
+    }
     override func viewDidDisappear(_ animated: Bool) {
 
         super.viewDidDisappear(animated)
@@ -31,18 +45,16 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
-        let userLocation = locations[0]
-        let span = MKCoordinateSpanMake(0.5, 0.5)
-        let region = MKCoordinateRegionMake(userLocation.coordinate, span)
-
-        mapView.setRegion(region, animated: true)
+        let userCoordinate = locations[0]
 
     }
 
     func configLocationManager() {
 
+        mapView.delegate = self
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.requestWhenInUseAuthorization()
 
         if CLLocationManager.authorizationStatus() == .notDetermined {
 

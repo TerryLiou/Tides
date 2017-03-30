@@ -11,7 +11,9 @@ import MapKit
 
 struct DistanceCalculation {
 
-    func getNearestStation(userLocation: CLLocationCoordinate2D, completionHandler: (_ desendingStation: [TidesForMap])->()) {
+    func getNearestStation(mapView: MKMapView,
+                           userLocation: CLLocationCoordinate2D,
+                           completionHandler: @escaping (_ distanceArray: [TidesForMap]) -> Void) {
 
         var distanceArray = [TidesForMap]()
         let user = CLLocation.init(latitude: userLocation.latitude, longitude: userLocation.longitude)
@@ -31,8 +33,16 @@ struct DistanceCalculation {
         }
 
         distanceArray.sort {($0.distance < $1.distance)}
-        
-        completionHandler (distanceArray)
 
+        let centerLocation = CLLocationCoordinate2DMake((userLocation.latitude + distanceArray[0].coordinate.coordinate.latitude)/2, (userLocation.longitude + distanceArray[0].coordinate.coordinate.longitude)/2)
+
+        let span = MKCoordinateSpanMake(abs(userLocation.latitude - distanceArray[0].coordinate.coordinate.latitude) * 2.0,
+                                        abs(userLocation.longitude - distanceArray[0].coordinate.coordinate.longitude) * 2.0)
+
+        let region = MKCoordinateRegion(center: centerLocation, span: span)
+
+        mapView.setRegion(region, animated: true)
+
+        completionHandler (distanceArray)
     }
 }
