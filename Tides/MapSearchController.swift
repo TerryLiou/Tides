@@ -28,14 +28,6 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-
-        DistanceCalculation().getNearestStation(mapView: mapView, userLocation: userCoordinate.coordinate) { (tidesForMap) in
-
-            self.tidesForMap = tidesForMap
-        }
-
-    }
     override func viewDidDisappear(_ animated: Bool) {
 
         super.viewDidDisappear(animated)
@@ -47,6 +39,14 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
         let userCoordinate = locations[0]
 
+        if userCoordinate.coordinate.latitude != 0 {
+
+            DistanceCalculation().getNearestStation(mapView: mapView, userLocation: userCoordinate.coordinate) { (tidesForMap) in
+
+                self.tidesForMap = tidesForMap
+
+            }
+        }
     }
 
     func configLocationManager() {
@@ -99,4 +99,36 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
         mapView.showsUserLocation = true
         mapView.userLocation.title = "我的位置"
     }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "pin")
+
+        if annotationView == nil {
+            
+            
+        }
+        
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
