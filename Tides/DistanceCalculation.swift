@@ -13,9 +13,9 @@ struct DistanceCalculation {
 
     func getNearestStation(mapView: MKMapView,
                            userLocation: CLLocationCoordinate2D,
-                           completionHandler: @escaping (_ distanceArray: [TidesForMap]) -> Void) {
+                           completionHandler: @escaping (_ distanceArray: [Annotations]) -> Void) {
 
-        var distanceArray = [TidesForMap]()
+        var distanceArray = [Annotations]()
         let user = CLLocation.init(latitude: userLocation.latitude, longitude: userLocation.longitude)
 
         for i in 0 ..< TidesStation.coordinate.count {
@@ -24,7 +24,7 @@ struct DistanceCalculation {
                                                 longitude: TidesStation.coordinate[i].longitude)
 
             let distance = targetStation.distance(from: user)
-            let tideForMap = TidesForMap.init(title: TidesStation.title[i],
+            let tideForMap = Annotations.init(title: TidesStation.title[i],
                                               subtitle: TidesStation.subtitle[i],
                                               coordinate: TidesStation.coordinate[i],
                                               distance: distance)
@@ -34,10 +34,10 @@ struct DistanceCalculation {
 
         distanceArray.sort {($0.distance < $1.distance)}
 
-        let centerLocation = CLLocationCoordinate2DMake((userLocation.latitude + distanceArray[0].coordinate.coordinate.latitude)/2, (userLocation.longitude + distanceArray[0].coordinate.coordinate.longitude)/2)
+        let centerLocation = CLLocationCoordinate2DMake((userLocation.latitude + distanceArray[0].coordinate.latitude)/2, (userLocation.longitude + distanceArray[0].coordinate.longitude)/2)
 
-        let span = MKCoordinateSpanMake(abs(userLocation.latitude - distanceArray[0].coordinate.coordinate.latitude) * 2.0,
-                                        abs(userLocation.longitude - distanceArray[0].coordinate.coordinate.longitude) * 2.0)
+        let span = MKCoordinateSpanMake(abs(userLocation.latitude - distanceArray[0].coordinate.latitude) * 2.0,
+                                        abs(userLocation.longitude - distanceArray[0].coordinate.longitude) * 2.0)
 
         let region = MKCoordinateRegion(center: centerLocation, span: span)
 

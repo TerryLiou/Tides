@@ -33,6 +33,8 @@
 		8AF5E9011E8BA4C3009151BA /* AnnotationMobel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */; };
 		8AF5E9031E8BBFA8009151BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF5E9021E8BBFA8009151BA /* CoreLocation.framework */; };
 		8AF5E9051E8C1866009151BA /* DistanceCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5E9041E8C1866009151BA /* DistanceCalculation.swift */; };
+		8AF5E9191E8E18B1009151BA /* TideAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5E9181E8E18B1009151BA /* TideAnnotationView.swift */; };
+		8AF5E91B1E8E18D6009151BA /* TideAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF5E91A1E8E18D6009151BA /* TideAnnotationView.xib */; };
 		8AFD96AD1E8B22CB000CC06D /* MapSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */; };
 		D810FD860288E40D815E35A4 /* Pods_Tides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,8 @@
 		8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationMobel.swift; sourceTree = "<group>"; };
 		8AF5E9021E8BBFA8009151BA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8AF5E9041E8C1866009151BA /* DistanceCalculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceCalculation.swift; sourceTree = "<group>"; };
+		8AF5E9181E8E18B1009151BA /* TideAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TideAnnotationView.swift; sourceTree = "<group>"; };
+		8AF5E91A1E8E18D6009151BA /* TideAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TideAnnotationView.xib; sourceTree = "<group>"; };
 		8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchController.swift; sourceTree = "<group>"; };
 		B6D1A19291B250A5CDFF88DF /* Pods_Tides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -165,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */,
+				8AF5E9181E8E18B1009151BA /* TideAnnotationView.swift */,
+				8AF5E91A1E8E18D6009151BA /* TideAnnotationView.xib */,
 				8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */,
 			);
 			name = View;
@@ -256,6 +262,7 @@
 			files = (
 				8A75F1761E8644AE00A6F5F3 /* Calendar.storyboard in Resources */,
 				8A19B7E31E7FD8CC00B7A275 /* LaunchScreen.storyboard in Resources */,
+				8AF5E91B1E8E18D6009151BA /* TideAnnotationView.xib in Resources */,
 				8A0759861E824D7A00E15693 /* GoogleService-Info.plist in Resources */,
 				8A19B7E01E7FD8CC00B7A275 /* Assets.xcassets in Resources */,
 				8A75F1661E86440300A6F5F3 /* CalendarPopUp.xib in Resources */,
@@ -333,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF5E9191E8E18B1009151BA /* TideAnnotationView.swift in Sources */,
 				8A77E1B31E877CCF0031A038 /* TidesSearchTableViewCell.swift in Sources */,
 				8AF5E9011E8BA4C3009151BA /* AnnotationMobel.swift in Sources */,
 				8A19B7D91E7FD8CC00B7A275 /* AppDelegate.swift in Sources */,

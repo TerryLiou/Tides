@@ -9,17 +9,21 @@
 import Foundation
 import MapKit
 
-class Annotation: NSObject, MKAnnotation {
+class Annotations: NSObject, MKAnnotation {
 
-    var title: String?
-    var subtitle: String?
-    var coordinate: CLLocationCoordinate2D
+    let title: String?
+    let subtitle: String?
+    var cllocation: CLLocation
+    let coordinate: CLLocationCoordinate2D
+    var distance: CLLocationDistance
 
-    init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
+    init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D, distance: CLLocationDistance) {
 
         self.title = title
         self.subtitle = subtitle
+        self.cllocation = CLLocation.init(latitude: coordinate.latitude, longitude: coordinate.longitude)
         self.coordinate = coordinate
+        self.distance = distance
 
     }
 }

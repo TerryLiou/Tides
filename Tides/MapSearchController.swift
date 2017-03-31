@@ -16,14 +16,13 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     var userCoordinate = CLLocation()
-    var tidesForMap = [TidesForMap]()
+    var tidesForMap = [Annotations]()
 
     // MARk: - Life Cycle
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        addAnnotations()
         configLocationManager()
 
     }
@@ -35,19 +34,24 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     }
 
+    // MRRK: - LocationManagerDelegate
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
         let userCoordinate = locations[0]
 
-        if userCoordinate.coordinate.latitude != 0 {
+        if userCoordinate.coordinate.latitude != 0.0 {
 
             DistanceCalculation().getNearestStation(mapView: mapView, userLocation: userCoordinate.coordinate) { (tidesForMap) in
 
                 self.tidesForMap = tidesForMap
-
+                self.addAnnotations()
+                self.locationManager.stopUpdatingLocation()
             }
         }
     }
+
+    // MARK: - configLocationManager
 
     func configLocationManager() {
 
@@ -83,52 +87,59 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     func addAnnotations() {
 
-        var annotations = [Annotation]()
+        for i in 0 ..< tidesForMap.count {
 
-        for i in 0 ..< TidesStation.coordinate.count {
-
-            let stationLocationPin = Annotation.init(title: TidesStation.title[i],
-                                                     subtitle: TidesStation.subtitle[i],
-                                                     coordinate: TidesStation.coordinate[i])
-
-            annotations.append(stationLocationPin)
+            mapView.addAnnotation(tidesForMap[i])
+            mapView.selectAnnotation(tidesForMap[i], animated: true)
 
         }
 
-        mapView.addAnnotations(annotations)
         mapView.showsUserLocation = true
         mapView.userLocation.title = "我的位置"
     }
 
+    // MARK: - MapViewDelegate
+
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
-        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "pin")
+        if let annotation = annotation as? Annotations {
 
-        if annotationView == nil {
-            
-            
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+                as? MKPinAnnotationView {
+
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+
+            } else {
+
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+//                view.rightCalloutAccessoryView = UIButton.init(type: .detailDisclosure) as UIView
+                let button = UIButton.init(type: .detailDisclosure)
+                view.rightCalloutAccessoryView = button
+
+            }
+            return view
         }
-        
+        return nil
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+
+        print("test")
+
+    }
+
+    func showTideInformation(sender: UIButton) {
+
+        guard let annotationView = sender.superview as? MKAnnotationView else { return }
+
+        print("====================")
+        print("\(annotationView.annotation?.title)")
+        print("====================")
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
