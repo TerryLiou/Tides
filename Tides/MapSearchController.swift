@@ -116,11 +116,11 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
             } else {
 
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y: 5)
+                view.canShowCallout = false
+//                view.calloutOffset = CGPoint(x: -5, y: 5)
 //                view.rightCalloutAccessoryView = UIButton.init(type: .detailDisclosure) as UIView
-                let button = UIButton.init(type: .detailDisclosure)
-                view.rightCalloutAccessoryView = button
+//                let button = UIButton.init(type: .detailDisclosure)
+//                view.rightCalloutAccessoryView = button
 
             }
             return view
@@ -128,18 +128,39 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
         return nil
     }
 
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+//    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+//
+//        print("test")
+//
+//    }
 
-        print("test")
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+
+        if view.annotation is MKUserLocation {
+
+            return
+
+        }
+
+        guard let tideAnnotation = view.annotation as? Annotations else { return }
+
+        let subview = Bundle.main.loadNibNamed("TideAnnotationView", owner: nil, options: nil)
+        // swiftlint:disable force_cast
+        let calloutView  = subview?[0] as! TideAnnotationView
+        // swiftlint:enable force_cast
+        calloutView.title.text = tideAnnotation.title
+        calloutView.subtitle.text = tideAnnotation.subtitle
+        calloutView.distance.text = "\(tideAnnotation.distance)"
+        calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
+        view.addSubview(calloutView)
 
     }
 
-    func showTideInformation(sender: UIButton) {
-
-        guard let annotationView = sender.superview as? MKAnnotationView else { return }
-
-        print("====================")
-        print("\(annotationView.annotation?.title)")
-        print("====================")
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        if view.isKind(of: AnnotationView.self) {
+            for subview in view.subviews {
+                subview.removeFromSuperview()
+            }
+        }
     }
 }
