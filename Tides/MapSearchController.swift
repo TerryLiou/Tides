@@ -38,11 +38,11 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
-        let userCoordinate = locations[0]
+        self.userCoordinate = locations[0]
 
         if userCoordinate.coordinate.latitude != 0.0 {
 
-            DistanceCalculation().getNearestStation(mapView: mapView, userLocation: userCoordinate.coordinate) { (tidesForMap) in
+            DistanceCalculation.getNearestStation(mapView: mapView, userLocation: userCoordinate.coordinate) { (tidesForMap) in
 
                 self.tidesForMap = tidesForMap
                 self.addAnnotations()
@@ -90,7 +90,6 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
         for i in 0 ..< tidesForMap.count {
 
             mapView.addAnnotation(tidesForMap[i])
-            mapView.selectAnnotation(tidesForMap[i], animated: true)
 
         }
 
@@ -102,37 +101,30 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
-        if let annotation = annotation as? Annotations {
+        if annotation is MKUserLocation {
 
-            let identifier = "pin"
-            var view: MKPinAnnotationView
+            return nil
 
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-                as? MKPinAnnotationView {
-
-                dequeuedView.annotation = annotation
-                view = dequeuedView
-
-            } else {
-
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.canShowCallout = false
-//                view.calloutOffset = CGPoint(x: -5, y: 5)
-//                view.rightCalloutAccessoryView = UIButton.init(type: .detailDisclosure) as UIView
-//                let button = UIButton.init(type: .detailDisclosure)
-//                view.rightCalloutAccessoryView = button
-
-            }
-            return view
         }
-        return nil
-    }
 
-//    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//
-//        print("test")
-//
-//    }
+        let identifier = "pin"
+        var dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+
+        if dequeuedView == nil {
+
+            dequeuedView = AnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            dequeuedView?.canShowCallout = false
+
+        } else {
+
+            dequeuedView?.annotation = annotation
+
+        }
+
+        dequeuedView?.image = #imageLiteral(resourceName: "location")
+        return dequeuedView
+
+    }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
 
@@ -150,17 +142,38 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
         // swiftlint:enable force_cast
         calloutView.title.text = tideAnnotation.title
         calloutView.subtitle.text = tideAnnotation.subtitle
-        calloutView.distance.text = "\(tideAnnotation.distance)"
-        calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
+        calloutView.distance.text = "距離：\(Int(tideAnnotation.distance/1000)) 公里"
+        calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.6)
         view.addSubview(calloutView)
+        DistanceCalculation.getSuitableSpan(mapView: mapView,
+                                            userLocation: userCoordinate.coordinate,
+                                            targetLocation:  tideAnnotation.coordinate)
+
+        calloutView.infoButton.addTarget(self, action: #selector(didPressInfo), for: .touchUpInside)
 
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+
         if view.isKind(of: AnnotationView.self) {
+
             for subview in view.subviews {
+
                 subview.removeFromSuperview()
+
             }
         }
+    }
+
+    func didPressInfo(_ send: UIButton) {
+
+        guard let superView = send.superview as? TideAnnotationView else { return }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let areaIDIndex = TidesStation.title.index(of: superView.title.text!)!
+
+        Constant.selectedAreaIDFromMapView = TidesStation.areaID[areaIDIndex]
+
+        appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarControllerID")
+
     }
 }

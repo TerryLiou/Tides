@@ -11,6 +11,8 @@ import UIKit
 
 struct Constant {
 
+    static var selectedAreaIDFromMapView: String?
+
     struct ColorCode {
 
         static let prussianBlue = UIColor.init(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)

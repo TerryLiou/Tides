@@ -11,9 +11,9 @@ import MapKit
 
 struct DistanceCalculation {
 
-    func getNearestStation(mapView: MKMapView,
-                           userLocation: CLLocationCoordinate2D,
-                           completionHandler: @escaping (_ distanceArray: [Annotations]) -> Void) {
+    static func getNearestStation(mapView: MKMapView,
+                                  userLocation: CLLocationCoordinate2D,
+                                  completionHandler: @escaping (_ distanceArray: [Annotations]) -> Void) {
 
         var distanceArray = [Annotations]()
         let user = CLLocation.init(latitude: userLocation.latitude, longitude: userLocation.longitude)
@@ -27,7 +27,8 @@ struct DistanceCalculation {
             let tideForMap = Annotations.init(title: TidesStation.title[i],
                                               subtitle: TidesStation.subtitle[i],
                                               coordinate: TidesStation.coordinate[i],
-                                              distance: distance)
+                                              distance: distance,
+                                              areaID: TidesStation.areaID[i])
             distanceArray.append(tideForMap)
 
         }
@@ -44,5 +45,21 @@ struct DistanceCalculation {
         mapView.setRegion(region, animated: true)
 
         completionHandler (distanceArray)
+    }
+
+    static func getSuitableSpan(mapView: MKMapView,
+                                userLocation: CLLocationCoordinate2D,
+                                targetLocation: CLLocationCoordinate2D) {
+
+        let centerLocation = CLLocationCoordinate2DMake((userLocation.latitude + targetLocation.latitude)/2,
+                                                        (userLocation.longitude + targetLocation.longitude)/2)
+
+        let span = MKCoordinateSpanMake(abs(userLocation.latitude - targetLocation.latitude) * 2.0,
+                                        abs(userLocation.longitude - targetLocation.longitude) * 2.0)
+
+        let region = MKCoordinateRegion(center: centerLocation, span: span)
+
+        mapView.setRegion(region, animated: true)
+
     }
 }

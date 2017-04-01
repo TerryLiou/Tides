@@ -17,12 +17,24 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var selectedTide: UILabel!
     var dataEntriesForLine: [ChartDataEntry] = []
     var xValue = [String]()
+    var stationID: String {
+
+        if Constant.selectedAreaIDFromMapView == nil {
+
+            return "500012"
+
+        } else {
+
+            return Constant.selectedAreaIDFromMapView!
+
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 //        FirebaseDataManager.shared.setTidesData()
         navigationSetUp()
-        FirebaseDataManager.shared.getTidesData(byDate: "20170330", stationID: "500012") { (tidesData) in
+        FirebaseDataManager.shared.getTidesData(byDate: "20170330", stationID: stationID) { (tidesData) in
             TidesDataArray.data = tidesData
             self.updateChartWithData()
             self.imformationSetUp()

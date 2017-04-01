@@ -16,41 +16,51 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pi-P0-9bh">
-                    <rect key="frame" x="10" y="10" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="10" y="10" width="52" height="28"/>
+                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zha-1n-ouB">
-                    <rect key="frame" x="10" y="41" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="10" y="48" width="37.5" height="21"/>
+                    <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLl-g4-fKW">
-                    <rect key="frame" x="10" y="72" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="10" y="72" width="37.5" height="21"/>
+                    <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EU7-pi-Goj">
+                    <rect key="frame" x="128" y="8" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="erd-8V-W7l"/>
+                        <constraint firstAttribute="height" constant="32" id="jw2-kX-DmJ"/>
+                    </constraints>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="zha-1n-ouB" firstAttribute="top" secondItem="4Pi-P0-9bh" secondAttribute="bottom" constant="10" id="56P-Q8-zle"/>
                 <constraint firstItem="dLl-g4-fKW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="92r-kz-MXg"/>
                 <constraint firstAttribute="bottom" secondItem="dLl-g4-fKW" secondAttribute="bottom" constant="10" id="PLW-rj-RKh"/>
+                <constraint firstItem="EU7-pi-Goj" firstAttribute="centerY" secondItem="4Pi-P0-9bh" secondAttribute="centerY" id="Rbg-1B-Lcd"/>
                 <constraint firstItem="zha-1n-ouB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="j9t-wB-nky"/>
                 <constraint firstItem="4Pi-P0-9bh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="oL5-uI-ZOg"/>
                 <constraint firstItem="4Pi-P0-9bh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="ruK-1O-Gn7"/>
+                <constraint firstAttribute="trailing" secondItem="EU7-pi-Goj" secondAttribute="trailing" constant="10" id="zH8-Cq-gMH"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="distance" destination="dLl-g4-fKW" id="uTY-gi-Ywx"/>
+                <outlet property="infoButton" destination="EU7-pi-Goj" id="DQz-IN-bQk"/>
                 <outlet property="subtitle" destination="zha-1n-ouB" id="8PU-50-hKz"/>
                 <outlet property="title" destination="4Pi-P0-9bh" id="TXl-9d-96n"/>
             </connections>
-            <point key="canvasLocation" x="-206" y="-114"/>
+            <point key="canvasLocation" x="-190" y="-109.5"/>
         </view>
     </objects>
 </document>
