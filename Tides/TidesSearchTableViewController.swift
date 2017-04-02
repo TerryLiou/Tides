@@ -15,12 +15,15 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
     // MARK: - Property
 
     @IBOutlet weak var tidesTableView: UITableView!
+    @IBOutlet weak var container: UIView!
     var searchController: UISearchController?
     var resultsController = UITableViewController()
     var fileredArea = [TidesData]()
     var originalTidesData = [TidesData]()
     var dataAmount = [Int](repeating: 0, count: TidesDataArray.cityOrder.count)
     var seletedTidesData = [[TidesData]]()
+    @IBOutlet weak var mapViewBar: MapViewBar!
+    var isSatelliteMode = false
 
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -32,6 +35,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         FirebaseDataManager.shared.getTidesAmount(byDate: "20170330")
 
     }
+    @IBOutlet weak var zdkfgsdf: UIView!
 
     // MARK: - UITableViewDelegate
 
@@ -140,6 +144,23 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
             tidesTableView.isHidden = true
 
+        }
+    }
+
+    func mapViewBarButton() {
+
+        mapViewBar.satelliteButton.addTarget(self, action: #selector(swicthDisplayMode), for: .touchUpInside)
+    }
+
+    func swicthDisplayMode() {
+
+        switch isSatelliteMode {
+
+        case false: self.
+
+            
+        default:
+            <#code#>
         }
     }
 }

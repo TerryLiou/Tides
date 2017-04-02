@@ -11,7 +11,16 @@ import UIKit
 class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
+
+        configTabBar()
+
+    }
+
+    func configTabBar() {
+
+        self.tabBar.barTintColor = Constant.ColorCode.greenBlue1
 
     }
 }

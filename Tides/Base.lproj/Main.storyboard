@@ -9,6 +9,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="Wca-qs-aj2">
+            <objects>
+                <viewController id="MGQ-9A-4na" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Al-QH-ulu"/>
+                        <viewControllerLayoutGuide type="bottom" id="NoX-q0-0U7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="inA-El-aXK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xfP-Dv-GoN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pB6-x8-xu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2110" y="-510"/>
+        </scene>
         <!--Tides Chart View Controller-->
         <scene sceneID="NwJ-cX-kby">
             <objects>
@@ -128,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ec-IE-0K6">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <connections>
                                     <segue destination="AO1-CH-PLo" kind="embed" id="R8M-Yf-TYE"/>
                                 </connections>
@@ -147,7 +166,7 @@
                             <constraint firstItem="Yeq-PL-RTJ" firstAttribute="top" secondItem="QV3-Um-v8G" secondAttribute="bottom" id="89n-Gi-ch6"/>
                             <constraint firstItem="Col-09-pB5" firstAttribute="top" secondItem="Yeq-PL-RTJ" secondAttribute="bottom" id="Fvh-E1-Mw0"/>
                             <constraint firstItem="Yeq-PL-RTJ" firstAttribute="leading" secondItem="GUL-h1-1EP" secondAttribute="leading" id="Gbq-ae-XBL"/>
-                            <constraint firstItem="Col-09-pB5" firstAttribute="top" secondItem="2Ec-IE-0K6" secondAttribute="bottom" id="RYk-Hf-uQz"/>
+                            <constraint firstItem="Col-09-pB5" firstAttribute="top" secondItem="2Ec-IE-0K6" secondAttribute="bottom" constant="-49" id="RYk-Hf-uQz"/>
                             <constraint firstAttribute="trailing" secondItem="2Ec-IE-0K6" secondAttribute="trailing" id="Sqs-c0-f11"/>
                             <constraint firstItem="2Ec-IE-0K6" firstAttribute="leading" secondItem="GUL-h1-1EP" secondAttribute="leading" id="USC-Lo-lwD"/>
                             <constraint firstAttribute="trailing" secondItem="Yeq-PL-RTJ" secondAttribute="trailing" id="mdw-pr-gMG"/>
@@ -169,6 +188,8 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="container" destination="2Ec-IE-0K6" id="QQd-Hl-xPK"/>
+                        <outlet property="mapViewBar" destination="jTw-Eb-5fJ" id="yf4-Uy-uAn"/>
                         <outlet property="tidesTableView" destination="Yeq-PL-RTJ" id="3Cj-Qj-HXS"/>
                     </connections>
                 </viewController>
@@ -210,6 +231,7 @@
                     <connections>
                         <segue destination="yXv-7D-UYD" kind="relationship" relationship="viewControllers" id="WTQ-bg-l2z"/>
                         <segue destination="Bit-Xg-LIN" kind="relationship" relationship="viewControllers" id="2Gp-zP-vvx"/>
+                        <segue destination="SDj-wC-Cdb" kind="relationship" relationship="viewControllers" id="rae-x4-YHQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3R-KA-DZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -246,19 +268,29 @@
                         <viewControllerLayoutGuide type="bottom" id="Uu5-84-JqR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uT4-ZR-pyr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="shj-4S-1NW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTw-Eb-5fJ" customClass="MapViewBar" customModule="Tides" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="554" width="375" height="49"/>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.20392156859999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="w7H-Hb-q5i"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="shj-4S-1NW" firstAttribute="leading" secondItem="uT4-ZR-pyr" secondAttribute="leading" id="KtR-5O-ZCI"/>
                             <constraint firstItem="shj-4S-1NW" firstAttribute="top" secondItem="uT4-ZR-pyr" secondAttribute="top" id="MjC-3k-pcK"/>
+                            <constraint firstAttribute="trailing" secondItem="jTw-Eb-5fJ" secondAttribute="trailing" id="WFX-EX-COy"/>
                             <constraint firstAttribute="trailing" secondItem="shj-4S-1NW" secondAttribute="trailing" id="WRi-GX-s8v"/>
-                            <constraint firstAttribute="bottom" secondItem="shj-4S-1NW" secondAttribute="bottom" id="n6w-72-8oa"/>
+                            <constraint firstAttribute="bottom" secondItem="shj-4S-1NW" secondAttribute="bottom" constant="49" id="n6w-72-8oa"/>
+                            <constraint firstItem="jTw-Eb-5fJ" firstAttribute="leading" secondItem="uT4-ZR-pyr" secondAttribute="leading" id="oWq-89-He2"/>
+                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="jTw-Eb-5fJ" secondAttribute="bottom" id="qO0-na-NLR"/>
                         </constraints>
                     </view>
                     <connections>
@@ -267,7 +299,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ugh-RD-Fsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2938.4000000000001" y="1013.7931034482759"/>
+            <point key="canvasLocation" x="2938.4000000000001" y="1013.3433283358322"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Ou1-W2-gDq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SDj-wC-Cdb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Q5B-Zw-oPc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kmm-uM-MMa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MGQ-9A-4na" kind="relationship" relationship="rootViewController" id="qdR-6E-rP8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ajs-kr-N8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1169" y="-510"/>
         </scene>
     </scenes>
 </document>
