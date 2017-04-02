@@ -60,6 +60,7 @@ class FirebaseDataManager {
                 }
 
             }
+
             tidesData.sort { $0.order < $1.order }
             tidesDataCount = tidesData.count
 

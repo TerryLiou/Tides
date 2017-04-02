@@ -150,9 +150,10 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
         let calendarImage = #imageLiteral(resourceName: "calendar").withRenderingMode(.alwaysOriginal)
         let calendarItem = UIBarButtonItem(image: calendarImage, style: .plain, target: self, action: #selector(self.showCalendar))
+        let navigationTitleFont: UIFont = UIFont(name: "PingFang TC", size: UIFontWeightHeavy.advanced(by: 20))!
         self.navigationItem.rightBarButtonItem = calendarItem
         self.navigationController?.navigationBar.barTintColor = Constant.ColorCode.ballBlue
-
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: navigationTitleFont, NSForegroundColorAttributeName: UIColor.white]
     }
     func showCalendar() {
         guard let xibView = Bundle.main.loadNibNamed("CalendarPopUp", owner: nil, options: nil)?[0] as? CalendarPopUp else { return }
