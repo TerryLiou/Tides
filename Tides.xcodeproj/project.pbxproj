@@ -12,6 +12,7 @@
 		8A0759841E82070100E15693 /* TidesDataMobel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0759831E82070100E15693 /* TidesDataMobel.swift */; };
 		8A0759861E824D7A00E15693 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A0759851E824D7A00E15693 /* GoogleService-Info.plist */; };
 		8A0759881E829B7400E15693 /* FirebaseDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0759871E829B7400E15693 /* FirebaseDataSet.swift */; };
+		8A0D4A4D1E90C276008B0B01 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D4A4C1E90C276008B0B01 /* TabBarController.swift */; };
 		8A19B7D91E7FD8CC00B7A275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B7D81E7FD8CC00B7A275 /* AppDelegate.swift */; };
 		8A19B7DE1E7FD8CC00B7A275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */; };
 		8A19B7E01E7FD8CC00B7A275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A19B7DF1E7FD8CC00B7A275 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		8A0759831E82070100E15693 /* TidesDataMobel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesDataMobel.swift; sourceTree = "<group>"; };
 		8A0759851E824D7A00E15693 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8A0759871E829B7400E15693 /* FirebaseDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataSet.swift; sourceTree = "<group>"; };
+		8A0D4A4C1E90C276008B0B01 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8A19B7D51E7FD8CC00B7A275 /* Tides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A19B7D81E7FD8CC00B7A275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A19B7DD1E7FD8CC00B7A275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				8A77E1AF1E87604B0031A038 /* TidesSearchTableViewController.swift */,
 				8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */,
 				8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */,
+				8A0D4A4C1E90C276008B0B01 /* TabBarController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A0D4A4D1E90C276008B0B01 /* TabBarController.swift in Sources */,
 				8AF5E9191E8E18B1009151BA /* TideAnnotationView.swift in Sources */,
 				8A77E1B31E877CCF0031A038 /* TidesSearchTableViewCell.swift in Sources */,
 				8AF5E9011E8BA4C3009151BA /* AnnotationMobel.swift in Sources */,

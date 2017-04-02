@@ -173,7 +173,7 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
         Constant.selectedStationIDFromMapView = TidesStation.stationID[areaIDIndex]
 
-        appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarControllerID")
+        appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
 
     }
 }

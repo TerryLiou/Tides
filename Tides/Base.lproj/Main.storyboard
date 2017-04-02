@@ -182,7 +182,9 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yXv-7D-UYD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="gJY-Ad-chR"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kgX-mx-zgI">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kgX-mx-zgI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -198,7 +200,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Qaf-WS-MeP">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarControllerID" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FKE-1Y-dIE" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FKE-1Y-dIE" customClass="TabBarController" customModule="Tides" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="qrm-OL-dH1">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -220,7 +222,9 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bit-Xg-LIN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Rrl-1g-k4r"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JRQ-iZ-67m">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JRQ-iZ-67m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

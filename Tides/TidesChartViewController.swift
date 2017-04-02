@@ -11,6 +11,9 @@ import UIKit
 import Charts
 
 class TidesChartViewController: UIViewController, ChartViewDelegate {
+
+    //MARK: - Property
+
     @IBOutlet weak var timeOfwet: UILabel!
     @IBOutlet weak var timeOfdry: UILabel!
     @IBOutlet weak var selectedDate: UILabel!
@@ -30,6 +33,8 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         }
     }
 
+    // MARK: - Controller Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        FirebaseDataManager.shared.setTidesData()
@@ -40,6 +45,10 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
             self.updateChartWithData()
             self.imformationSetUp()
         }
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
 
     // MARK: - updateChartWithData
@@ -150,7 +159,7 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
         let calendarImage = #imageLiteral(resourceName: "calendar").withRenderingMode(.alwaysOriginal)
         let calendarItem = UIBarButtonItem(image: calendarImage, style: .plain, target: self, action: #selector(self.showCalendar))
-        let navigationTitleFont: UIFont = UIFont(name: "PingFang TC", size: UIFontWeightHeavy.advanced(by: 20))!
+        let navigationTitleFont: UIFont = UIFont(name: "PingFang TC", size: UIFontWeightHeavy.advanced(by: 18))!
         self.navigationItem.rightBarButtonItem = calendarItem
         self.navigationController?.navigationBar.barTintColor = Constant.ColorCode.ballBlue
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: navigationTitleFont, NSForegroundColorAttributeName: UIColor.white]

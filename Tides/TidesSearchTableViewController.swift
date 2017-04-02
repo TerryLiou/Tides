@@ -56,7 +56,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
             Constant.selectedStationIDFromMapView = stationName
 
-            appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarControllerID")
+            appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
         }
     }
 
