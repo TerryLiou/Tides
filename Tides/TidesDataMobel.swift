@@ -60,8 +60,9 @@ struct TidesDataFirebase {
 }
 
 struct TidesDataArray {
+
     static var data: [TidesData] = []
-    static var amountOfData = TidesDataArray.data.count
+    static var amountOfData = Int()
     static let cityOrder = [ Constant.Taipei.mandarin,
                              Constant.Keelung.mandarin,
                              Constant.Taoyuan.mandarin,

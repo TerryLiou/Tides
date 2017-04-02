@@ -19,13 +19,13 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
     var xValue = [String]()
     var stationID: String {
 
-        if Constant.selectedAreaIDFromMapView == nil {
+        if Constant.selectedStationIDFromMapView == nil {
 
             return "500012"
 
         } else {
 
-            return Constant.selectedAreaIDFromMapView!
+            return Constant.selectedStationIDFromMapView!
 
         }
     }
@@ -34,8 +34,9 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
 //        FirebaseDataManager.shared.setTidesData()
         navigationSetUp()
-        FirebaseDataManager.shared.getTidesData(byDate: "20170330", stationID: stationID) { (tidesData) in
+        FirebaseDataManager.shared.getTidesData(byDate: "20170330", stationID: stationID) { (tidesData, tidesDataCount) in
             TidesDataArray.data = tidesData
+            TidesDataArray.amountOfData = tidesDataCount
             self.updateChartWithData()
             self.imformationSetUp()
         }
@@ -47,11 +48,11 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
         lineChartView.delegate = self
 
-        for i in 0 ..< TidesDataArray.amountOfData {
-            let yValue = TidesDataArray.data[i].height
-            let dataEntryForLine = ChartDataEntry(x: Double(i), y: Double(yValue))
+        for data in TidesDataArray.data {
+            let yValue = data.height
+            let dataEntryForLine = ChartDataEntry(x: Double(data.order), y: Double(yValue))
             dataEntriesForLine.append(dataEntryForLine)
-            xValue.append(TidesDataArray.data[i].time)
+            xValue.append(data.time)
         }
 
         let chartDataSet = LineChartDataSet(values: dataEntriesForLine, label: nil)

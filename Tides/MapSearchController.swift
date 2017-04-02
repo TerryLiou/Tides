@@ -171,7 +171,7 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let areaIDIndex = TidesStation.title.index(of: superView.title.text!)!
 
-        Constant.selectedAreaIDFromMapView = TidesStation.stationID[areaIDIndex]
+        Constant.selectedStationIDFromMapView = TidesStation.stationID[areaIDIndex]
 
         appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarControllerID")
 

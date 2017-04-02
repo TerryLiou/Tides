@@ -168,10 +168,10 @@
 		8AF5E8FF1E8BA475009151BA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */,
 				8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */,
 				8AF5E9181E8E18B1009151BA /* TideAnnotationView.swift */,
 				8AF5E91A1E8E18D6009151BA /* TideAnnotationView.xib */,
-				8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

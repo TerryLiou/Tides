@@ -42,11 +42,12 @@ class FirebaseDataManager {
         }
     }
 
-    func getTidesData(byDate: String, stationID: String, completionHandler: @escaping (_ tidesData: [TidesData]) -> Void) {
+    func getTidesData(byDate: String, stationID: String, completionHandler: @escaping (_ tidesData: [TidesData], _ tidesDataCount: Int) -> Void) {
 
         reference.queryOrdered(byChild: Constant.TideProperty.stationID).queryEqual(toValue: stationID).observeSingleEvent(of: .value, with: { snapshot in
 
             var tidesData = [TidesData]()
+            let tidesDataCount: Int?
 
             for item in snapshot.children {
 
@@ -60,8 +61,9 @@ class FirebaseDataManager {
 
             }
             tidesData.sort { $0.order < $1.order }
+            tidesDataCount = tidesData.count
 
-            completionHandler(tidesData)
+            completionHandler(tidesData, tidesDataCount!)
         })
     }
 
@@ -137,6 +139,30 @@ class FirebaseDataManager {
             self.delegate?.manager(originTidesData: originTidesData, didgetTidesArray: seletedTidesDataArray, didgetTidesAmount: dataAmount)
         })
     }
+
+    func getStationIDByStationName(byDate: String, stationName: String, completionHandler: @escaping (_ tidesName: String) -> Void) {
+
+        reference.queryOrdered(byChild: Constant.TideProperty.location).queryEqual(toValue: stationName).observeSingleEvent(of: .value, with: { snapshot in
+
+            var tidesData = [TidesData]()
+
+            for item in snapshot.children {
+
+                guard let snap = item as? FIRDataSnapshot else { return }
+
+                guard let result = self.getData(snapshot: snap) else { return }
+
+                if result.date == byDate {
+
+                    tidesData.append(result)
+
+                }
+            }
+
+            completionHandler(tidesData[0].stationID)
+        })
+    }
+
     func getData(snapshot: FIRDataSnapshot) -> TidesData? {
 
         guard let snapValue = snapshot.value as? [String: Any] else { return nil }

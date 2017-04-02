@@ -42,7 +42,22 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
         return 70
+
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        guard let selectedCell = tableView.cellForRow(at: indexPath) as? TidesSearchTableViewCell else { return }
+
+        FirebaseDataManager.shared.getStationIDByStationName(byDate: "20170330", stationName: selectedCell.tidesStationName.text!) { stationName in
+
+            Constant.selectedStationIDFromMapView = stationName
+
+            appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarControllerID")
+        }
     }
 
     // MARK: - UITableViewDataSource
