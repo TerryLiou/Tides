@@ -10,7 +10,9 @@ import Foundation
 import Firebase
 
 protocol FirebaseManagerDelegate: class {
+
     func manager(originTidesData: [TidesData], didgetTidesArray: [[TidesData]], didgetTidesAmount: [Int])
+
 }
 
 class FirebaseDataManager {
