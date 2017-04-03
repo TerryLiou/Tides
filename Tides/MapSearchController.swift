@@ -18,15 +18,15 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
     var userCoordinate = CLLocation()
     var tidesForMap = [Annotations]()
     @IBOutlet var containerView: UIView!
-    let mapBarView = UIView()
-
+    @IBOutlet weak var mapBarView: UIView!
+    
     // MARk: - Life Cycle
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
         configLocationManager()
-        configMapBarView()
+//        configMapBarView()
 
     }
 
@@ -180,33 +180,24 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     }
 
-    func configMapBarView() {
+    // MARK: - IBAction
 
-//        mapBarView.translatesAutoresizingMaskIntoConstraints = false
-//        mapBarView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-//        mapBarView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-//        mapBarView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-//        mapBarView.heightAnchor.constraint(equalToConstant: 49).isActive = true
-//        mapBarView.backgroundColor = Constant.ColorCode.greenBlue2
-//        containerView.addSubview(mapBarView)
+    @IBAction func switchSatelliteMode(_ sender: Any) {
+
+        if mapView.mapType == .standard {
+
+            mapView.mapType = .satellite
+
+        } else {
+
+            mapView.mapType = .standard
+
+        }
 
     }
+    @IBAction func getSuitableSpan(_ sender: Any) {
+    }
+    @IBAction func returnToChart(_ sender: Any) {
+    }
 
-//    func mapViewBarButton() {
-//
-//        containerView.
-//        mapViewBar.satelliteButton.addTarget(self, action: #selector(swicthDisplayMode), for: .touchUpInside)
-//    }
-//    
-//    func swicthDisplayMode() {
-//        
-//        switch isSatelliteMode {
-//            
-//        case false: container
-//            
-//            
-//        default:
-//            <#code#>
-//        }
-//    }
 }

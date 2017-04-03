@@ -12,7 +12,7 @@ import Charts
 
 class TidesChartViewController: UIViewController, ChartViewDelegate {
 
-    //MARK: - Property
+    // MARK: - Property
 
     @IBOutlet weak var timeOfwet: UILabel!
     @IBOutlet weak var timeOfdry: UILabel!
