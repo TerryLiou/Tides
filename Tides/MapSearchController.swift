@@ -17,6 +17,8 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
     let locationManager = CLLocationManager()
     var userCoordinate = CLLocation()
     var tidesForMap = [Annotations]()
+    @IBOutlet var containerView: UIView!
+    let mapBarView = UIView()
 
     // MARk: - Life Cycle
 
@@ -24,6 +26,7 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
         super.viewDidLoad()
         configLocationManager()
+        configMapBarView()
 
     }
 
@@ -176,4 +179,33 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
         appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
 
     }
+
+    func configMapBarView() {
+
+        mapBarView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        mapBarView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        mapBarView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        mapBarView.heightAnchor.constraint(equalToConstant: 49).isActive = true
+        mapBarView.backgroundColor = Constant.ColorCode.greenBlue2
+        containerView.addSubview(mapBarView)
+
+    }
+
+//    func mapViewBarButton() {
+//
+//        containerView.
+//        mapViewBar.satelliteButton.addTarget(self, action: #selector(swicthDisplayMode), for: .touchUpInside)
+//    }
+//    
+//    func swicthDisplayMode() {
+//        
+//        switch isSatelliteMode {
+//            
+//        case false: container
+//            
+//            
+//        default:
+//            <#code#>
+//        }
+//    }
 }

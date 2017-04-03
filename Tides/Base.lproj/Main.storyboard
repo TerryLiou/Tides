@@ -188,8 +188,6 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
-                        <outlet property="container" destination="2Ec-IE-0K6" id="QQd-Hl-xPK"/>
-                        <outlet property="mapViewBar" destination="jTw-Eb-5fJ" id="yf4-Uy-uAn"/>
                         <outlet property="tidesTableView" destination="Yeq-PL-RTJ" id="3Cj-Qj-HXS"/>
                     </connections>
                 </viewController>
@@ -294,6 +292,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="containerView" destination="uT4-ZR-pyr" id="vwC-ew-iDb"/>
                         <outlet property="mapView" destination="shj-4S-1NW" id="kAO-JW-OUe"/>
                     </connections>
                 </viewController>
