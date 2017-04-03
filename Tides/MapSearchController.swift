@@ -26,7 +26,6 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
         super.viewDidLoad()
         configLocationManager()
-//        configMapBarView()
 
     }
 
@@ -50,6 +49,7 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
                 self.tidesForMap = tidesForMap
                 self.addAnnotations()
                 self.locationManager.stopUpdatingLocation()
+
             }
         }
     }
@@ -193,11 +193,21 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
             mapView.mapType = .standard
 
         }
-
     }
+
     @IBAction func getSuitableSpan(_ sender: Any) {
-    }
-    @IBAction func returnToChart(_ sender: Any) {
+
+        DistanceCalculation.getSuitableSpan(mapView: mapView,
+                                            userLocation: userCoordinate.coordinate,
+                                            targetLocation:  tidesForMap[0].coordinate)
+
     }
 
+    @IBAction func returnToChart(_ sender: Any) {
+
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+
+        appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
+
+    }
 }
