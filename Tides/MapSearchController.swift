@@ -182,12 +182,13 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     func configMapBarView() {
 
-        mapBarView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        mapBarView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-        mapBarView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        mapBarView.heightAnchor.constraint(equalToConstant: 49).isActive = true
-        mapBarView.backgroundColor = Constant.ColorCode.greenBlue2
-        containerView.addSubview(mapBarView)
+//        mapBarView.translatesAutoresizingMaskIntoConstraints = false
+//        mapBarView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+//        mapBarView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+//        mapBarView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+//        mapBarView.heightAnchor.constraint(equalToConstant: 49).isActive = true
+//        mapBarView.backgroundColor = Constant.ColorCode.greenBlue2
+//        containerView.addSubview(mapBarView)
 
     }
 

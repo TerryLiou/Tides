@@ -137,6 +137,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         case 0:
 
             tidesTableView.isHidden = false
+            MapSearchController.configMapBarView()
             tabBarController?.tabBar.isHidden = false
 
         default:
