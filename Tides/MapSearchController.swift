@@ -19,7 +19,7 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
     var tidesForMap = [Annotations]()
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var mapBarView: UIView!
-    
+
     // MARk: - Life Cycle
 
     override func viewDidLoad() {
