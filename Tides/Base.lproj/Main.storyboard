@@ -21,24 +21,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OrJ-x0-hd3">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGZ-fb-MWv" customClass="CetagoryView" customModule="Tides" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="458" width="375" height="110"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="QkH-Ni-BeR"/>
+                                    <constraint firstAttribute="height" constant="110" id="6z3-3l-kdS"/>
                                 </constraints>
-                            </scrollView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OrJ-x0-hd3" firstAttribute="leading" secondItem="inA-El-aXK" secondAttribute="leading" id="YQ3-7g-Do8"/>
-                            <constraint firstItem="NoX-q0-0U7" firstAttribute="top" secondItem="OrJ-x0-hd3" secondAttribute="bottom" constant="50" id="diy-XQ-Cew"/>
-                            <constraint firstAttribute="trailing" secondItem="OrJ-x0-hd3" secondAttribute="trailing" id="lJF-tX-yeS"/>
+                            <constraint firstItem="NoX-q0-0U7" firstAttribute="top" secondItem="lGZ-fb-MWv" secondAttribute="bottom" constant="50" id="3k1-cm-fSZ"/>
+                            <constraint firstAttribute="trailing" secondItem="lGZ-fb-MWv" secondAttribute="trailing" id="AKP-5j-Dni"/>
+                            <constraint firstItem="lGZ-fb-MWv" firstAttribute="leading" secondItem="inA-El-aXK" secondAttribute="leading" id="IU3-MA-PNl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xfP-Dv-GoN"/>
-                    <connections>
-                        <outlet property="weatherScrollView" destination="OrJ-x0-hd3" id="BhW-AR-scO"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pB6-x8-xu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,6 +12,7 @@
 		8A0759841E82070100E15693 /* TidesDataMobel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0759831E82070100E15693 /* TidesDataMobel.swift */; };
 		8A0759861E824D7A00E15693 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A0759851E824D7A00E15693 /* GoogleService-Info.plist */; };
 		8A0759881E829B7400E15693 /* FirebaseDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0759871E829B7400E15693 /* FirebaseDataSet.swift */; };
+		8A0CBB871E93E317003BA36B /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0CBB861E93E317003BA36B /* CategoryCell.swift */; };
 		8A0D4A4D1E90C276008B0B01 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D4A4C1E90C276008B0B01 /* TabBarController.swift */; };
 		8A0D4A751E9253DA008B0B01 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D4A741E9253DA008B0B01 /* WeatherView.swift */; };
 		8A0D4A771E9253F9008B0B01 /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A0D4A761E9253F9008B0B01 /* WeatherView.xib */; };
@@ -51,6 +52,7 @@
 		8A0759831E82070100E15693 /* TidesDataMobel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesDataMobel.swift; sourceTree = "<group>"; };
 		8A0759851E824D7A00E15693 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8A0759871E829B7400E15693 /* FirebaseDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataSet.swift; sourceTree = "<group>"; };
+		8A0CBB861E93E317003BA36B /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		8A0D4A4C1E90C276008B0B01 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8A0D4A741E9253DA008B0B01 /* WeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		8A0D4A761E9253F9008B0B01 /* WeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				8AF5E9181E8E18B1009151BA /* TideAnnotationView.swift */,
 				8A0D4A761E9253F9008B0B01 /* WeatherView.xib */,
 				8A0D4A741E9253DA008B0B01 /* WeatherView.swift */,
+				8A0CBB861E93E317003BA36B /* CategoryCell.swift */,
 				8AF5E91A1E8E18D6009151BA /* TideAnnotationView.xib */,
 			);
 			name = View;
@@ -370,6 +373,7 @@
 				8A75F16E1E86446C00A6F5F3 /* CellView.swift in Sources */,
 				8A75F1681E86441900A6F5F3 /* CalendarPopUp.swift in Sources */,
 				8A75F16A1E86445C00A6F5F3 /* AnimationClass.swift in Sources */,
+				8A0CBB871E93E317003BA36B /* CategoryCell.swift in Sources */,
 				8A75F1721E86447F00A6F5F3 /* PopupContainer.swift in Sources */,
 				8AF5E9051E8C1866009151BA /* DistanceCalculation.swift in Sources */,
 				8A0759881E829B7400E15693 /* FirebaseDataSet.swift in Sources */,
