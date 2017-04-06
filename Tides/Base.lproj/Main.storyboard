@@ -10,37 +10,71 @@
     </dependencies>
     <scenes>
         <!--Weather View Controller-->
-        <scene sceneID="Wca-qs-aj2">
+        <scene sceneID="70S-r5-DE7">
             <objects>
-                <viewController storyboardIdentifier="WeatherViewController" id="MGQ-9A-4na" customClass="WeatherViewController" customModule="Tides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeatherViewController" id="JIc-SR-2s3" customClass="WeatherViewController" customModule="Tides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4Al-QH-ulu"/>
-                        <viewControllerLayoutGuide type="bottom" id="NoX-q0-0U7"/>
+                        <viewControllerLayoutGuide type="top" id="pOF-Lj-Qx9"/>
+                        <viewControllerLayoutGuide type="bottom" id="qdF-N9-jjp"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="inA-El-aXK">
+                    <view key="view" contentMode="scaleToFill" id="Y8E-Iy-mIc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGZ-fb-MWv" customClass="CetagoryView" customModule="Tides" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="458" width="375" height="110"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Blb-mG-GFw">
+                                <rect key="frame" x="67" y="156" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2SF-e9-idF">
+                                <rect key="frame" x="10" y="458" width="355" height="110"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="6z3-3l-kdS"/>
+                                    <constraint firstAttribute="height" constant="110" id="nk8-3V-BrW"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="vV5-eT-b64">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jp4-Cz-Joh">
+                                <rect key="frame" x="10" y="457.5" width="355" height="0.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="aDa-cx-kmb"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8c-no-6W9">
+                                <rect key="frame" x="10" y="568" width="355" height="0.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="mYi-xE-QgK"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NoX-q0-0U7" firstAttribute="top" secondItem="lGZ-fb-MWv" secondAttribute="bottom" constant="50" id="3k1-cm-fSZ"/>
-                            <constraint firstAttribute="trailing" secondItem="lGZ-fb-MWv" secondAttribute="trailing" id="AKP-5j-Dni"/>
-                            <constraint firstItem="lGZ-fb-MWv" firstAttribute="leading" secondItem="inA-El-aXK" secondAttribute="leading" id="IU3-MA-PNl"/>
+                            <constraint firstItem="H8c-no-6W9" firstAttribute="leading" secondItem="Y8E-Iy-mIc" secondAttribute="leading" constant="10" id="0At-5c-jM5"/>
+                            <constraint firstItem="2SF-e9-idF" firstAttribute="top" secondItem="jp4-Cz-Joh" secondAttribute="bottom" id="1me-US-wL9"/>
+                            <constraint firstItem="2SF-e9-idF" firstAttribute="leading" secondItem="Y8E-Iy-mIc" secondAttribute="leading" constant="10" id="Cra-8P-13g"/>
+                            <constraint firstItem="jp4-Cz-Joh" firstAttribute="leading" secondItem="Y8E-Iy-mIc" secondAttribute="leading" constant="10" id="KKx-P6-ye7"/>
+                            <constraint firstAttribute="trailing" secondItem="jp4-Cz-Joh" secondAttribute="trailing" constant="10" id="PMM-Hm-7cD"/>
+                            <constraint firstItem="qdF-N9-jjp" firstAttribute="top" secondItem="2SF-e9-idF" secondAttribute="bottom" constant="50" id="VMC-ec-dBg"/>
+                            <constraint firstAttribute="trailing" secondItem="2SF-e9-idF" secondAttribute="trailing" constant="10" id="eEf-3A-r6Y"/>
+                            <constraint firstItem="H8c-no-6W9" firstAttribute="top" secondItem="2SF-e9-idF" secondAttribute="bottom" id="qv3-J9-kCY"/>
+                            <constraint firstAttribute="trailing" secondItem="H8c-no-6W9" secondAttribute="trailing" constant="10" id="vic-hN-svf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xfP-Dv-GoN"/>
+                    <navigationItem key="navigationItem" id="kEo-tW-9DM"/>
+                    <connections>
+                        <outlet property="weatherCollectionView" destination="2SF-e9-idF" id="NW1-fT-Aoo"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pB6-x8-xu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fns-cs-arj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2109.5999999999999" y="-510.49475262368821"/>
+            <point key="canvasLocation" x="2109.5999999999999" y="-435.83208395802103"/>
         </scene>
         <!--Tides Chart View Controller-->
         <scene sceneID="NwJ-cX-kby">
@@ -243,7 +277,7 @@
                     <connections>
                         <segue destination="yXv-7D-UYD" kind="relationship" relationship="viewControllers" id="WTQ-bg-l2z"/>
                         <segue destination="Bit-Xg-LIN" kind="relationship" relationship="viewControllers" id="2Gp-zP-vvx"/>
-                        <segue destination="SDj-wC-Cdb" kind="relationship" relationship="viewControllers" id="rae-x4-YHQ"/>
+                        <segue destination="Wjz-9E-iyR" kind="relationship" relationship="viewControllers" id="x0w-1c-hBj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3R-KA-DZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -357,23 +391,23 @@
             <point key="canvasLocation" x="2938.4000000000001" y="1013.3433283358322"/>
         </scene>
         <!--Item-->
-        <scene sceneID="Ou1-W2-gDq">
+        <scene sceneID="ZtC-Wl-Nss">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SDj-wC-Cdb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Q5B-Zw-oPc"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wjz-9E-iyR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="TIf-Pm-5qb"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kmm-uM-MMa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o2H-f1-U6k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="MGQ-9A-4na" kind="relationship" relationship="rootViewController" id="qdR-6E-rP8"/>
+                        <segue destination="JIc-SR-2s3" kind="relationship" relationship="rootViewController" id="riJ-cu-NFn"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ajs-kr-N8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fKt-no-dVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1169" y="-510"/>
+            <point key="canvasLocation" x="1169" y="-435"/>
         </scene>
     </scenes>
     <resources>
