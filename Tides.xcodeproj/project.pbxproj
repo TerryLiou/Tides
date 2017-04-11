@@ -180,9 +180,9 @@
 			children = (
 				8A77E1B11E877CCF0031A038 /* TidesSearchTableViewCell.swift */,
 				8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */,
-				8AF5E9181E8E18B1009151BA /* TideAnnotationView.swift */,
 				8A0DDB2E1E94F8AD00955B8A /* WeatherCollectionViewCell.swift */,
 				8A0DDB2F1E94F8AD00955B8A /* WeatherCollectionViewCell.xib */,
+				8AF5E9181E8E18B1009151BA /* TideAnnotationView.swift */,
 				8AF5E91A1E8E18D6009151BA /* TideAnnotationView.xib */,
 			);
 			name = View;
