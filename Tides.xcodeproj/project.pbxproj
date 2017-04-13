@@ -22,6 +22,8 @@
 		8A19B7E31E7FD8CC00B7A275 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A19B7E11E7FD8CC00B7A275 /* LaunchScreen.storyboard */; };
 		8A19B7EC1E80D1FA00B7A275 /* TidesChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */; };
 		8A61B3301E9F0BE1004A8747 /* MoonAgeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61B32F1E9F0BE1004A8747 /* MoonAgeController.swift */; };
+		8A61B3331E9F18CC004A8747 /* MoonPhaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61B3311E9F18CC004A8747 /* MoonPhaseCell.swift */; };
+		8A61B3341E9F18CC004A8747 /* MoonPhaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A61B3321E9F18CC004A8747 /* MoonPhaseCell.xib */; };
 		8A75F1641E8642EA00A6F5F3 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A75F1631E8642EA00A6F5F3 /* JTAppleCalendar.framework */; };
 		8A75F1661E86440300A6F5F3 /* CalendarPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A75F1651E86440300A6F5F3 /* CalendarPopUp.xib */; };
 		8A75F1681E86441900A6F5F3 /* CalendarPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A75F1671E86441900A6F5F3 /* CalendarPopUp.swift */; };
@@ -64,6 +66,8 @@
 		8A19B7E41E7FD8CC00B7A275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesChartViewController.swift; sourceTree = "<group>"; };
 		8A61B32F1E9F0BE1004A8747 /* MoonAgeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonAgeController.swift; sourceTree = "<group>"; };
+		8A61B3311E9F18CC004A8747 /* MoonPhaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonPhaseCell.swift; sourceTree = "<group>"; };
+		8A61B3321E9F18CC004A8747 /* MoonPhaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoonPhaseCell.xib; sourceTree = "<group>"; };
 		8A75F1631E8642EA00A6F5F3 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = "Pods/../build/Debug-iphoneos/JTAppleCalendar/JTAppleCalendar.framework"; sourceTree = "<group>"; };
 		8A75F1651E86440300A6F5F3 /* CalendarPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarPopUp.xib; sourceTree = "<group>"; };
 		8A75F1671E86441900A6F5F3 /* CalendarPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopUp.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				8A77E1B21E877CCF0031A038 /* TidesSearchTableViewCell.xib */,
 				8A0DDB2E1E94F8AD00955B8A /* WeatherCollectionViewCell.swift */,
 				8A0DDB2F1E94F8AD00955B8A /* WeatherCollectionViewCell.xib */,
+				8A61B3311E9F18CC004A8747 /* MoonPhaseCell.swift */,
+				8A61B3321E9F18CC004A8747 /* MoonPhaseCell.xib */,
 				8AF5E9181E8E18B1009151BA /* TideAnnotationView.swift */,
 				8AF5E91A1E8E18D6009151BA /* TideAnnotationView.xib */,
 			);
@@ -275,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A61B3341E9F18CC004A8747 /* MoonPhaseCell.xib in Resources */,
 				8A75F1761E8644AE00A6F5F3 /* Calendar.storyboard in Resources */,
 				8A19B7E31E7FD8CC00B7A275 /* LaunchScreen.storyboard in Resources */,
 				8AF5E91B1E8E18D6009151BA /* TideAnnotationView.xib in Resources */,
@@ -372,6 +379,7 @@
 				8A75F1741E86448C00A6F5F3 /* ViewController.swift in Sources */,
 				8A19B7EC1E80D1FA00B7A275 /* TidesChartViewController.swift in Sources */,
 				8A75F16E1E86446C00A6F5F3 /* CellView.swift in Sources */,
+				8A61B3331E9F18CC004A8747 /* MoonPhaseCell.swift in Sources */,
 				8A75F1681E86441900A6F5F3 /* CalendarPopUp.swift in Sources */,
 				8A75F16A1E86445C00A6F5F3 /* AnimationClass.swift in Sources */,
 				8A75F1721E86447F00A6F5F3 /* PopupContainer.swift in Sources */,
