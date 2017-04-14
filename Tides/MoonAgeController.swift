@@ -24,6 +24,7 @@ class MoonAgeController: UIViewController {
     var cameraOrbit = SCNNode()
     var beginPosition: Float = 0.0
     var endPosition: Float = 0.0
+    let screenSize = UIScreen.main.bounds
     let layout = UICollectionViewFlowLayout()
 
     // MARK: - View Life Cycle
@@ -44,16 +45,18 @@ class MoonAgeController: UIViewController {
 
     func initLunarView() {
 
+        lunarView.translatesAutoresizingMaskIntoConstraints = false
         lunarView.allowsCameraControl = true
         lunarView.autoenablesDefaultLighting = true
+        lunarView.frame = screenSize
 
     }
 
     func initLunarScene() {
 
         lunarView.scene = lunarScene
-        lunarView.isUserInteractionEnabled = false
         lunarView.scene?.background.contents = #imageLiteral(resourceName: "space")
+        lunarView.isUserInteractionEnabled = false
 
     }
 

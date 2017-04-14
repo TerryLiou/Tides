@@ -8,13 +8,13 @@
 
 import UIKit
 
-enum TarBarItemTypes: Int {
+enum TabBarItemTypes: Int {
 
     case chart, search, weather, moonAge
 
     var item: UITabBarItem {
 
-        return UITabBarItem(title: title, image: image, selectedImage: rawValue)
+        return UITabBarItem(title: title, image: image, tag: rawValue)
 
     }
 
@@ -64,7 +64,10 @@ enum TarBarItemTypes: Int {
         }
     }
 }
+
 class TabBarController: UITabBarController {
+
+    let tabbarItemTypes: [TabBarItemTypes] = [.chart, .search, .weather, .moonAge]
 
     override func viewDidLoad() {
 
@@ -76,7 +79,32 @@ class TabBarController: UITabBarController {
 
     func configTabBar() {
 
-        self.tabBar.barTintColor = Constant.ColorCode.greenBlue1
+        tabBar.isTranslucent = false
+        tabBar.tintColor = UIColor.white
+        tabBar.barTintColor = Constant.ColorCode.greenBlue1
+        tabBar.items?.forEach { item in
 
+            let itemType = TabBarItemTypes(rawValue: item.tag)!
+
+            item.title = itemType.title
+            item.image = itemType.image
+
+        }
+    }
+
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+
+        if item.tag == 3 {
+
+            tabBar.barTintColor? = .clear
+            tabBar.backgroundImage = UIImage()
+            tabBar.isTranslucent = true
+
+        } else {
+
+            tabBar.backgroundImage = nil
+            tabBar.barTintColor = Constant.ColorCode.greenBlue1
+
+        }
     }
 }

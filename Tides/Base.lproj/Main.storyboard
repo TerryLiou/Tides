@@ -272,7 +272,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="qrm-OL-dH1">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="yXv-7D-UYD" kind="relationship" relationship="viewControllers" id="WTQ-bg-l2z"/>
@@ -289,7 +288,7 @@
         <scene sceneID="BvK-iJ-X3r">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bit-Xg-LIN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Rrl-1g-k4r"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Item" id="Rrl-1g-k4r"/>
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
@@ -318,8 +317,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcP-pt-QrZ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                            <sceneKitView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcP-pt-QrZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </sceneKitView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J4s-wj-zzv">
                                 <rect key="frame" x="0.0" y="498" width="375" height="100"/>
@@ -342,12 +341,13 @@
                             <constraint firstItem="mcP-pt-QrZ" firstAttribute="leading" secondItem="aW8-Sa-YWS" secondAttribute="leading" id="aF0-Ug-Rbc"/>
                             <constraint firstItem="mcP-pt-QrZ" firstAttribute="top" secondItem="nIW-oI-2mC" secondAttribute="bottom" id="etq-vQ-Rof"/>
                             <constraint firstAttribute="trailing" secondItem="J4s-wj-zzv" secondAttribute="trailing" id="h8b-Rm-PBu"/>
-                            <constraint firstItem="YgI-ki-uJ2" firstAttribute="top" secondItem="mcP-pt-QrZ" secondAttribute="bottom" id="kKr-6D-rVW"/>
+                            <constraint firstItem="YgI-ki-uJ2" firstAttribute="top" secondItem="mcP-pt-QrZ" secondAttribute="bottom" constant="-49" id="kKr-6D-rVW"/>
                             <constraint firstAttribute="trailing" secondItem="mcP-pt-QrZ" secondAttribute="trailing" id="qd7-uC-dWa"/>
                             <constraint firstItem="YgI-ki-uJ2" firstAttribute="top" secondItem="J4s-wj-zzv" secondAttribute="bottom" constant="20" id="w5p-9W-WRr"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="44D-4r-UFh"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Item" id="44D-4r-UFh"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="lunarView" destination="mcP-pt-QrZ" id="ul7-XS-l1O"/>
                         <outlet property="moonPhaseCollection" destination="J4s-wj-zzv" id="Mmq-EC-NeP"/>
@@ -355,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lBO-Kg-PFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-354" y="944"/>
+            <point key="canvasLocation" x="-460" y="1100"/>
         </scene>
         <!--Map Search Controller-->
         <scene sceneID="ugj-oY-SjO">
@@ -446,7 +446,7 @@
         <scene sceneID="ZtC-Wl-Nss">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wjz-9E-iyR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="TIf-Pm-5qb"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Item" id="TIf-Pm-5qb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="o2H-f1-U6k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
