@@ -11,11 +11,11 @@ import UIKit
 class TidesSearchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var tidesStationName: UILabel!
-    @IBOutlet weak var distance: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = Constant.ColorCode.greenBlue1
+        contentView.backgroundColor = Constant.ColorCode.prussianBlue
+        tidesStationName.textColor = UIColor.white
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

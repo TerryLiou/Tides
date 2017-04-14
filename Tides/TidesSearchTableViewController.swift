@@ -33,7 +33,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         FirebaseDataManager.shared.getTidesAmount(byDate: "20170330")
 
     }
-    @IBOutlet weak var zdkfgsdf: UIView!
 
     // MARK: - UITableViewDelegate
 
@@ -108,18 +107,51 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         return cell
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
+        return 30
+
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         if tableView === tidesTableView {
 
-            return TidesDataArray.cityOrder[section]
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 25))
+            headerView.backgroundColor = Constant.ColorCode.oceanBoatBlue
+
+            let label = UILabel(frame: CGRect(x: 10, y: 5, width: view.bounds.width, height: 20))
+//            label.translatesAutoresizingMaskIntoConstraints = false
+//            label.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 10).isActive = true
+//            label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+//            label.heightAnchor.constraint(equalToConstant: 20).isActive = true
+            label.text = TidesDataArray.cityOrder[section]
+            label.textColor = UIColor.white
+
+            headerView.addSubview(label)
+
+            return headerView
 
         } else {
 
             return nil
 
         }
+
     }
+
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//
+//        if tableView === tidesTableView {
+//
+//            return TidesDataArray.cityOrder[section]
+//
+//        } else {
+//
+//            return nil
+//
+//        }
+//    }
 
     // MARK: - setUpTableView
 

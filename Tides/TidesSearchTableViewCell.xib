@@ -16,17 +16,11 @@
             <rect key="frame" x="0.0" y="0.0" width="505" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="505" height="120"/>
+                <rect key="frame" x="0.0" y="0.0" width="505" height="119"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bui-a1-ef5">
                         <rect key="frame" x="28" y="28" width="42" height="71"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIS-Gf-QFX">
-                        <rect key="frame" x="443" y="20" width="42" height="79"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -41,18 +35,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="VZZ-vg-fkN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6sK-AA-k1p"/>
-                    <constraint firstItem="YIS-Gf-QFX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Ece-Sn-NzF"/>
                     <constraint firstAttribute="bottom" secondItem="VZZ-vg-fkN" secondAttribute="bottom" id="M1V-Zo-QKZ"/>
                     <constraint firstItem="VZZ-vg-fkN" firstAttribute="top" secondItem="Bui-a1-ef5" secondAttribute="bottom" constant="20" id="Od9-9S-ENp"/>
                     <constraint firstAttribute="trailing" secondItem="VZZ-vg-fkN" secondAttribute="trailing" id="Zod-a7-lu5"/>
                     <constraint firstItem="Bui-a1-ef5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="ajg-ot-m7N"/>
-                    <constraint firstAttribute="trailing" secondItem="YIS-Gf-QFX" secondAttribute="trailing" constant="20" id="frq-Yg-T2H"/>
-                    <constraint firstItem="VZZ-vg-fkN" firstAttribute="top" secondItem="YIS-Gf-QFX" secondAttribute="bottom" constant="20" id="hV9-aD-csB"/>
                     <constraint firstItem="Bui-a1-ef5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="tlM-Yr-02K"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="distance" destination="YIS-Gf-QFX" id="jsN-1X-XRa"/>
                 <outlet property="tidesStationName" destination="Bui-a1-ef5" id="Wa6-qB-vnP"/>
             </connections>
             <point key="canvasLocation" x="36.5" y="44"/>
