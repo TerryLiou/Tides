@@ -18,7 +18,6 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
     var userCoordinate = CLLocation()
     var tidesForMap = [Annotations]()
     @IBOutlet var containerView: UIView!
-    @IBOutlet weak var mapBarView: UIView!
 
     // MARk: - Life Cycle
 
@@ -85,7 +84,9 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
             locationManager.startUpdatingLocation()
 
         }
+
         locationManager.distanceFilter = CLLocationDistance(10)
+
     }
 
     func addAnnotations() {
@@ -98,6 +99,7 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
         mapView.showsUserLocation = true
         mapView.userLocation.title = "我的位置"
+
     }
 
     // MARK: - MapViewDelegate

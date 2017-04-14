@@ -39,6 +39,8 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
 //        FirebaseDataManager.shared.setTidesData()
         navigationSetUp()
+        view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "paperBackground"))
+
         FirebaseDataManager.shared.getTidesData(byDate: "20170330", stationID: stationID) { (tidesData, tidesDataCount) in
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount
@@ -69,7 +71,8 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         lineChartView.data = chartData
         lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         chartData.setDrawValues(true)
-        chartDataSet.colors = [UIColor.cyan]
+        chartData.value
+        chartDataSet.colors = [UIColor.brown]
         chartDataSet.setCircleColor(UIColor.blue)
         chartDataSet.circleHoleColor = UIColor.clear
         chartDataSet.lineWidth = 2
@@ -93,6 +96,7 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         lineChartView.scaleYEnabled = false
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xValue)
         lineChartView.extraRightOffset = 25.0
+        lineChartView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "paperBackground"))
 
     }
 
@@ -161,7 +165,7 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         let calendarItem = UIBarButtonItem(image: calendarImage, style: .plain, target: self, action: #selector(self.showCalendar))
         let navigationTitleFont: UIFont = UIFont(name: "PingFang TC", size: UIFontWeightHeavy.advanced(by: 18))!
         self.navigationItem.rightBarButtonItem = calendarItem
-        self.navigationController?.navigationBar.barTintColor = Constant.ColorCode.ballBlue
+        self.navigationController?.navigationBar.barTintColor = Constant.ColorCode.oceanBoatBlue
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: navigationTitleFont, NSForegroundColorAttributeName: UIColor.white]
     }
     func showCalendar() {

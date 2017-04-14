@@ -90,7 +90,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0j6-vB-GXQ" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="64" width="375" height="484"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.88305467367172241" green="0.79311203956604004" blue="0.59421372413635254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2017-03-20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzY-l2-eGi">
                                 <rect key="frame" x="15" y="556" width="156" height="21"/>
@@ -372,75 +372,158 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="shj-4S-1NW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTw-Eb-5fJ">
-                                <rect key="frame" x="0.0" y="554" width="375" height="49"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSN-yQ-axD">
-                                        <rect key="frame" x="171" y="8" width="32" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="BIF-xf-SWM"/>
-                                            <constraint firstAttribute="height" constant="32" id="ha1-Zo-Tjx"/>
-                                        </constraints>
-                                        <state key="normal" image="compass"/>
-                                        <connections>
-                                            <action selector="getSuitableSpan:" destination="AO1-CH-PLo" eventType="touchUpInside" id="cKx-vx-hhW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwk-b0-vMm">
-                                        <rect key="frame" x="30" y="8" width="32" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="KuL-ZC-3aD"/>
-                                            <constraint firstAttribute="width" constant="32" id="LNu-9G-MnQ"/>
-                                        </constraints>
-                                        <state key="normal" image="analytics"/>
-                                        <connections>
-                                            <action selector="returnToChart:" destination="AO1-CH-PLo" eventType="touchUpInside" id="H5d-r6-xQa"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7b-Bv-Y8E">
-                                        <rect key="frame" x="313" y="8" width="32" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="4Cf-nM-MoD"/>
-                                            <constraint firstAttribute="height" constant="32" id="j0f-zV-FR1"/>
-                                        </constraints>
-                                        <state key="normal" image="satellite"/>
-                                        <connections>
-                                            <action selector="switchSatelliteMode:" destination="AO1-CH-PLo" eventType="touchUpInside" id="AEZ-rj-yvH"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.23921568630000001" green="0.20392156859999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sxl-CO-c8i" userLabel="ChartBorder">
+                                <rect key="frame" x="20" y="484" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="m7b-Bv-Y8E" secondAttribute="trailing" constant="30" id="0To-jl-SBT"/>
-                                    <constraint firstItem="LSN-yQ-axD" firstAttribute="centerY" secondItem="jTw-Eb-5fJ" secondAttribute="centerY" id="0ye-eO-4a0"/>
-                                    <constraint firstItem="m7b-Bv-Y8E" firstAttribute="centerY" secondItem="jTw-Eb-5fJ" secondAttribute="centerY" id="SjS-XZ-NsL"/>
-                                    <constraint firstItem="hwk-b0-vMm" firstAttribute="leading" secondItem="jTw-Eb-5fJ" secondAttribute="leading" constant="30" id="cBc-oj-gb3"/>
-                                    <constraint firstItem="LSN-yQ-axD" firstAttribute="centerX" secondItem="jTw-Eb-5fJ" secondAttribute="centerX" id="cbR-pJ-RR5"/>
-                                    <constraint firstItem="hwk-b0-vMm" firstAttribute="centerY" secondItem="jTw-Eb-5fJ" secondAttribute="centerY" id="nKp-e9-UY1"/>
-                                    <constraint firstAttribute="height" constant="49" id="w7H-Hb-q5i"/>
+                                    <constraint firstAttribute="height" constant="50" id="Vho-vR-Pq2"/>
+                                    <constraint firstAttribute="width" constant="50" id="Vzh-Gc-MRW"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
+                            <view clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4N-t0-VoN" userLabel="ChartBackground">
+                                <rect key="frame" x="22.5" y="486.5" width="45" height="45"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="6YH-65-Zr0"/>
+                                    <constraint firstAttribute="width" constant="45" id="JjJ-NF-M60"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="22.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwk-b0-vMm" userLabel="ChartButton">
+                                <rect key="frame" x="29" y="493" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="KuL-ZC-3aD"/>
+                                    <constraint firstAttribute="width" constant="32" id="LNu-9G-MnQ"/>
+                                </constraints>
+                                <state key="normal" image="chart"/>
+                                <connections>
+                                    <action selector="returnToChart:" destination="AO1-CH-PLo" eventType="touchUpInside" id="H5d-r6-xQa"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dya-sw-Jjg" userLabel="ArrowBorder">
+                                <rect key="frame" x="162" y="484" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="WWx-xW-WqO"/>
+                                    <constraint firstAttribute="width" constant="50" id="eDP-9z-9TQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q2A-z2-fkg" userLabel="ArrowBackground">
+                                <rect key="frame" x="165" y="486" width="45" height="45"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="0T0-s3-1sF"/>
+                                    <constraint firstAttribute="width" constant="45" id="HpI-mL-a85"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="22.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSN-yQ-axD" userLabel="ArrowButton">
+                                <rect key="frame" x="171.5" y="493" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="BIF-xf-SWM"/>
+                                    <constraint firstAttribute="height" constant="32" id="ha1-Zo-Tjx"/>
+                                </constraints>
+                                <state key="normal" image="arrow"/>
+                                <connections>
+                                    <action selector="getSuitableSpan:" destination="AO1-CH-PLo" eventType="touchUpInside" id="cKx-vx-hhW"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qod-dV-t4X" userLabel="SatelliteBorder">
+                                <rect key="frame" x="305" y="484" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="9JT-nw-cZ3"/>
+                                    <constraint firstAttribute="height" constant="50" id="HKS-TZ-eSk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sua-CZ-rKL" userLabel="SatelliteBackground">
+                                <rect key="frame" x="307.5" y="486.5" width="45" height="45"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="MiV-k3-pOa"/>
+                                    <constraint firstAttribute="height" constant="45" id="ai7-cc-lkp"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="22.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7b-Bv-Y8E" userLabel="SatelliteButton">
+                                <rect key="frame" x="314" y="493" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="4Cf-nM-MoD"/>
+                                    <constraint firstAttribute="height" constant="32" id="j0f-zV-FR1"/>
+                                </constraints>
+                                <state key="normal" image="satellite"/>
+                                <connections>
+                                    <action selector="switchSatelliteMode:" destination="AO1-CH-PLo" eventType="touchUpInside" id="AEZ-rj-yvH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Q2A-z2-fkg" firstAttribute="centerX" secondItem="uT4-ZR-pyr" secondAttribute="centerX" id="3Tz-xZ-pka"/>
+                            <constraint firstItem="y4N-t0-VoN" firstAttribute="leading" secondItem="uT4-ZR-pyr" secondAttribute="leading" constant="22.5" id="7K7-FF-mR4"/>
+                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="LSN-yQ-axD" secondAttribute="bottom" constant="78" id="7oO-aA-XSl"/>
+                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="hwk-b0-vMm" secondAttribute="bottom" constant="78" id="9KP-cf-tnI"/>
+                            <constraint firstAttribute="trailing" secondItem="Qod-dV-t4X" secondAttribute="trailing" constant="20" id="Arm-6g-foh"/>
+                            <constraint firstItem="hwk-b0-vMm" firstAttribute="leading" secondItem="uT4-ZR-pyr" secondAttribute="leading" constant="29" id="FjN-uO-YPw"/>
+                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="Sxl-CO-c8i" secondAttribute="bottom" constant="69" id="Imc-Oi-fC7"/>
                             <constraint firstItem="shj-4S-1NW" firstAttribute="leading" secondItem="uT4-ZR-pyr" secondAttribute="leading" id="KtR-5O-ZCI"/>
                             <constraint firstItem="shj-4S-1NW" firstAttribute="top" secondItem="uT4-ZR-pyr" secondAttribute="top" id="MjC-3k-pcK"/>
-                            <constraint firstAttribute="trailing" secondItem="jTw-Eb-5fJ" secondAttribute="trailing" id="WFX-EX-COy"/>
+                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="Qod-dV-t4X" secondAttribute="bottom" constant="69" id="PaS-F0-vdb"/>
+                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="m7b-Bv-Y8E" secondAttribute="bottom" constant="78" id="RQE-KT-0AE"/>
+                            <constraint firstItem="LSN-yQ-axD" firstAttribute="centerX" secondItem="uT4-ZR-pyr" secondAttribute="centerX" id="Rge-xC-L4K"/>
+                            <constraint firstAttribute="trailing" secondItem="Sua-CZ-rKL" secondAttribute="trailing" constant="22.5" id="VKn-8d-tjb"/>
                             <constraint firstAttribute="trailing" secondItem="shj-4S-1NW" secondAttribute="trailing" id="WRi-GX-s8v"/>
-                            <constraint firstAttribute="bottom" secondItem="shj-4S-1NW" secondAttribute="bottom" constant="49" id="n6w-72-8oa"/>
-                            <constraint firstItem="jTw-Eb-5fJ" firstAttribute="leading" secondItem="uT4-ZR-pyr" secondAttribute="leading" id="oWq-89-He2"/>
-                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="jTw-Eb-5fJ" secondAttribute="bottom" id="qO0-na-NLR"/>
+                            <constraint firstItem="Dya-sw-Jjg" firstAttribute="centerX" secondItem="uT4-ZR-pyr" secondAttribute="centerX" id="WfN-nn-0gh"/>
+                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="y4N-t0-VoN" secondAttribute="bottom" constant="71.5" id="ZsJ-xk-Ody"/>
+                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="Q2A-z2-fkg" secondAttribute="bottom" constant="71.5" id="aZB-lq-r6B"/>
+                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="Dya-sw-Jjg" secondAttribute="bottom" constant="69" id="d5r-J4-3UI"/>
+                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="shj-4S-1NW" secondAttribute="bottom" constant="49" id="kTS-f7-jdx"/>
+                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="Sua-CZ-rKL" secondAttribute="bottom" constant="71.5" id="t8J-yb-uJi"/>
+                            <constraint firstItem="Sxl-CO-c8i" firstAttribute="leading" secondItem="uT4-ZR-pyr" secondAttribute="leading" constant="20" id="vbt-P2-DEo"/>
+                            <constraint firstAttribute="trailing" secondItem="m7b-Bv-Y8E" secondAttribute="trailing" constant="29" id="z1p-k0-cx0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="containerView" destination="uT4-ZR-pyr" id="vwC-ew-iDb"/>
-                        <outlet property="mapBarView" destination="jTw-Eb-5fJ" id="adr-or-c6p"/>
                         <outlet property="mapView" destination="shj-4S-1NW" id="kAO-JW-OUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ugh-RD-Fsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2415" y="1100"/>
+            <point key="canvasLocation" x="2413.5999999999999" y="1099.7001499250375"/>
         </scene>
         <!--Item-->
         <scene sceneID="ZtC-Wl-Nss">
@@ -463,8 +546,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="analytics" width="32" height="32"/>
-        <image name="compass" width="32" height="32"/>
+        <image name="arrow" width="32" height="32"/>
+        <image name="chart" width="32" height="32"/>
         <image name="satellite" width="32" height="32"/>
     </resources>
 </document>

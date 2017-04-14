@@ -81,7 +81,7 @@ class TabBarController: UITabBarController {
 
         tabBar.isTranslucent = false
         tabBar.tintColor = UIColor.white
-        tabBar.barTintColor = Constant.ColorCode.greenBlue1
+        tabBar.barTintColor = Constant.ColorCode.oceanBoatBlue
         tabBar.items?.forEach { item in
 
             let itemType = TabBarItemTypes(rawValue: item.tag)!
@@ -103,7 +103,7 @@ class TabBarController: UITabBarController {
         } else {
 
             tabBar.backgroundImage = nil
-            tabBar.barTintColor = Constant.ColorCode.greenBlue1
+            tabBar.barTintColor = Constant.ColorCode.oceanBoatBlue
 
         }
     }
