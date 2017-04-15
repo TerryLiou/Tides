@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - TabBarItemTypes
+
 enum TabBarItemTypes: Int {
 
     case chart, search, weather, moonAge
@@ -65,6 +67,8 @@ enum TabBarItemTypes: Int {
     }
 }
 
+// MARK: - TabBarController
+
 class TabBarController: UITabBarController {
 
     let tabbarItemTypes: [TabBarItemTypes] = [.chart, .search, .weather, .moonAge]
@@ -91,6 +95,8 @@ class TabBarController: UITabBarController {
 
         }
     }
+
+    // MARK: - TabBarControllerDelegate
 
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
 
