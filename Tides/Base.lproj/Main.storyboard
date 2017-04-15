@@ -371,7 +371,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="shj-4S-1NW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </mapView>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sxl-CO-c8i" userLabel="ChartBorder">
                                 <rect key="frame" x="20" y="484" width="50" height="50"/>
@@ -511,7 +511,7 @@
                             <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="y4N-t0-VoN" secondAttribute="bottom" constant="71.5" id="ZsJ-xk-Ody"/>
                             <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="Q2A-z2-fkg" secondAttribute="bottom" constant="71.5" id="aZB-lq-r6B"/>
                             <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="Dya-sw-Jjg" secondAttribute="bottom" constant="69" id="d5r-J4-3UI"/>
-                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="shj-4S-1NW" secondAttribute="bottom" constant="49" id="kTS-f7-jdx"/>
+                            <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="shj-4S-1NW" secondAttribute="bottom" id="kTS-f7-jdx"/>
                             <constraint firstItem="Uu5-84-JqR" firstAttribute="top" secondItem="Sua-CZ-rKL" secondAttribute="bottom" constant="71.5" id="t8J-yb-uJi"/>
                             <constraint firstItem="Sxl-CO-c8i" firstAttribute="leading" secondItem="uT4-ZR-pyr" secondAttribute="leading" constant="20" id="vbt-P2-DEo"/>
                             <constraint firstAttribute="trailing" secondItem="m7b-Bv-Y8E" secondAttribute="trailing" constant="29" id="z1p-k0-cx0"/>

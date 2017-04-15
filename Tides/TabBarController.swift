@@ -104,6 +104,7 @@ class TabBarController: UITabBarController {
 
             tabBar.backgroundImage = nil
             tabBar.barTintColor = Constant.ColorCode.oceanBoatBlue
+            tabBar.isTranslucent = false
 
         }
     }
