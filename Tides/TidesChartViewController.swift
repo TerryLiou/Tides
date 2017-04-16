@@ -47,6 +47,8 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
             self.updateChartWithData()
             self.imformationSetUp()
         }
+
+        WeatherDataManager.shared.getWindData(town: "宜蘭縣蘇澳鎮")
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

@@ -28,6 +28,7 @@
 		8A61B35D1EA1CED6004A8747 /* WeatherDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61B35C1EA1CED6004A8747 /* WeatherDataManager.swift */; };
 		8A61B35F1EA1EDED004A8747 /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61B35E1EA1EDED004A8747 /* LocationList.swift */; };
 		8A61B3611EA2134E004A8747 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61B3601EA2134E004A8747 /* WeatherModel.swift */; };
+		8A61B3631EA33952004A8747 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A61B3621EA33952004A8747 /* Alamofire.framework */; };
 		8A75F1641E8642EA00A6F5F3 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A75F1631E8642EA00A6F5F3 /* JTAppleCalendar.framework */; };
 		8A75F1661E86440300A6F5F3 /* CalendarPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A75F1651E86440300A6F5F3 /* CalendarPopUp.xib */; };
 		8A75F1681E86441900A6F5F3 /* CalendarPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A75F1671E86441900A6F5F3 /* CalendarPopUp.swift */; };
@@ -76,6 +77,7 @@
 		8A61B35C1EA1CED6004A8747 /* WeatherDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataManager.swift; sourceTree = "<group>"; };
 		8A61B35E1EA1EDED004A8747 /* LocationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
 		8A61B3601EA2134E004A8747 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		8A61B3621EA33952004A8747 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Tides-dthqtsiogjbxrgfsocmontjbwvfj/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		8A75F1631E8642EA00A6F5F3 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = "Pods/../build/Debug-iphoneos/JTAppleCalendar/JTAppleCalendar.framework"; sourceTree = "<group>"; };
 		8A75F1651E86440300A6F5F3 /* CalendarPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarPopUp.xib; sourceTree = "<group>"; };
 		8A75F1671E86441900A6F5F3 /* CalendarPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopUp.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A61B3631EA33952004A8747 /* Alamofire.framework in Frameworks */,
 				8AF5E9031E8BBFA8009151BA /* CoreLocation.framework in Frameworks */,
 				8A75F1641E8642EA00A6F5F3 /* JTAppleCalendar.framework in Frameworks */,
 				8A045F171E84DE7100DFC708 /* Charts.framework in Frameworks */,
@@ -221,6 +224,7 @@
 		A805EE903706DF9AD6DE9FFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A61B3621EA33952004A8747 /* Alamofire.framework */,
 				8AF5E9021E8BBFA8009151BA /* CoreLocation.framework */,
 				8A75F1631E8642EA00A6F5F3 /* JTAppleCalendar.framework */,
 				8A045F161E84DE7100DFC708 /* Charts.framework */,
