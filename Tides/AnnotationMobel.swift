@@ -18,7 +18,7 @@ class Annotations: NSObject, MKAnnotation {
     var distance: CLLocationDistance
     let stationID: String
 
-    init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D, distance: CLLocationDistance,  stationID: String) {
+    init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D, distance: CLLocationDistance, stationID: String) {
 
         self.title = title
         self.subtitle = subtitle
@@ -37,18 +37,30 @@ struct TidesStation {
 
     static let stationID = ["001705", "500022", "500010", "500023", "000306", "001802", "000506", "600012", "000919", "001601", "001009", "001009", "700016", "400900", "001303", "001322", "001304", "500026", "500026", "000204", "000203", "001501", "001402", "001416", "900701"]
 
-    static let coordinate = [CLLocationCoordinate2DMake(25.155, 121.755), CLLocationCoordinate2DMake(25.284, 121.511),
-                             CLLocationCoordinate2DMake(25.176, 121.425), CLLocationCoordinate2DMake(25.155, 121.393),
-                             CLLocationCoordinate2DMake(25.118, 121.244), CLLocationCoordinate2DMake(24.849, 120.921),
-                             CLLocationCoordinate2DMake(24.651, 120.771), CLLocationCoordinate2DMake(24.288, 120.533),
-                             CLLocationCoordinate2DMake(23.619, 120.138), CLLocationCoordinate2DMake(23.562, 119.578),
-                             CLLocationCoordinate2DMake(23.467, 120.123), CLLocationCoordinate2DMake(23.450, 120.139),
-                             CLLocationCoordinate2DMake(23.213, 120.083), CLLocationCoordinate2DMake(22.616, 120.280),
-                             CLLocationCoordinate2DMake(22.465, 120.428), CLLocationCoordinate2DMake(22.354, 120.381),
-                             CLLocationCoordinate2DMake(21.946, 120.745), CLLocationCoordinate2DMake(25.098, 121.918),
-                             CLLocationCoordinate2DMake(25.021, 121.950), CLLocationCoordinate2DMake(24.867, 121.838),
-                             CLLocationCoordinate2DMake(24.586, 121.869), CLLocationCoordinate2DMake(23.981, 121.624),
-                             CLLocationCoordinate2DMake(23.097, 121.380), CLLocationCoordinate2DMake(22.058, 121.507),
+    static let coordinate = [CLLocationCoordinate2DMake(25.155, 121.755),
+                             CLLocationCoordinate2DMake(25.284, 121.511),
+                             CLLocationCoordinate2DMake(25.176, 121.425),
+                             CLLocationCoordinate2DMake(25.155, 121.393),
+                             CLLocationCoordinate2DMake(25.118, 121.244),
+                             CLLocationCoordinate2DMake(24.849, 120.921),
+                             CLLocationCoordinate2DMake(24.651, 120.771),
+                             CLLocationCoordinate2DMake(24.288, 120.533),
+                             CLLocationCoordinate2DMake(23.619, 120.138),
+                             CLLocationCoordinate2DMake(23.562, 119.578),
+                             CLLocationCoordinate2DMake(23.467, 120.123),
+                             CLLocationCoordinate2DMake(23.450, 120.139),
+                             CLLocationCoordinate2DMake(23.213, 120.083),
+                             CLLocationCoordinate2DMake(22.616, 120.280),
+                             CLLocationCoordinate2DMake(22.465, 120.428),
+                             CLLocationCoordinate2DMake(22.354, 120.381),
+                             CLLocationCoordinate2DMake(21.946, 120.745),
+                             CLLocationCoordinate2DMake(25.098, 121.918),
+                             CLLocationCoordinate2DMake(25.021, 121.950),
+                             CLLocationCoordinate2DMake(24.867, 121.838),
+                             CLLocationCoordinate2DMake(24.586, 121.869),
+                             CLLocationCoordinate2DMake(23.981, 121.624),
+                             CLLocationCoordinate2DMake(23.097, 121.380),
+                             CLLocationCoordinate2DMake(22.058, 121.507),
                              CLLocationCoordinate2DMake(26.162, 119.943)]
 
 }

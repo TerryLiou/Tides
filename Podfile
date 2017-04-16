@@ -15,5 +15,6 @@ target 'Tides' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'JTAppleCalendar'
+  pod 'Alamofire', '~> 4.4'
 
 end

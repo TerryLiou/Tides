@@ -25,6 +25,9 @@
 		8A61B3331E9F18CC004A8747 /* MoonPhaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61B3311E9F18CC004A8747 /* MoonPhaseCell.swift */; };
 		8A61B3341E9F18CC004A8747 /* MoonPhaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A61B3321E9F18CC004A8747 /* MoonPhaseCell.xib */; };
 		8A61B3571EA0A2D5004A8747 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61B3561EA0A2D5004A8747 /* NavigationViewController.swift */; };
+		8A61B35D1EA1CED6004A8747 /* WeatherDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61B35C1EA1CED6004A8747 /* WeatherDataManager.swift */; };
+		8A61B35F1EA1EDED004A8747 /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61B35E1EA1EDED004A8747 /* LocationList.swift */; };
+		8A61B3611EA2134E004A8747 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61B3601EA2134E004A8747 /* WeatherModel.swift */; };
 		8A75F1641E8642EA00A6F5F3 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A75F1631E8642EA00A6F5F3 /* JTAppleCalendar.framework */; };
 		8A75F1661E86440300A6F5F3 /* CalendarPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A75F1651E86440300A6F5F3 /* CalendarPopUp.xib */; };
 		8A75F1681E86441900A6F5F3 /* CalendarPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A75F1671E86441900A6F5F3 /* CalendarPopUp.swift */; };
@@ -70,6 +73,9 @@
 		8A61B3311E9F18CC004A8747 /* MoonPhaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonPhaseCell.swift; sourceTree = "<group>"; };
 		8A61B3321E9F18CC004A8747 /* MoonPhaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoonPhaseCell.xib; sourceTree = "<group>"; };
 		8A61B3561EA0A2D5004A8747 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		8A61B35C1EA1CED6004A8747 /* WeatherDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataManager.swift; sourceTree = "<group>"; };
+		8A61B35E1EA1EDED004A8747 /* LocationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
+		8A61B3601EA2134E004A8747 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		8A75F1631E8642EA00A6F5F3 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = "Pods/../build/Debug-iphoneos/JTAppleCalendar/JTAppleCalendar.framework"; sourceTree = "<group>"; };
 		8A75F1651E86440300A6F5F3 /* CalendarPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarPopUp.xib; sourceTree = "<group>"; };
 		8A75F1671E86441900A6F5F3 /* CalendarPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopUp.swift; sourceTree = "<group>"; };
@@ -165,6 +171,9 @@
 				8A045F181E8512E200DFC708 /* Constant.swift */,
 				8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */,
 				8A0759871E829B7400E15693 /* FirebaseDataSet.swift */,
+				8A61B35E1EA1EDED004A8747 /* LocationList.swift */,
+				8A61B3601EA2134E004A8747 /* WeatherModel.swift */,
+				8A61B35C1EA1CED6004A8747 /* WeatherDataManager.swift */,
 				8AF5E9041E8C1866009151BA /* DistanceCalculation.swift */,
 				8A0759831E82070100E15693 /* TidesDataMobel.swift */,
 			);
@@ -366,8 +375,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A61B35D1EA1CED6004A8747 /* WeatherDataManager.swift in Sources */,
 				8A0D4A4D1E90C276008B0B01 /* TabBarController.swift in Sources */,
 				8A0D4A791E934CA1008B0B01 /* WeatherViewController.swift in Sources */,
+				8A61B35F1EA1EDED004A8747 /* LocationList.swift in Sources */,
 				8AF5E9191E8E18B1009151BA /* TideAnnotationView.swift in Sources */,
 				8A77E1B31E877CCF0031A038 /* TidesSearchTableViewCell.swift in Sources */,
 				8A61B3571EA0A2D5004A8747 /* NavigationViewController.swift in Sources */,
@@ -382,6 +393,7 @@
 				8A045F191E8512E200DFC708 /* Constant.swift in Sources */,
 				8A75F1741E86448C00A6F5F3 /* ViewController.swift in Sources */,
 				8A19B7EC1E80D1FA00B7A275 /* TidesChartViewController.swift in Sources */,
+				8A61B3611EA2134E004A8747 /* WeatherModel.swift in Sources */,
 				8A75F16E1E86446C00A6F5F3 /* CellView.swift in Sources */,
 				8A61B3331E9F18CC004A8747 /* MoonPhaseCell.swift in Sources */,
 				8A75F1681E86441900A6F5F3 /* CalendarPopUp.swift in Sources */,

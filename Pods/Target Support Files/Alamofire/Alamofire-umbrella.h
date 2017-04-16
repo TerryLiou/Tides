@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double InfiniteScrollCollectionViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char InfiniteScrollCollectionViewVersionString[];
+FOUNDATION_EXPORT double AlamofireVersionNumber;
+FOUNDATION_EXPORT const unsigned char AlamofireVersionString[];
 
