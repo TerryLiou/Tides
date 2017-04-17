@@ -45,7 +45,7 @@ class WeatherDataManager {
                         guard let tideType = dailyData[0]["elementValue"] as? String else { return }  // 潮差
 
                         guard let dailyTides = dailyData[1]["time"] as? [[String: AnyObject]]else { return }
-
+                        
                         for dailyTide in dailyTides {
 
                             guard let dataTime = dailyTide["dataTime"] as? String else { return }
@@ -55,6 +55,7 @@ class WeatherDataManager {
 
                             let time = self.dateFormatter.date(from: dataTime) // Date 格式
 
+                            print(<#T##items: Any...##Any#>)
                             guard let tideDetail = dailyTide["parameter"] as? [[String: String]] else { return }
 
                             let contain = tideDetail.filter({ T -> Bool in

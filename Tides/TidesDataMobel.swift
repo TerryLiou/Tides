@@ -34,6 +34,27 @@ struct TidesData {
     }
 }
 
+struct TidesDataAPI {
+
+    let date: String
+    let location: String
+    let order: Int
+    let time: Date
+    let type: String
+    let tide: String
+    let height: Int
+    init(date: String, location: String, order: Int,
+         time: Date, type: String, tide: String,
+         height: Int) {
+        self.date = date
+        self.location = location
+        self.order = order
+        self.time = time
+        self.type = type
+        self.tide = tide
+        self.height = height
+    }
+}
 struct TidesDataFirebase {
 
     let date: String
