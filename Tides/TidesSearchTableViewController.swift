@@ -30,7 +30,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         setUpTableView()
         SearchBarSetUp()
         FirebaseDataManager.shared.delegate = self
-        FirebaseDataManager.shared.getTidesAmount(byDate: "20170330")
+        FirebaseDataManager.shared.getTidesAmount(byDate: "2017-04-20")
 
     }
 
@@ -53,9 +53,9 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         guard let selectedCell = tableView.cellForRow(at: indexPath) as? TidesSearchTableViewCell else { return }
 
-        FirebaseDataManager.shared.getStationIDByStationName(byDate: "20170330", stationName: selectedCell.tidesStationName.text!) { stationName in
+        FirebaseDataManager.shared.getStationIDByStationName(byDate: "2017-04-20", stationName: selectedCell.tidesStationName.text!) { stationID in
 
-            Constant.selectedStationIDFromMapView = stationName
+            Constant.selectedStationIDFromMapView = stationID
 
             appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
         }
@@ -121,10 +121,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
             headerView.backgroundColor = Constant.ColorCode.oceanBoatBlue
 
             let label = UILabel(frame: CGRect(x: 10, y: 5, width: view.bounds.width, height: 20))
-//            label.translatesAutoresizingMaskIntoConstraints = false
-//            label.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 10).isActive = true
-//            label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
-//            label.heightAnchor.constraint(equalToConstant: 20).isActive = true
+
             label.text = TidesDataArray.cityOrder[section]
             label.textColor = UIColor.white
 
@@ -139,19 +136,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         }
 
     }
-
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//
-//        if tableView === tidesTableView {
-//
-//            return TidesDataArray.cityOrder[section]
-//
-//        } else {
-//
-//            return nil
-//
-//        }
-//    }
 
     // MARK: - setUpTableView
 
@@ -235,6 +219,7 @@ extension TidesSearchTableViewController: UISearchResultsUpdating {
 
         self.resultsController.tableView.delegate = self
         self.resultsController.tableView.dataSource = self
+
         let tableViewCell = UINib(nibName: "TidesSearchTableViewCell", bundle: nil)
         self.resultsController.tableView.register(tableViewCell, forCellReuseIdentifier: "TidesSearchTableViewCell")
         self.searchController = UISearchController(searchResultsController: self.resultsController)

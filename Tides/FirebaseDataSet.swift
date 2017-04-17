@@ -19,32 +19,8 @@ class FirebaseDataManager {
 
     static let shared = FirebaseDataManager()
     weak var delegate: FirebaseManagerDelegate?
-    let data = "20170330"
-    let location = "雲林縣口湖鄉"
-    let tide = "大潮"
-    let order = 4
-    let time = ["00:13", "06:34", "12:27", "19:00"]
-    let height = [112, -97, 109, -115]
-    let type = ["滿潮", "乾潮", "滿潮", "乾潮"]
+
     let reference = FIRDatabase.database().reference().child("records")
-    let stationID = "000919"
-
-    func setTidesData() {
-
-        for i in 0 ..< order {
-
-            let data = TidesDataFirebase(date: self.data, location: location, order: i, time: time[i], type: type[i], tide: tide, height: height[i], stationID: stationID)
-            let value = ["date": data.date, "location": data.location, "order": data.order,
-                         "time": data.time, "type": data.type, "tide": data.tide, "height": data.height, "stationID": data.stationID] as [String : Any]
-            reference.childByAutoId().setValue(value) { (error, _) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                print("success")
-            }
-        }
-    }
 
     func getTidesData(byDate: String, stationID: String, completionHandler: @escaping (_ tidesData: [TidesData], _ tidesDataCount: Int) -> Void) {
 
@@ -90,62 +66,153 @@ class FirebaseDataManager {
             var seletedTidesData = [TidesData]()
 
             for item in tidesData {
+
                 if item.order == 0 {
+
                     seletedTidesData.append(item)
+
                 }
+
             }
 
             let originTidesData = seletedTidesData
 
             let taipeiTides = seletedTidesData.filter { (TidesData) -> Bool in
+
                 return TidesData.areaID == Constant.Taipei.areaID
+
             }
 
             let keelungTides = seletedTidesData.filter { (TidesData) -> Bool in
+
                 return TidesData.areaID == Constant.Keelung.areaID
+
             }
 
             let taoyuanTides = seletedTidesData.filter { (TidesData) -> Bool in
+
                 return TidesData.areaID == Constant.Taoyuan.areaID
+
             }
 
             let hsinchuTides = seletedTidesData.filter { (TidesData) -> Bool in
+
                 return TidesData.areaID == Constant.Hsinchu.areaID
+
             }
 
             let hsinchuCityTides = seletedTidesData.filter { (TidesData) -> Bool in
+
                 return TidesData.areaID == Constant.HsinchuCity.areaID
+
             }
 
             let miaoliTides = seletedTidesData.filter { (TidesData) -> Bool in
+
                 return TidesData.areaID == Constant.Miaoli.areaID
+
             }
 
             let changhuaTides = seletedTidesData.filter { (TidesData) -> Bool in
+
                 return TidesData.areaID == Constant.Changhua.areaID
+
             }
 
             let taichungTides = seletedTidesData.filter { (TidesData) -> Bool in
+
                 return TidesData.areaID == Constant.Taichung.areaID
+
             }
 
             let yunlinTides = seletedTidesData.filter { (TidesData) -> Bool in
+
                 return TidesData.areaID == Constant.Yunlin.areaID
+
             }
 
-             let dataAmount = [taipeiTides.count, keelungTides.count, taoyuanTides.count,
-                               hsinchuTides.count, hsinchuCityTides.count, miaoliTides.count,
-                               changhuaTides.count, taichungTides.count, yunlinTides.count]
+            let chiayiTides = seletedTidesData.filter { (TidesData) -> Bool in
+                
+                return TidesData.areaID == Constant.Chiayi.areaID
+                
+            }
+
+            let tainanTides = seletedTidesData.filter { (TidesData) -> Bool in
+                
+                return TidesData.areaID == Constant.Tainan.areaID
+                
+            }
+
+            let kaohsiungTides = seletedTidesData.filter { (TidesData) -> Bool in
+                
+                return TidesData.areaID == Constant.Kaohsiung.areaID
+                
+            }
+
+            let pingtungTides = seletedTidesData.filter { (TidesData) -> Bool in
+                
+                return TidesData.areaID == Constant.Pingtung.areaID
+                
+            }
+
+            let taitungTides = seletedTidesData.filter { (TidesData) -> Bool in
+                
+                return TidesData.areaID == Constant.Taitung.areaID
+                
+            }
+
+            let hualienTides = seletedTidesData.filter { (TidesData) -> Bool in
+                
+                return TidesData.areaID == Constant.Hualien.areaID
+                
+            }
+
+            let yilanTides = seletedTidesData.filter { (TidesData) -> Bool in
+                
+                return TidesData.areaID == Constant.Yilan.areaID
+                
+            }
+
+            let penghuTides = seletedTidesData.filter { (TidesData) -> Bool in
+                
+                return TidesData.areaID == Constant.Penghu.areaID
+                
+            }
+
+            let lianjiangTides = seletedTidesData.filter { (TidesData) -> Bool in
+                
+                return TidesData.areaID == Constant.Lianjiang.areaID
+                
+            }
+
+            let kinmenTides = seletedTidesData.filter { (TidesData) -> Bool in
+                
+                return TidesData.areaID == Constant.Kinmen.areaID
+                
+            }
+
+            let dataAmount = [taipeiTides.count, keelungTides.count, taoyuanTides.count,
+                             hsinchuTides.count, hsinchuCityTides.count, miaoliTides.count,
+                             changhuaTides.count, taichungTides.count, yunlinTides.count,
+                             chiayiTides.count, tainanTides.count, kaohsiungTides.count,
+                             pingtungTides.count, taitungTides.count, hualienTides.count,
+                             yilanTides.count, penghuTides.count, lianjiangTides.count,
+                             kinmenTides.count]
 
             let seletedTidesDataArray = [taipeiTides, keelungTides, taoyuanTides,
-                                          hsinchuTides, hsinchuCityTides, miaoliTides,
-                                          changhuaTides, taichungTides, yunlinTides]
+                                        hsinchuTides, hsinchuCityTides, miaoliTides,
+                                        changhuaTides, taichungTides, yunlinTides,
+                                        chiayiTides, tainanTides, kaohsiungTides,
+                                        pingtungTides, taitungTides, hualienTides,
+                                        yilanTides, penghuTides, lianjiangTides,
+                                        kinmenTides]
 
             self.delegate?.manager(originTidesData: originTidesData, didgetTidesArray: seletedTidesDataArray, didgetTidesAmount: dataAmount)
+
         })
     }
 
-    func getStationIDByStationName(byDate: String, stationName: String, completionHandler: @escaping (_ tidesName: String) -> Void) {
+    func getStationIDByStationName(byDate: String, stationName: String, completionHandler: @escaping (_ tidesID: String) -> Void) {
 
         reference.queryOrdered(byChild: Constant.TideProperty.location).queryEqual(toValue: stationName).observeSingleEvent(of: .value, with: { snapshot in
 
@@ -165,13 +232,14 @@ class FirebaseDataManager {
             }
 
             completionHandler(tidesData[0].stationID)
+
         })
     }
 
     func getData(snapshot: FIRDataSnapshot) -> TidesData? {
 
         guard let snapValue = snapshot.value as? [String: Any] else { return nil }
-        guard let data = snapValue[Constant.TideProperty.date] as? String else { return nil }
+        guard let date = snapValue[Constant.TideProperty.date] as? String else { return nil }
         guard let height = snapValue[Constant.TideProperty.height] as? Int else { return nil }
         guard let location = snapValue[Constant.TideProperty.location] as? String else { return nil }
         guard let order = snapValue[Constant.TideProperty.order] as? Int else { return nil }
@@ -181,9 +249,9 @@ class FirebaseDataManager {
         guard let stationID = snapValue[Constant.TideProperty.stationID] as? String else { return nil }
         let index = stationID.index(stationID.startIndex, offsetBy: 4)
         let areaID = stationID.substring(to: index)
-
-        let tidesData = TidesData(date: data, location: location, order: order, time: time, type: type, tide: tide, height: height, stationID: stationID, areaID: areaID)
+        let tidesData = TidesData(date: date, location: location, order: order, time: time, type: type, tide: tide, height: height, stationID: stationID, areaID: areaID)
 
         return tidesData
+
     }
 }

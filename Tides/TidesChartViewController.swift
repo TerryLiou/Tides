@@ -36,19 +36,17 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
     // MARK: - Controller Life Cycle
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
-//        FirebaseDataManager.shared.setTidesData()
         navigationSetUp()
         view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "paperBackground"))
 
-        FirebaseDataManager.shared.getTidesData(byDate: "20170330", stationID: stationID) { (tidesData, tidesDataCount) in
+        FirebaseDataManager.shared.getTidesData(byDate: "20170420", stationID: stationID) { (tidesData, tidesDataCount) in
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount
             self.updateChartWithData()
             self.imformationSetUp()
         }
-
-        WeatherDataManager.shared.getWindData(town: "宜蘭縣蘇澳鎮")
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

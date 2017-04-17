@@ -82,4 +82,54 @@ struct Constant {
         static let mandarin = "雲林縣"
         static let areaID = "0009"
     }
+
+    struct Chiayi {
+        static let mandarin = "嘉義縣"
+        static let areaID = "0010"
+    }
+
+    struct Tainan {
+        static let mandarin = "臺南市"
+        static let areaID = "7000"
+    }
+
+    struct Kaohsiung {
+        static let mandarin = "高雄市"
+        static let areaID = "4000"
+    }
+
+    struct Pingtung {
+        static let mandarin = "屏東縣"
+        static let areaID = "0013"
+    }
+
+    struct Taitung {
+        static let mandarin = "臺東縣"
+        static let areaID = "0014"
+    }
+
+    struct Hualien {
+        static let mandarin = "花蓮縣"
+        static let areaID = "0015"
+    }
+
+    struct Yilan {
+        static let mandarin = "宜蘭縣"
+        static let areaID = "0002"
+    }
+
+    struct Penghu {
+        static let mandarin = "澎湖縣"
+        static let areaID = "0016"
+    }
+
+    struct Kinmen {
+        static let mandarin = "金門縣"
+        static let areaID = "9020"
+    }
+
+    struct Lianjiang {
+        static let mandarin = "連江縣"
+        static let areaID = "9007"
+    }
 }

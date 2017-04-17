@@ -71,5 +71,15 @@ struct TidesDataArray {
                              Constant.Miaoli.mandarin,
                              Constant.Changhua.mandarin,
                              Constant.Taichung.mandarin,
-                             Constant.Yunlin.mandarin ]
+                             Constant.Yunlin.mandarin,
+                             Constant.Chiayi.mandarin,
+                             Constant.Tainan.mandarin,
+                             Constant.Kaohsiung.mandarin,
+                             Constant.Pingtung.mandarin,
+                             Constant.Taitung.mandarin,
+                             Constant.Hualien.mandarin,
+                             Constant.Yilan.mandarin,
+                             Constant.Penghu.mandarin,
+                             Constant.Kinmen.mandarin,
+                             Constant.Lianjiang.mandarin]
 }
