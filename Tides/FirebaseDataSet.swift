@@ -16,6 +16,7 @@ protocol FirebaseManagerDelegate: class {
 }
 
 class FirebaseDataManager {
+
     static let shared = FirebaseDataManager()
     weak var delegate: FirebaseManagerDelegate?
 
@@ -48,6 +49,7 @@ class FirebaseDataManager {
     }
 
     func getTidesAmount(byDate: String) {
+
         reference.queryOrdered(byChild: Constant.TideProperty.date).queryEqual(toValue: byDate).observeSingleEvent(of: .value, with: { snapshot in
 
             var tidesData = [TidesData]()
@@ -108,13 +110,17 @@ class FirebaseDataManager {
                 return TidesData.areaID == Constant.Yunlin.areaID
             }
 
-             let dataAmount = [taipeiTides.count, keelungTides.count, taoyuanTides.count,
-                               hsinchuTides.count, hsinchuCityTides.count, miaoliTides.count,
-                               changhuaTides.count, taichungTides.count, yunlinTides.count]
+//            let chiayiTides = seletedTidesData.filter({ (TidesData) -> Bool in
+//                return TidesData.areaID == Constant..areaID
+//            })
+
+            let dataAmount = [taipeiTides.count, keelungTides.count, taoyuanTides.count,
+                             hsinchuTides.count, hsinchuCityTides.count, miaoliTides.count,
+                             changhuaTides.count, taichungTides.count, yunlinTides.count]
 
             let seletedTidesDataArray = [taipeiTides, keelungTides, taoyuanTides,
-                                          hsinchuTides, hsinchuCityTides, miaoliTides,
-                                          changhuaTides, taichungTides, yunlinTides]
+                                        hsinchuTides, hsinchuCityTides, miaoliTides,
+                                        changhuaTides, taichungTides, yunlinTides]
 
             self.delegate?.manager(originTidesData: originTidesData, didgetTidesArray: seletedTidesDataArray, didgetTidesAmount: dataAmount)
         })

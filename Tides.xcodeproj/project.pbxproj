@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B95949C1EA75B2A006163C0 /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B95949B1EA75B2A006163C0 /* LocationList.swift */; };
 		8A045F171E84DE7100DFC708 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A045F161E84DE7100DFC708 /* Charts.framework */; };
 		8A045F191E8512E200DFC708 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045F181E8512E200DFC708 /* Constant.swift */; };
 		8A0759841E82070100E15693 /* TidesDataMobel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0759831E82070100E15693 /* TidesDataMobel.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		44BDC1BF2F6807E53B2CA086 /* Pods-Tides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tides.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tides/Pods-Tides.release.xcconfig"; sourceTree = "<group>"; };
+		7B95949B1EA75B2A006163C0 /* LocationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
 		8366772A2BBA975E5209C408 /* Pods-Tides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tides/Pods-Tides.debug.xcconfig"; sourceTree = "<group>"; };
 		8A045F161E84DE7100DFC708 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Tides-dthqtsiogjbxrgfsocmontjbwvfj/Build/Products/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
 		8A045F181E8512E200DFC708 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */,
 				8A0759871E829B7400E15693 /* FirebaseDataSet.swift */,
 				8AF5E9041E8C1866009151BA /* DistanceCalculation.swift */,
+				7B95949B1EA75B2A006163C0 /* LocationList.swift */,
 				8A0759831E82070100E15693 /* TidesDataMobel.swift */,
 			);
 			name = Model;
@@ -327,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B95949C1EA75B2A006163C0 /* LocationList.swift in Sources */,
 				8A0D4A4D1E90C276008B0B01 /* TabBarController.swift in Sources */,
 				8A0D4A791E934CA1008B0B01 /* WeatherViewController.swift in Sources */,
 				8AF5E9191E8E18B1009151BA /* TideAnnotationView.swift in Sources */,

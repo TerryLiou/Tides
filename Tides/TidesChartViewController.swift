@@ -42,7 +42,7 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         navigationSetUp()
         view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "paperBackground"))
 
-        FirebaseDataManager.shared.getTidesData(byDate: "20170420", stationID: stationID) { (tidesData, tidesDataCount) in
+        FirebaseDataManager.shared.getTidesData(byDate: "2017-04-20", stationID: stationID) { (tidesData, tidesDataCount) in
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount
             self.updateChartWithData()
