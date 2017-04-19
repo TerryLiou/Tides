@@ -30,7 +30,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         setUpTableView()
         SearchBarSetUp()
         FirebaseDataManager.shared.delegate = self
-        FirebaseDataManager.shared.getTidesAmount(byDate: "20170330")
+        FirebaseDataManager.shared.getTidesAmount(byDate: "20170420")
 
     }
 
@@ -53,7 +53,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         guard let selectedCell = tableView.cellForRow(at: indexPath) as? TidesSearchTableViewCell else { return }
 
-        FirebaseDataManager.shared.getStationIDByStationName(byDate: "20170330", stationName: selectedCell.tidesStationName.text!) { stationName in
+        FirebaseDataManager.shared.getStationIDByStationName(byDate: "20170420", stationName: selectedCell.tidesStationName.text!) { stationName in
 
             Constant.selectedStationIDFromMapView = stationName
 
@@ -121,10 +121,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
             headerView.backgroundColor = Constant.ColorCode.oceanBoatBlue
 
             let label = UILabel(frame: CGRect(x: 10, y: 5, width: view.bounds.width, height: 20))
-//            label.translatesAutoresizingMaskIntoConstraints = false
-//            label.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 10).isActive = true
-//            label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
-//            label.heightAnchor.constraint(equalToConstant: 20).isActive = true
             label.text = TidesDataArray.cityOrder[section]
             label.textColor = UIColor.white
 
@@ -139,19 +135,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         }
 
     }
-
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//
-//        if tableView === tidesTableView {
-//
-//            return TidesDataArray.cityOrder[section]
-//
-//        } else {
-//
-//            return nil
-//
-//        }
-//    }
 
     // MARK: - setUpTableView
 
@@ -188,7 +171,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         let frame = self.tabBarController?.tabBar.frame
         let height = frame?.size.height
         let offsetY = (visible ? -height! : height)
-        print ("offsetY = \(offsetY)")
 
         // zero duration means no animation
         let duration: TimeInterval = (animated ? 0.3 : 0.0)
@@ -235,6 +217,7 @@ extension TidesSearchTableViewController: UISearchResultsUpdating {
 
         self.resultsController.tableView.delegate = self
         self.resultsController.tableView.dataSource = self
+
         let tableViewCell = UINib(nibName: "TidesSearchTableViewCell", bundle: nil)
         self.resultsController.tableView.register(tableViewCell, forCellReuseIdentifier: "TidesSearchTableViewCell")
         self.searchController = UISearchController(searchResultsController: self.resultsController)

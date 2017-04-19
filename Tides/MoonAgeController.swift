@@ -152,7 +152,7 @@ extension MoonAgeController: UICollectionViewDelegate, UICollectionViewDataSourc
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        endPosition = Float(((Double(indexPath.row)) * M_PI) / 15.0)
+        endPosition = Float(((Double(indexPath.row)) * Double.pi) / 15.0)
         spinAnimation()
         beginPosition = endPosition
 

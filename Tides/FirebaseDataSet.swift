@@ -18,29 +18,8 @@ protocol FirebaseManagerDelegate: class {
 class FirebaseDataManager {
     static let shared = FirebaseDataManager()
     weak var delegate: FirebaseManagerDelegate?
-    let data = "20170330"
-    let location = "雲林縣口湖鄉"
-    let tide = "大潮"
-    let order = 4
-    let time = ["00:13", "06:34", "12:27", "19:00"]
-    let height = [112, -97, 109, -115]
-    let type = ["滿潮", "乾潮", "滿潮", "乾潮"]
+
     let reference = FIRDatabase.database().reference().child("records")
-    let stationID = "000919"
-    func setTidesData() {
-        for i in 0 ..< order {
-            let data = TidesDataFirebase(date: self.data, location: location, order: i, time: time[i], type: type[i], tide: tide, height: height[i], stationID: stationID)
-            let value = ["date": data.date, "location": data.location, "order": data.order,
-                         "time": data.time, "type": data.type, "tide": data.tide, "height": data.height, "stationID": data.stationID] as [String : Any]
-            reference.childByAutoId().setValue(value) { (error, _) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                print("success")
-            }
-        }
-    }
 
     func getTidesData(byDate: String, stationID: String, completionHandler: @escaping (_ tidesData: [TidesData], _ tidesDataCount: Int) -> Void) {
 

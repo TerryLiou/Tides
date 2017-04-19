@@ -36,12 +36,13 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
     // MARK: - Controller Life Cycle
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
-//        FirebaseDataManager.shared.setTidesData()
+
         navigationSetUp()
         view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "paperBackground"))
 
-        FirebaseDataManager.shared.getTidesData(byDate: "20170330", stationID: stationID) { (tidesData, tidesDataCount) in
+        FirebaseDataManager.shared.getTidesData(byDate: "20170420", stationID: stationID) { (tidesData, tidesDataCount) in
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount
             self.updateChartWithData()
@@ -103,16 +104,7 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
     func imformationSetUp() {
 
-        let date = TidesDataArray.data[0].date
-        let index = date.index(date.startIndex, offsetBy: 4)
-        let year = date.substring(to: index)
-        let start = date.index(date.startIndex, offsetBy: 4)
-        let end = date.index(date.startIndex, offsetBy: 6)
-        let range = Range(uncheckedBounds: (lower: start, upper: end))
-        let month = date.substring(with: range)
-        let ind = date.index(date.startIndex, offsetBy: 6)
-        let day = date.substring(from: ind)
-        self.selectedDate.text = "\(year)-\(month)-\(day)"
+        self.selectedDate.text = TidesDataArray.data[0].date
         self.selectedTide.text = "潮差 － \(TidesDataArray.data[0].tide)"
         self.navigationItem.title = TidesDataArray.data[0].location
         var highTideTime = ""
@@ -167,10 +159,10 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
     }
 
     func showCalendar() {
-        guard let xibView = Bundle.main.loadNibNamed("CalendarPopUp", owner: nil, options: nil)?[0] as? CalendarPopUp else { return }
+//        guard let xibView = Bundle.main.loadNibNamed("CalendarPopUp", owner: nil, options: nil)?[0] as? CalendarPopUp else { return }
 //        xibView.calendarDelegate = self
 //        xibView.selected = currentDate
-        PopupContainer.generatePopupWithView(xibView).show()
+//        PopupContainer.generatePopupWithView(xibView).show()
     }
     @IBOutlet weak var lineChartView: LineChartView!
 }

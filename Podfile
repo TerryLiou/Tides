@@ -10,10 +10,7 @@ target 'Tides' do
   pod 'Charts', '~> 3.0.1'
   pod 'Firebase/Core'
   pod 'Firebase'
-  pod 'Firebase/Messaging'
-  pod 'Firebase/RemoteConfig'
   pod 'Firebase/Database'
-  pod 'Firebase/Auth'
   pod 'JTAppleCalendar'
 
 end
