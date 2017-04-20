@@ -16,16 +16,16 @@ class Annotations: NSObject, MKAnnotation {
     var cllocation: CLLocation
     let coordinate: CLLocationCoordinate2D
     var distance: CLLocationDistance
-    let stationID: String
+    let stationName: String
 
-    init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D, distance: CLLocationDistance,  stationID: String) {
+    init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D, distance: CLLocationDistance,  stationName: String) {
 
         self.title = title
         self.subtitle = subtitle
         self.cllocation = CLLocation.init(latitude: coordinate.latitude, longitude: coordinate.longitude)
         self.coordinate = coordinate
         self.distance = distance
-        self.stationID = stationID
+        self.stationName = stationName
 
     }
 }
@@ -35,7 +35,7 @@ struct TidesStation {
 
     static let subtitle = ["基隆港西33號碼頭", "麟山鼻漁港", "淡水河油車口", "臺北港第3港埠", "桃園竹圍漁港", "新竹南寮漁港", "外埔漁港", "臺中港4號碼頭", "箔子寮漁港", "澎湖馬公港", "嘉義塭港漁港", "嘉義東石港", "台南將軍漁港", "高雄港10號碼頭", "屏東東港漁港", "屏東琉球漁港", "後壁湖漁港", "南口遊艇港", "福隆漁港碼頭", "宜蘭烏石港", "蘇澳港內碼頭", "花蓮港內", "臺東成功漁港", "蘭嶼開元漁港", "福澳港"]
 
-    static let stationID = ["001705", "500022", "500010", "500023", "000306", "001802", "000506", "600012", "000919", "001601", "001009", "001009", "700016", "400900", "001303", "001322", "001304", "500026", "500026", "000204", "000203", "001501", "001402", "001416", "900701"]
+    static let stationName = ["基隆市中山區", "新北市石門區", "新北市淡水區", "新北市八里區", "桃園縣大園鄉", "新竹市北區", "苗栗縣後龍鎮", "臺中市清水區", "雲林縣口湖鄉", "澎湖縣馬公市", "嘉義縣東石鄉", "嘉義縣東石鄉", "臺南市將軍區", "高雄市前鎮區", "屏東縣東港鎮", "屏東縣琉球鄉", "屏東縣恆春鎮", "新北市貢寮區", "新北市貢寮區", "宜蘭縣頭城鎮", "宜蘭縣蘇澳鎮", "花蓮縣花蓮市", "臺東縣成功鎮", "臺東縣蘭嶼鄉", "連江縣南竿鄉"]
 
     static let coordinate = [CLLocationCoordinate2DMake(25.155, 121.755), CLLocationCoordinate2DMake(25.284, 121.511),
                              CLLocationCoordinate2DMake(25.176, 121.425), CLLocationCoordinate2DMake(25.155, 121.393),

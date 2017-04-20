@@ -9,122 +9,129 @@
 import Foundation
 import Firebase
 
-protocol FirebaseManagerDelegate: class {
-
-    func manager(originTidesData: [TidesData], didgetTidesArray: [[TidesData]], didgetTidesAmount: [Int])
-
-}
+//protocol FirebaseManagerDelegate: class {
+//
+//    func manager(originTidesData: [TidesData], didgetTidesArray: [[TidesData]], didgetTidesAmount: [Int])
+//
+//}
 
 class FirebaseDataManager {
 
     static let shared = FirebaseDataManager()
-    weak var delegate: FirebaseManagerDelegate?
+//    weak var delegate: FirebaseManagerDelegate?
 
     let reference = FIRDatabase.database().reference().child("records")
+    let locationRefer = FIRDatabase.database().reference().child("locations")
 
-    func getTidesData(byDate: String, stationID: String, completionHandler: @escaping (_ tidesData: [TidesData], _ tidesDataCount: Int) -> Void) {
+    func getTidesData(byDate: String, stationName: String, completionHandler: @escaping (_ tidesData: [TidesData], _ tidesDataCount: Int) -> Void) {
 
-        reference.queryOrdered(byChild: Constant.TideProperty.stationID).queryEqual(toValue: stationID).observeSingleEvent(of: .value, with: { snapshot in
+        locationRefer.queryOrdered(byChild: "name").queryEqual(toValue: stationName).observeSingleEvent(of: .value, with: { snapshot in
 
-            var tidesData = [TidesData]()
-            let tidesDataCount: Int?
+            for child in snapshot.children {
+                
+                guard let town = child as? FIRDataSnapshot else { return }
+                
+                self.reference.child(town.key).queryOrdered(byChild: Constant.TideProperty.date).queryEqual(toValue: byDate).observeSingleEvent(of: .value, with: { snapshot in
 
-            for item in snapshot.children {
+                    var tidesData = [TidesData]()
+                    let tidesDataCount: Int?
 
-                guard let snap = item as? FIRDataSnapshot else { return }
+                    for item in snapshot.children {
 
-                guard let result = self.getData(snapshot: snap) else { return }
+                        guard let snap = item as? FIRDataSnapshot else { return }
 
-                if result.date == byDate {
-                    tidesData.append(result)
-                }
+                        guard let result = self.getData(snapshot: snap) else { return }
 
+                        tidesData.append(result)
+
+                    }
+
+                    tidesData.sort { $0.order < $1.order }
+                    tidesDataCount = tidesData.count
+
+                    completionHandler(tidesData, tidesDataCount!)
+                })
             }
-
-            tidesData.sort { $0.order < $1.order }
-            tidesDataCount = tidesData.count
-
-            completionHandler(tidesData, tidesDataCount!)
         })
     }
 
-    func getTidesAmount(byDate: String) {
-
-        reference.queryOrdered(byChild: Constant.TideProperty.date).queryEqual(toValue: byDate).observeSingleEvent(of: .value, with: { snapshot in
-
-            var tidesData = [TidesData]()
-
-            for item in snapshot.children {
-
-                guard let snap = item as? FIRDataSnapshot else { return }
-
-                guard let result = self.getData(snapshot: snap) else { return }
-
-                tidesData.append(result)
-
-            }
-
-            var seletedTidesData = [TidesData]()
-
-            for item in tidesData {
-                if item.order == 0 {
-                    seletedTidesData.append(item)
-                }
-            }
-
-            let originTidesData = seletedTidesData
-
-            let taipeiTides = seletedTidesData.filter { (TidesData) -> Bool in
-                return TidesData.areaID == Constant.Taipei.areaID
-            }
-
-            let keelungTides = seletedTidesData.filter { (TidesData) -> Bool in
-                return TidesData.areaID == Constant.Keelung.areaID
-            }
-
-            let taoyuanTides = seletedTidesData.filter { (TidesData) -> Bool in
-                return TidesData.areaID == Constant.Taoyuan.areaID
-            }
-
-            let hsinchuTides = seletedTidesData.filter { (TidesData) -> Bool in
-                return TidesData.areaID == Constant.Hsinchu.areaID
-            }
-
-            let hsinchuCityTides = seletedTidesData.filter { (TidesData) -> Bool in
-                return TidesData.areaID == Constant.HsinchuCity.areaID
-            }
-
-            let miaoliTides = seletedTidesData.filter { (TidesData) -> Bool in
-                return TidesData.areaID == Constant.Miaoli.areaID
-            }
-
-            let changhuaTides = seletedTidesData.filter { (TidesData) -> Bool in
-                return TidesData.areaID == Constant.Changhua.areaID
-            }
-
-            let taichungTides = seletedTidesData.filter { (TidesData) -> Bool in
-                return TidesData.areaID == Constant.Taichung.areaID
-            }
-
-            let yunlinTides = seletedTidesData.filter { (TidesData) -> Bool in
-                return TidesData.areaID == Constant.Yunlin.areaID
-            }
-
+//    func getTidesAmount(byDate: String) {
+//
+//        reference.queryOrdered(byChild: Constant.TideProperty.date).queryEqual(toValue: byDate).observeSingleEvent(of: .value, with: { snapshot in
+//
+//            var tidesData = [TidesData]()
+//
+//            for item in snapshot.children {
+//
+//                guard let snap = item as? FIRDataSnapshot else { return }
+//
+//                guard let result = self.getData(snapshot: snap) else { return }
+//
+//                tidesData.append(result)
+//
+//            }
+//
+//            var seletedTidesData = [TidesData]()
+//
+//            for item in tidesData {
+//                if item.order == 0 {
+//                    seletedTidesData.append(item)
+//                }
+//            }
+//
+//            let originTidesData = seletedTidesData
+//
+//            let taipeiTides = seletedTidesData.filter { (TidesData) -> Bool in
+//                return TidesData.areaID == Constant.Taipei.areaID
+//            }
+//
+//            let keelungTides = seletedTidesData.filter { (TidesData) -> Bool in
+//                return TidesData.areaID == Constant.Keelung.areaID
+//            }
+//
+//            let taoyuanTides = seletedTidesData.filter { (TidesData) -> Bool in
+//                return TidesData.areaID == Constant.Taoyuan.areaID
+//            }
+//
+//            let hsinchuTides = seletedTidesData.filter { (TidesData) -> Bool in
+//                return TidesData.areaID == Constant.Hsinchu.areaID
+//            }
+//
+//            let hsinchuCityTides = seletedTidesData.filter { (TidesData) -> Bool in
+//                return TidesData.areaID == Constant.HsinchuCity.areaID
+//            }
+//
+//            let miaoliTides = seletedTidesData.filter { (TidesData) -> Bool in
+//                return TidesData.areaID == Constant.Miaoli.areaID
+//            }
+//
+//            let changhuaTides = seletedTidesData.filter { (TidesData) -> Bool in
+//                return TidesData.areaID == Constant.Changhua.areaID
+//            }
+//
+//            let taichungTides = seletedTidesData.filter { (TidesData) -> Bool in
+//                return TidesData.areaID == Constant.Taichung.areaID
+//            }
+//
+//            let yunlinTides = seletedTidesData.filter { (TidesData) -> Bool in
+//                return TidesData.areaID == Constant.Yunlin.areaID
+//            }
+//
 //            let chiayiTides = seletedTidesData.filter({ (TidesData) -> Bool in
 //                return TidesData.areaID == Constant..areaID
 //            })
-
-            let dataAmount = [taipeiTides.count, keelungTides.count, taoyuanTides.count,
-                             hsinchuTides.count, hsinchuCityTides.count, miaoliTides.count,
-                             changhuaTides.count, taichungTides.count, yunlinTides.count]
-
-            let seletedTidesDataArray = [taipeiTides, keelungTides, taoyuanTides,
-                                        hsinchuTides, hsinchuCityTides, miaoliTides,
-                                        changhuaTides, taichungTides, yunlinTides]
-
-            self.delegate?.manager(originTidesData: originTidesData, didgetTidesArray: seletedTidesDataArray, didgetTidesAmount: dataAmount)
-        })
-    }
+//
+//            let dataAmount = [taipeiTides.count, keelungTides.count, taoyuanTides.count,
+//                             hsinchuTides.count, hsinchuCityTides.count, miaoliTides.count,
+//                             changhuaTides.count, taichungTides.count, yunlinTides.count]
+//
+//            let seletedTidesDataArray = [taipeiTides, keelungTides, taoyuanTides,
+//                                        hsinchuTides, hsinchuCityTides, miaoliTides,
+//                                        changhuaTides, taichungTides, yunlinTides]
+//
+//            self.delegate?.manager(originTidesData: originTidesData, didgetTidesArray: seletedTidesDataArray, didgetTidesAmount: dataAmount)
+//        })
+//    }
 
     func getStationIDByStationName(byDate: String, stationName: String, completionHandler: @escaping (_ tidesName: String) -> Void) {
 
@@ -152,7 +159,7 @@ class FirebaseDataManager {
     func getData(snapshot: FIRDataSnapshot) -> TidesData? {
 
         guard let snapValue = snapshot.value as? [String: Any] else { return nil }
-        guard let data = snapValue[Constant.TideProperty.date] as? String else { return nil }
+        guard let date = snapValue[Constant.TideProperty.date] as? String else { return nil }
         guard let height = snapValue[Constant.TideProperty.height] as? Int else { return nil }
         guard let location = snapValue[Constant.TideProperty.location] as? String else { return nil }
         guard let order = snapValue[Constant.TideProperty.order] as? Int else { return nil }
@@ -163,7 +170,7 @@ class FirebaseDataManager {
         let index = stationID.index(stationID.startIndex, offsetBy: 4)
         let areaID = stationID.substring(to: index)
 
-        let tidesData = TidesData(date: data, location: location, order: order, time: time, type: type, tide: tide, height: height, stationID: stationID, areaID: areaID)
+        let tidesData = TidesData(date: date, location: location, order: order, time: time, type: type, tide: tide, height: height, stationID: stationID, areaID: areaID)
 
         return tidesData
     }

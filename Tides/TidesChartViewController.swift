@@ -20,15 +20,15 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var selectedTide: UILabel!
     var dataEntriesForLine: [ChartDataEntry] = []
     var xValue = [String]()
-    var stationID: String {
+    var stationName: String {
 
-        if Constant.selectedStationIDFromMapView == nil {
+        if Constant.selectedStationNameFromMapView == nil {
 
-            return "500012"
+            return "宜蘭縣蘇澳鎮"
 
         } else {
 
-            return Constant.selectedStationIDFromMapView!
+            return Constant.selectedStationNameFromMapView!
 
         }
     }
@@ -42,11 +42,11 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         navigationSetUp()
         view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "paperBackground"))
 
-        FirebaseDataManager.shared.getTidesData(byDate: "2017-04-20", stationID: stationID) { (tidesData, tidesDataCount) in
+        FirebaseDataManager.shared.getTidesData(byDate: "2017-04-25", stationName: stationName) { (tidesData, tidesDataCount) in
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount
-            self.updateChartWithData()
             self.imformationSetUp()
+            self.updateChartWithData()
         }
     }
 
@@ -61,10 +61,12 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         lineChartView.delegate = self
 
         for data in TidesDataArray.data {
+
             let yValue = data.height
             let dataEntryForLine = ChartDataEntry(x: Double(data.order), y: Double(yValue))
             dataEntriesForLine.append(dataEntryForLine)
             xValue.append(data.time)
+
         }
 
         let chartDataSet = LineChartDataSet(values: dataEntriesForLine, label: nil)
@@ -72,6 +74,7 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         lineChartView.data = chartData
         lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         chartData.setDrawValues(true)
+
         chartDataSet.colors = [UIColor.brown]
         chartDataSet.setCircleColor(UIColor.blue)
         chartDataSet.circleHoleColor = UIColor.clear
@@ -84,16 +87,23 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         chartDataSet.valueFont = UIFont(name: "Helvetica", size: 12.0)!
 
         // Axes setup
-        lineChartView.xAxis.labelPosition = .bottom
+
+        lineChartView.xAxis.labelPosition = .bottomInside
         lineChartView.xAxis.drawGridLinesEnabled = false
+
         lineChartView.chartDescription?.enabled = false
+
         lineChartView.legend.enabled = false
         lineChartView.rightAxis.enabled = false
+
         lineChartView.leftAxis.drawGridLinesEnabled = false
         lineChartView.leftAxis.drawTopYLabelEntryEnabled = true
+
         lineChartView.snapshotView(afterScreenUpdates: false)
+
         lineChartView.scaleXEnabled = false
         lineChartView.scaleYEnabled = false
+
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xValue)
         lineChartView.extraRightOffset = 25.0
         lineChartView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "paperBackground"))
@@ -105,7 +115,7 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
     func imformationSetUp() {
 
         self.selectedDate.text = TidesDataArray.data[0].date
-        self.selectedTide.text = "潮差 － \(TidesDataArray.data[0].tide)"
+        self.selectedTide.text = "潮差 － \(TidesDataArray.data[0].type)"
         self.navigationItem.title = TidesDataArray.data[0].location
         var highTideTime = ""
         var lowTideTime = ""

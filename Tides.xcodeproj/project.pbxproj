@@ -142,10 +142,10 @@
 			isa = PBXGroup;
 			children = (
 				8A77E1AF1E87604B0031A038 /* TidesSearchTableViewController.swift */,
+				8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */,
 				8AFD96AC1E8B22CB000CC06D /* MapSearchController.swift */,
 				8A61B32F1E9F0BE1004A8747 /* MoonAgeController.swift */,
 				8A0D4A781E934CA1008B0B01 /* WeatherViewController.swift */,
-				8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */,
 				8A61B3561EA0A2D5004A8747 /* NavigationViewController.swift */,
 				8A0D4A4C1E90C276008B0B01 /* TabBarController.swift */,
 			);

@@ -11,7 +11,7 @@ import UIKit
 
 struct Constant {
 
-    static var selectedStationIDFromMapView: String?
+    static var selectedStationNameFromMapView: String?
 
     struct ColorCode {
 

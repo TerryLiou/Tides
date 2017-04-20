@@ -38,13 +38,5 @@ struct TidesDataArray {
 
     static var data: [TidesData] = []
     static var amountOfData = Int()
-    static let cityOrder = [ Constant.Taipei.mandarin,
-                             Constant.Keelung.mandarin,
-                             Constant.Taoyuan.mandarin,
-                             Constant.Hsinchu.mandarin,
-                             Constant.HsinchuCity.mandarin,
-                             Constant.Miaoli.mandarin,
-                             Constant.Changhua.mandarin,
-                             Constant.Taichung.mandarin,
-                             Constant.Yunlin.mandarin ]
+
 }

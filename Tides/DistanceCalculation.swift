@@ -28,7 +28,7 @@ struct DistanceCalculation {
                                               subtitle: TidesStation.subtitle[i],
                                               coordinate: TidesStation.coordinate[i],
                                               distance: distance,
-                                              stationID: TidesStation.stationID[i])
+                                              stationName: TidesStation.stationName[i])
             distanceArray.append(tideForMap)
 
         }

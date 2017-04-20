@@ -17,20 +17,22 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var tidesTableView: UITableView!
     var searchController: UISearchController?
     var resultsController = UITableViewController()
-    var fileredArea = [TidesData]()
-    var originalTidesData = [TidesData]()
-    var dataAmount = [Int](repeating: 0, count: TidesDataArray.cityOrder.count)
-    var seletedTidesData = [[TidesData]]()
+    var filteredArea = [String]()
+    var filterArea = [String]()
+//    var originalTidesData = [TidesData]()
+//    var dataAmount = [Int](repeating: 0, count: TidesDataArray.cityOrder.count)
+//    var seletedTidesData = [[TidesData]]()
     var isSatelliteMode = false
 
     // MARK: - View Life Cycle
     override func viewDidLoad() {
 
         super.viewDidLoad()
+
         setUpTableView()
-        SearchBarSetUp()
-        FirebaseDataManager.shared.delegate = self
-        FirebaseDataManager.shared.getTidesAmount(byDate: "20170420")
+        searchBarSetUp()
+//        FirebaseDataManager.shared.delegate = self
+//        FirebaseDataManager.shared.getTidesAmount(byDate: "20170420")
 
     }
 
@@ -53,12 +55,10 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         guard let selectedCell = tableView.cellForRow(at: indexPath) as? TidesSearchTableViewCell else { return }
 
-        FirebaseDataManager.shared.getStationIDByStationName(byDate: "20170420", stationName: selectedCell.tidesStationName.text!) { stationName in
-
-            Constant.selectedStationIDFromMapView = stationName
+            Constant.selectedStationNameFromMapView = selectedCell.tidesStationName.text!
 
             appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
-        }
+
     }
 
     // MARK: - UITableViewDataSource
@@ -67,7 +67,8 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         if tableView === tidesTableView {
 
-            return TidesDataArray.cityOrder.count
+//            return TidesDataArray.cityOrder.count
+            return LocationList().citys.count
 
         } else {
 
@@ -80,11 +81,15 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         if tableView === tidesTableView {
 
-            return dataAmount[section]
+//            return dataAmount[section]
+            let cityName = LocationList().citys[section]
+            let townAmount = LocationList().towns[cityName]
+
+            return townAmount!.count
 
         } else {
 
-            return fileredArea.count
+            return filteredArea.count
 
         }
     }
@@ -97,11 +102,15 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         if tableView === tidesTableView {
 
-            cell.tidesStationName.text = seletedTidesData[indexPath.section][indexPath.row].location
+            let cityName = LocationList().citys[indexPath.section]
+            let townAmount = LocationList().towns[cityName]
+            let townName = cityName + (townAmount?[indexPath.row])!
+            cell.tidesStationName.text = townName
+//            cell.tidesStationName.text = seletedTidesData[indexPath.section][indexPath.row].location
 
         } else {
 
-            cell.tidesStationName.text = fileredArea[indexPath.row].location
+            cell.tidesStationName.text = filteredArea[indexPath.row]
 
         }
         return cell
@@ -121,7 +130,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
             headerView.backgroundColor = Constant.ColorCode.oceanBoatBlue
 
             let label = UILabel(frame: CGRect(x: 10, y: 5, width: view.bounds.width, height: 20))
-            label.text = TidesDataArray.cityOrder[section]
+            label.text = LocationList().citys[section]
             label.textColor = UIColor.white
 
             headerView.addSubview(label)
@@ -139,8 +148,10 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
     // MARK: - setUpTableView
 
     func setUpTableView() {
+
         let tableViewCell = UINib(nibName: "TidesSearchTableViewCell", bundle: nil)
         tidesTableView.register(tableViewCell, forCellReuseIdentifier: "TidesSearchTableViewCell")
+
     }
 
     // MARK: - IBAction
@@ -159,7 +170,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         }
 
-        setTabBarVisible(visible: !tabBarIsVisible(), animated: true)
+//        setTabBarVisible(visible: !tabBarIsVisible(), animated: true)
 
     }
 
@@ -177,6 +188,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         // animate tabBar
         if frame != nil {
+
             UIView.animate(withDuration: duration) {
                 self.tabBarController?.tabBar.frame = frame!.offsetBy(dx: 0, dy: offsetY!)
                 self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height + offsetY!)
@@ -196,43 +208,56 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
 // MARK: - FirebaseManagerDelegate
 
-extension TidesSearchTableViewController: FirebaseManagerDelegate {
-
-    func manager(originTidesData: [TidesData], didgetTidesArray: [[TidesData]], didgetTidesAmount: [Int]) {
-
-        originalTidesData = originTidesData
-        seletedTidesData = didgetTidesArray
-        dataAmount = didgetTidesAmount
-
-        self.tidesTableView.reloadData()
-
-    }
-}
+//extension TidesSearchTableViewController: FirebaseManagerDelegate {
+//
+//    func manager(originTidesData: [TidesData], didgetTidesArray: [[TidesData]], didgetTidesAmount: [Int]) {
+//
+//        originalTidesData = originTidesData
+//        seletedTidesData = didgetTidesArray
+//        dataAmount = didgetTidesAmount
+//
+//        self.tidesTableView.reloadData()
+//
+//    }
+//}
 
 // MARK: - UISearchResults
 
 extension TidesSearchTableViewController: UISearchResultsUpdating {
 
-    func SearchBarSetUp() {
+    func searchBarSetUp() {
 
         self.resultsController.tableView.delegate = self
         self.resultsController.tableView.dataSource = self
 
         let tableViewCell = UINib(nibName: "TidesSearchTableViewCell", bundle: nil)
         self.resultsController.tableView.register(tableViewCell, forCellReuseIdentifier: "TidesSearchTableViewCell")
+        self.resultsController.tableView.backgroundColor = UIColor.lightGray
         self.searchController = UISearchController(searchResultsController: self.resultsController)
         self.tidesTableView.tableHeaderView = self.searchController?.searchBar
         self.searchController?.searchResultsUpdater = self
         self.searchController?.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
 
+        for city in LocationList().citys {
+
+            let townName = LocationList().towns[city]!
+
+            for town in townName {
+
+                let title = city + town
+                filterArea.append(title)
+    
+            }
+        }
     }
 
     func updateSearchResults(for searchController: UISearchController) {
 
-        fileredArea = originalTidesData.filter({ (TidesData) -> Bool in
+        
+        filteredArea = filterArea.filter({ (cityName) -> Bool in
 
-            if TidesData.location.contains((self.searchController?.searchBar.text)!) {
+            if cityName.contains((self.searchController?.searchBar.text)!) {
 
                 return true
 
