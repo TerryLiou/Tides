@@ -9,16 +9,9 @@
 import Foundation
 import Firebase
 
-//protocol FirebaseManagerDelegate: class {
-//
-//    func manager(originTidesData: [TidesData], didgetTidesArray: [[TidesData]], didgetTidesAmount: [Int])
-//
-//}
-
 class FirebaseDataManager {
 
     static let shared = FirebaseDataManager()
-//    weak var delegate: FirebaseManagerDelegate?
 
     let reference = FIRDatabase.database().reference().child("records")
     let locationRefer = FIRDatabase.database().reference().child("locations")
@@ -54,84 +47,6 @@ class FirebaseDataManager {
             }
         })
     }
-
-//    func getTidesAmount(byDate: String) {
-//
-//        reference.queryOrdered(byChild: Constant.TideProperty.date).queryEqual(toValue: byDate).observeSingleEvent(of: .value, with: { snapshot in
-//
-//            var tidesData = [TidesData]()
-//
-//            for item in snapshot.children {
-//
-//                guard let snap = item as? FIRDataSnapshot else { return }
-//
-//                guard let result = self.getData(snapshot: snap) else { return }
-//
-//                tidesData.append(result)
-//
-//            }
-//
-//            var seletedTidesData = [TidesData]()
-//
-//            for item in tidesData {
-//                if item.order == 0 {
-//                    seletedTidesData.append(item)
-//                }
-//            }
-//
-//            let originTidesData = seletedTidesData
-//
-//            let taipeiTides = seletedTidesData.filter { (TidesData) -> Bool in
-//                return TidesData.areaID == Constant.Taipei.areaID
-//            }
-//
-//            let keelungTides = seletedTidesData.filter { (TidesData) -> Bool in
-//                return TidesData.areaID == Constant.Keelung.areaID
-//            }
-//
-//            let taoyuanTides = seletedTidesData.filter { (TidesData) -> Bool in
-//                return TidesData.areaID == Constant.Taoyuan.areaID
-//            }
-//
-//            let hsinchuTides = seletedTidesData.filter { (TidesData) -> Bool in
-//                return TidesData.areaID == Constant.Hsinchu.areaID
-//            }
-//
-//            let hsinchuCityTides = seletedTidesData.filter { (TidesData) -> Bool in
-//                return TidesData.areaID == Constant.HsinchuCity.areaID
-//            }
-//
-//            let miaoliTides = seletedTidesData.filter { (TidesData) -> Bool in
-//                return TidesData.areaID == Constant.Miaoli.areaID
-//            }
-//
-//            let changhuaTides = seletedTidesData.filter { (TidesData) -> Bool in
-//                return TidesData.areaID == Constant.Changhua.areaID
-//            }
-//
-//            let taichungTides = seletedTidesData.filter { (TidesData) -> Bool in
-//                return TidesData.areaID == Constant.Taichung.areaID
-//            }
-//
-//            let yunlinTides = seletedTidesData.filter { (TidesData) -> Bool in
-//                return TidesData.areaID == Constant.Yunlin.areaID
-//            }
-//
-//            let chiayiTides = seletedTidesData.filter({ (TidesData) -> Bool in
-//                return TidesData.areaID == Constant..areaID
-//            })
-//
-//            let dataAmount = [taipeiTides.count, keelungTides.count, taoyuanTides.count,
-//                             hsinchuTides.count, hsinchuCityTides.count, miaoliTides.count,
-//                             changhuaTides.count, taichungTides.count, yunlinTides.count]
-//
-//            let seletedTidesDataArray = [taipeiTides, keelungTides, taoyuanTides,
-//                                        hsinchuTides, hsinchuCityTides, miaoliTides,
-//                                        changhuaTides, taichungTides, yunlinTides]
-//
-//            self.delegate?.manager(originTidesData: originTidesData, didgetTidesArray: seletedTidesDataArray, didgetTidesAmount: dataAmount)
-//        })
-//    }
 
     func getStationIDByStationName(byDate: String, stationName: String, completionHandler: @escaping (_ tidesName: String) -> Void) {
 

@@ -19,9 +19,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
     var resultsController = UITableViewController()
     var filteredArea = [String]()
     var filterArea = [String]()
-//    var originalTidesData = [TidesData]()
-//    var dataAmount = [Int](repeating: 0, count: TidesDataArray.cityOrder.count)
-//    var seletedTidesData = [[TidesData]]()
     var isSatelliteMode = false
 
     // MARK: - View Life Cycle
@@ -31,8 +28,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         setUpTableView()
         searchBarSetUp()
-//        FirebaseDataManager.shared.delegate = self
-//        FirebaseDataManager.shared.getTidesAmount(byDate: "20170420")
 
     }
 
@@ -55,9 +50,16 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         guard let selectedCell = tableView.cellForRow(at: indexPath) as? TidesSearchTableViewCell else { return }
 
-            Constant.selectedStationNameFromMapView = selectedCell.tidesStationName.text!
+        Constant.selectedStationNameFromMapView = selectedCell.tidesStationName.text!
+
+        FirebaseDataManager.shared.getTidesData(byDate: "2017-04-25", stationName: selectedCell.tidesStationName.text!) { (tidesData, tidesDataCount) in
+
+            TidesDataArray.data = tidesData
+            TidesDataArray.amountOfData = tidesDataCount
 
             appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
+
+        }
 
     }
 
@@ -105,8 +107,8 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
             let cityName = LocationList().citys[indexPath.section]
             let townAmount = LocationList().towns[cityName]
             let townName = cityName + (townAmount?[indexPath.row])!
+
             cell.tidesStationName.text = townName
-//            cell.tidesStationName.text = seletedTidesData[indexPath.section][indexPath.row].location
 
         } else {
 
@@ -170,7 +172,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         }
 
-//        setTabBarVisible(visible: !tabBarIsVisible(), animated: true)
+        setTabBarVisible(visible: !tabBarIsVisible(), animated: true)
 
     }
 
@@ -205,21 +207,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
     }
 }
-
-// MARK: - FirebaseManagerDelegate
-
-//extension TidesSearchTableViewController: FirebaseManagerDelegate {
-//
-//    func manager(originTidesData: [TidesData], didgetTidesArray: [[TidesData]], didgetTidesAmount: [Int]) {
-//
-//        originalTidesData = originTidesData
-//        seletedTidesData = didgetTidesArray
-//        dataAmount = didgetTidesAmount
-//
-//        self.tidesTableView.reloadData()
-//
-//    }
-//}
 
 // MARK: - UISearchResults
 

@@ -18,20 +18,10 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var timeOfdry: UILabel!
     @IBOutlet weak var selectedDate: UILabel!
     @IBOutlet weak var selectedTide: UILabel!
+    @IBOutlet weak var lineChartView: LineChartView!
+
     var dataEntriesForLine: [ChartDataEntry] = []
     var xValue = [String]()
-    var stationName: String {
-
-        if Constant.selectedStationNameFromMapView == nil {
-
-            return "宜蘭縣蘇澳鎮"
-
-        } else {
-
-            return Constant.selectedStationNameFromMapView!
-
-        }
-    }
 
     // MARK: - Controller Life Cycle
 
@@ -39,19 +29,18 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
         super.viewDidLoad()
 
+        self.updateChartWithData()
         navigationSetUp()
         view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "paperBackground"))
 
-        FirebaseDataManager.shared.getTidesData(byDate: "2017-04-25", stationName: stationName) { (tidesData, tidesDataCount) in
-            TidesDataArray.data = tidesData
-            TidesDataArray.amountOfData = tidesDataCount
             self.imformationSetUp()
-            self.updateChartWithData()
-        }
+
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
+
         return UIStatusBarStyle.lightContent
+
     }
 
     // MARK: - updateChartWithData
@@ -174,5 +163,4 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 //        xibView.selected = currentDate
 //        PopupContainer.generatePopupWithView(xibView).show()
     }
-    @IBOutlet weak var lineChartView: LineChartView!
 }
