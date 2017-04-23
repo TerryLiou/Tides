@@ -176,17 +176,19 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
         guard let superView = send.superview as? TideAnnotationView else { return }
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+
         let areaIDIndex = TidesStation.title.index(of: superView.title.text!)!
 
-        FirebaseDataManager.shared.getTidesData(byDate: "2017-04-25", stationName: TidesStation.stationName[areaIDIndex]) { (tidesData, tidesDataCount) in
+        Constant.selectedStationNameFromMapView = TidesStation.stationName[areaIDIndex]
+
+        FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView!, stationName: TidesStation.stationName[areaIDIndex]) { (tidesData, tidesDataCount) in
 
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount
 
             appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
-        }
 
-//        Constant.selectedStationNameFromMapView = TidesStation.stationName[areaIDIndex]
+        }
     }
 
     // MARK: - IBAction

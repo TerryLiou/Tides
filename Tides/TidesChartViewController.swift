@@ -33,7 +33,7 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         navigationSetUp()
         view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "paperBackground"))
 
-            self.imformationSetUp()
+        self.imformationSetUp()
 
     }
 
@@ -158,9 +158,14 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
     }
 
     func showCalendar() {
-//        guard let xibView = Bundle.main.loadNibNamed("CalendarPopUp", owner: nil, options: nil)?[0] as? CalendarPopUp else { return }
-//        xibView.calendarDelegate = self
-//        xibView.selected = currentDate
-//        PopupContainer.generatePopupWithView(xibView).show()
+
+        let storyboard = UIStoryboard(name: "CalendarViewController", bundle: nil)
+
+        guard let calendarViewController = storyboard.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController else { return }
+
+        calendarViewController.modalPresentationStyle = .overCurrentContext
+
+        self.present(calendarViewController, animated: true, completion: nil)
+
     }
 }

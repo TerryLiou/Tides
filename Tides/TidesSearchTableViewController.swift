@@ -52,7 +52,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         Constant.selectedStationNameFromMapView = selectedCell.tidesStationName.text!
 
-        FirebaseDataManager.shared.getTidesData(byDate: "2017-04-25", stationName: selectedCell.tidesStationName.text!) { (tidesData, tidesDataCount) in
+        FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView!, stationName: selectedCell.tidesStationName.text!) { (tidesData, tidesDataCount) in
 
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount
@@ -60,7 +60,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
             appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
 
         }
-
     }
 
     // MARK: - UITableViewDataSource

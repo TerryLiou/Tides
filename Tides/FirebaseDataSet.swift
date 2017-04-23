@@ -43,6 +43,7 @@ class FirebaseDataManager {
                     tidesDataCount = tidesData.count
 
                     completionHandler(tidesData, tidesDataCount!)
+
                 })
             }
         })

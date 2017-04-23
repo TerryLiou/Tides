@@ -13,6 +13,8 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let formatter = DateFormatter()
+    let currentDate = Date()
 
     override init() {
 
@@ -26,11 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let chartVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
 
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        let today = formatter.string(from: currentDate)
+        
+        Constant.selectedDateFromCalenderView = today
+
         vc.view.backgroundColor = UIColor.orange
 
         window?.rootViewController = vc
 
-        FirebaseDataManager.shared.getTidesData(byDate: "2017-04-25", stationName: "宜蘭縣蘇澳鎮") { (tidesData, tidesDataCount) in
+        FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView!, stationName: Constant.selectedStationNameFromMapView ?? "宜蘭縣蘇澳鎮") { (tidesData, tidesDataCount) in
 
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount
