@@ -31,10 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         formatter.dateFormat = "yyyy-MM-dd"
         
         let today = formatter.string(from: currentDate)
+        let lunchImageView = UIImageView(frame: vc.view.bounds)
+
+        lunchImageView.contentMode = .scaleAspectFill
+        lunchImageView.image = #imageLiteral(resourceName: "tidesBackgroud")
+
+        vc.view.addSubview(lunchImageView)
         
         Constant.selectedDateFromCalenderView = today
-
-        vc.view.backgroundColor = UIColor.orange
 
         window?.rootViewController = vc
 
