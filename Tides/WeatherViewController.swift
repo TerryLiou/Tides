@@ -10,18 +10,110 @@ import UIKit
 
 class WeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var mainWeatherImage: UIImageView!
     @IBOutlet weak var weatherCollectionView: UICollectionView!
+    @IBOutlet weak var rainFall: UILabel!
+    @IBOutlet weak var windDiractionImage: UIImageView!
+    @IBOutlet weak var windStatus: UILabel!
+    @IBOutlet weak var humitity: UILabel!
+    @IBOutlet weak var mianTemperature: UILabel!
 
     let layout = UICollectionViewFlowLayout()
-
+    let currentDate = Date()
+    let testCalendar = Calendar.current
+    let formetter = DateFormatter()
+    var rotatedAngle: Float = 0.0
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        setUpView()
+        setUpCellView()
+        setUpInformation(byWeatherData: Constant.initWertherData!)
+        self.navigationItem.title = Constant.selectedStationNameFromMapView
 
     }
 
-    func setUpView() {
+    func setUpInformation(byWeatherData data: WeatherDateAPI) {
+
+        rainFall.text = data.rainfall
+        windStatus.text = data.windSpeed
+        humitity.text = data.humidity
+        mianTemperature.text = data.temperature + "˚C"
+
+        if data.status.characters.contains("雨") {
+                
+            mainWeatherImage.image = #imageLiteral(resourceName: "largeStorm")
+
+        } else if data.status.characters.contains("雷") {
+
+            mainWeatherImage.image = #imageLiteral(resourceName: "largeThunderRain")
+
+        } else if data.status.characters.contains("雲") && data.status.characters.contains("晴"){
+                
+            mainWeatherImage.image = #imageLiteral(resourceName: "largeClouded")
+                
+        } else if data.status.characters.contains("晴") {
+                
+            mainWeatherImage.image = #imageLiteral(resourceName: "largeSun")
+                
+        } else {
+                
+            mainWeatherImage.image = #imageLiteral(resourceName: "largeCloudy")
+        }
+
+        windDiractionImage.transform = windDiractionImage.transform.rotated(by: CGFloat(-rotatedAngle))
+
+        if data.windDiraction.characters.contains("東") && data.windDiraction.characters.contains("北") {
+
+            windDiractionImage.transform = windDiractionImage.transform.rotated(by: CGFloat(Constant.CompassByPi.en))
+
+            rotatedAngle = Constant.CompassByPi.en
+
+        } else if data.windDiraction.characters.contains("東") && data.windDiraction.characters.contains("南") {
+        
+            windDiractionImage.transform = windDiractionImage.transform.rotated(by: CGFloat(Constant.CompassByPi.es))
+
+            rotatedAngle = Constant.CompassByPi.es
+
+        } else if data.windDiraction.characters.contains("西") && data.windDiraction.characters.contains("北") {
+
+            windDiractionImage.transform = windDiractionImage.transform.rotated(by: CGFloat(Constant.CompassByPi.wn))
+
+            rotatedAngle = Constant.CompassByPi.wn
+
+        } else if data.windDiraction.characters.contains("西") && data.windDiraction.characters.contains("南") {
+
+            windDiractionImage.transform = windDiractionImage.transform.rotated(by: CGFloat(Constant.CompassByPi.ws))
+
+            rotatedAngle = Constant.CompassByPi.ws
+
+        } else if data.windDiraction.characters.contains("東") {
+
+            windDiractionImage.transform = windDiractionImage.transform.rotated(by: CGFloat(Constant.CompassByPi.e))
+
+            rotatedAngle = Constant.CompassByPi.e
+
+        } else if data.windDiraction.characters.contains("南") {
+
+            windDiractionImage.transform = windDiractionImage.transform.rotated(by: CGFloat(Constant.CompassByPi.s))
+
+            rotatedAngle = Constant.CompassByPi.s
+
+        } else if data.windDiraction.characters.contains("西") {
+
+            windDiractionImage.transform = windDiractionImage.transform.rotated(by: CGFloat(Constant.CompassByPi.w))
+
+            rotatedAngle = Constant.CompassByPi.w
+
+        } else {
+
+            rotatedAngle = 0.0
+            return
+
+        }
+    }
+
+    func setUpCellView() {
 
         weatherCollectionView.delegate = self
         weatherCollectionView.dataSource = self
@@ -48,10 +140,22 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
         // swiftlint:disable force_cast
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell", for: indexPath) as! WeatherCollectionViewCell
         // swiftlint:enable force_cast
-        cell.weatherImage.image = #imageLiteral(resourceName: "cloud")
         cell.backgroundColor = UIColor.white
+        cell.setUpCellView(indexPath.row)
 
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        let cellMoment = testCalendar.date(byAdding: .hour, value: indexPath.row, to: currentDate)!
+        
+        for weatherData in Constant.wertherDatas {
+            
+            if cellMoment >= weatherData.startTime && cellMoment <= weatherData.endTime {
+
+                self.setUpInformation(byWeatherData: weatherData)
+            }
+        }
+    }
 }

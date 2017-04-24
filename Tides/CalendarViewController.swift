@@ -179,7 +179,7 @@ class CalendarViewController: UIViewController {
 
             Constant.selectedDateFromCalenderView = selectedDate
 
-            FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView!, stationName: Constant.selectedStationNameFromMapView ?? "宜蘭縣蘇澳鎮") { (tidesData, tidesDataCount) in
+            FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView!, stationName: Constant.selectedStationNameFromMapView ) { (tidesData, tidesDataCount) in
                 
                 TidesDataArray.data = tidesData
                 TidesDataArray.amountOfData = tidesDataCount

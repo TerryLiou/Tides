@@ -11,8 +11,10 @@ import UIKit
 
 struct Constant {
 
-    static var selectedStationNameFromMapView: String?
+    static var selectedStationNameFromMapView = "宜蘭縣蘇澳鎮"
     static var selectedDateFromCalenderView: String?
+    static var wertherDatas = [WeatherDateAPI]()
+    static var initWertherData: WeatherDateAPI?
 
     struct ColorCode {
 
@@ -24,6 +26,18 @@ struct Constant {
         static let greenBlue3 = UIColor.init(red: 6/255, green: 100/255, blue: 140/255, alpha: 1)
         static let greenBlue2 = UIColor.init(red: 15/255, green: 129/255, blue: 199/255, alpha: 1)
         static let greenBlue1 = UIColor.init(red: 13/255, green: 226/255, blue: 234/255, alpha: 1)
+
+    }
+
+    struct CompassByPi {
+
+        static let en = Float.pi / 4
+        static let e = Float.pi / 2
+        static let es = Float.pi * 3 / 4
+        static let s = Float.pi
+        static let ws = Float.pi * 5 / 4
+        static let w = Float.pi * 3 / 2
+        static let wn = -(Float.pi / 4)
 
     }
 

@@ -14,10 +14,11 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
     // MARK: - Property
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var containerView: UIView!
+
     let locationManager = CLLocationManager()
     var userCoordinate = CLLocation()
     var tidesForMap = [Annotations]()
-    @IBOutlet var containerView: UIView!
 
     // MARk: - Life Cycle
 

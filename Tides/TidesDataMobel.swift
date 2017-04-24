@@ -40,3 +40,27 @@ struct TidesDataArray {
     static var amountOfData = Int()
 
 }
+
+struct WeatherDateAPI {
+    
+    let startTime: Date
+    let endTime: Date
+    let status: String
+    let rainfall: String
+    let temperature: String
+    let windDiraction: String
+    let windSpeed: String
+    let humidity: String
+    
+    init(startTime: Date, endTime: Date, status: String, rainfall: String, temperature: String, windDiraction: String, windSpeed: String, humidity: String) {
+        
+        self.startTime = startTime
+        self.endTime = endTime
+        self.status = status
+        self.rainfall = rainfall
+        self.temperature = temperature
+        self.windDiraction = windDiraction
+        self.windSpeed = windSpeed
+        self.humidity = humidity
+    }
+}

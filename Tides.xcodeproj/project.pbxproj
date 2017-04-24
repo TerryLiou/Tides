@@ -11,6 +11,8 @@
 		7B267B441EAC585C000BC16C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267B431EAC585C000BC16C /* CalendarViewController.swift */; };
 		7B267B461EAC5A00000BC16C /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267B451EAC5A00000BC16C /* CustomCell.swift */; };
 		7B267B481EAC5A91000BC16C /* MonthList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267B471EAC5A91000BC16C /* MonthList.swift */; };
+		7B267B4A1EACF38E000BC16C /* weatherDateCatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267B491EACF38E000BC16C /* weatherDateCatcher.swift */; };
+		7B267B4C1EACF663000BC16C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B267B4B1EACF663000BC16C /* Alamofire.framework */; };
 		7B95949C1EA75B2A006163C0 /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B95949B1EA75B2A006163C0 /* LocationList.swift */; };
 		8A045F171E84DE7100DFC708 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A045F161E84DE7100DFC708 /* Charts.framework */; };
 		8A045F191E8512E200DFC708 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045F181E8512E200DFC708 /* Constant.swift */; };
@@ -49,6 +51,8 @@
 		7B267B431EAC585C000BC16C /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		7B267B451EAC5A00000BC16C /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		7B267B471EAC5A91000BC16C /* MonthList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthList.swift; sourceTree = "<group>"; };
+		7B267B491EACF38E000BC16C /* weatherDateCatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weatherDateCatcher.swift; sourceTree = "<group>"; };
+		7B267B4B1EACF663000BC16C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Tides-edxccbsjpwdoonczdtrhhzpwovax/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		7B95949B1EA75B2A006163C0 /* LocationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
 		8366772A2BBA975E5209C408 /* Pods-Tides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tides/Pods-Tides.debug.xcconfig"; sourceTree = "<group>"; };
 		8A045F161E84DE7100DFC708 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Tides-dthqtsiogjbxrgfsocmontjbwvfj/Build/Products/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B267B4C1EACF663000BC16C /* Alamofire.framework in Frameworks */,
 				8AF5E9031E8BBFA8009151BA /* CoreLocation.framework in Frameworks */,
 				8A75F1641E8642EA00A6F5F3 /* JTAppleCalendar.framework in Frameworks */,
 				8A045F171E84DE7100DFC708 /* Charts.framework in Frameworks */,
@@ -151,6 +156,7 @@
 				8A045F181E8512E200DFC708 /* Constant.swift */,
 				8AF5E9001E8BA4C3009151BA /* AnnotationMobel.swift */,
 				8A0759871E829B7400E15693 /* FirebaseDataSet.swift */,
+				7B267B491EACF38E000BC16C /* weatherDateCatcher.swift */,
 				8AF5E9041E8C1866009151BA /* DistanceCalculation.swift */,
 				7B95949B1EA75B2A006163C0 /* LocationList.swift */,
 				8A0759831E82070100E15693 /* TidesDataMobel.swift */,
@@ -199,6 +205,7 @@
 		A805EE903706DF9AD6DE9FFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B267B4B1EACF663000BC16C /* Alamofire.framework */,
 				8AF5E9021E8BBFA8009151BA /* CoreLocation.framework */,
 				8A75F1631E8642EA00A6F5F3 /* JTAppleCalendar.framework */,
 				8A045F161E84DE7100DFC708 /* Charts.framework */,
@@ -363,6 +370,7 @@
 				8A19B7D91E7FD8CC00B7A275 /* AppDelegate.swift in Sources */,
 				8A77E1B01E87604B0031A038 /* TidesSearchTableViewController.swift in Sources */,
 				7B267B441EAC585C000BC16C /* CalendarViewController.swift in Sources */,
+				7B267B4A1EACF38E000BC16C /* weatherDateCatcher.swift in Sources */,
 				8A61B3301E9F0BE1004A8747 /* MoonAgeController.swift in Sources */,
 				8AFD96AD1E8B22CB000CC06D /* MapSearchController.swift in Sources */,
 				8A0759841E82070100E15693 /* TidesDataMobel.swift in Sources */,

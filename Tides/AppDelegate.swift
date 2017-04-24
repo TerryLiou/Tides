@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = vc
 
-        FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView!, stationName: Constant.selectedStationNameFromMapView ?? "宜蘭縣蘇澳鎮") { (tidesData, tidesDataCount) in
+        FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView!, stationName: Constant.selectedStationNameFromMapView) { (tidesData, tidesDataCount) in
 
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount
@@ -46,6 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
 
             delegate.window?.rootViewController = chartVC
+
+        }
+
+        WeatherDataCatcher.shared.getWeatherFromAPI { (weatherDatas) in
+
+            Constant.wertherDatas = weatherDatas
+
+            Constant.initWertherData = weatherDatas[0]
 
         }
 
