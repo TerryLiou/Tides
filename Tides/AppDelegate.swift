@@ -57,6 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
 
+        DateManager.shared.getFirstDay()
+
         return true
 
     }

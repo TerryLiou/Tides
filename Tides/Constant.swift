@@ -15,6 +15,7 @@ struct Constant {
     static var selectedDateFromCalenderView: String?
     static var wertherDatas = [WeatherDateAPI]()
     static var initWertherData: WeatherDateAPI?
+    static var firstDay: Date?
 
     struct ColorCode {
 

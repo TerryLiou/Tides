@@ -12,6 +12,8 @@ class MoonPhaseCell: UICollectionViewCell {
 
     @IBOutlet weak var moonPhase: UIImageView!
     @IBOutlet weak var date: UILabel!
+    let normalCalendar = Calendar.current
+    let formatter = DateFormatter()
 
     override func awakeFromNib() {
 
@@ -22,7 +24,14 @@ class MoonPhaseCell: UICollectionViewCell {
     func configCell(IndexPath indexPath: IndexPath) {
 
         moonPhase.image = UIImage(named: String(indexPath.row))
-        date.text = "12/31"
+
+        let showedDate = normalCalendar.date(byAdding: .day, value: indexPath.row, to: Constant.firstDay!)!
+
+        formatter.dateFormat = "MM/dd"
+
+        let showedDateString = formatter.string(from: showedDate)
+
+        date.text = showedDateString
     }
 
 }
