@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,10 +23,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Blb-mG-GFw">
-                                <rect key="frame" x="80" y="163" width="215" height="215"/>
+                                <rect key="frame" x="80.5" y="164" width="214" height="214"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="215" id="GdR-fo-DkC"/>
-                                    <constraint firstAttribute="width" constant="215" id="hR2-bZ-InN"/>
+                                    <constraint firstAttribute="width" secondItem="Blb-mG-GFw" secondAttribute="height" multiplier="1:1" id="HBy-vi-Tjc"/>
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2SF-e9-idF">
@@ -128,6 +128,7 @@
                             <constraint firstItem="jy7-uE-k48" firstAttribute="top" secondItem="Blb-mG-GFw" secondAttribute="bottom" id="mdq-CQ-2nB"/>
                             <constraint firstItem="uzx-vy-aYf" firstAttribute="leading" secondItem="Y8E-Iy-mIc" secondAttribute="leading" constant="15" id="oYC-hc-McZ"/>
                             <constraint firstItem="jp4-Cz-Joh" firstAttribute="top" secondItem="BR0-S2-E8k" secondAttribute="bottom" constant="10" id="oqd-ZY-Dgb"/>
+                            <constraint firstItem="Blb-mG-GFw" firstAttribute="top" secondItem="pOF-Lj-Qx9" secondAttribute="bottom" constant="100" id="qgL-ro-yeQ"/>
                             <constraint firstItem="H8c-no-6W9" firstAttribute="top" secondItem="2SF-e9-idF" secondAttribute="bottom" id="qv3-J9-kCY"/>
                             <constraint firstItem="zwr-Bt-9fB" firstAttribute="top" secondItem="pOF-Lj-Qx9" secondAttribute="bottom" constant="20" id="vaB-H5-Fkv"/>
                             <constraint firstAttribute="trailing" secondItem="H8c-no-6W9" secondAttribute="trailing" constant="10" id="vic-hN-svf"/>
