@@ -13,5 +13,7 @@ target 'Tides' do
   pod 'Firebase/Database'
   pod 'JTAppleCalendar'
   pod 'Alamofire', '~> 4.4'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 end

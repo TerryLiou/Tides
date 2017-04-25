@@ -14,6 +14,7 @@
 		7B267B4A1EACF38E000BC16C /* weatherDateCatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267B491EACF38E000BC16C /* weatherDateCatcher.swift */; };
 		7B267B4C1EACF663000BC16C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B267B4B1EACF663000BC16C /* Alamofire.framework */; };
 		7B9535791EADF340001A6066 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9535781EADF340001A6066 /* DateManager.swift */; };
+		7B95357B1EAE32C2001A6066 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B95357A1EAE32C2001A6066 /* AdSupport.framework */; };
 		7B95949C1EA75B2A006163C0 /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B95949B1EA75B2A006163C0 /* LocationList.swift */; };
 		8A045F171E84DE7100DFC708 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A045F161E84DE7100DFC708 /* Charts.framework */; };
 		8A045F191E8512E200DFC708 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045F181E8512E200DFC708 /* Constant.swift */; };
@@ -27,7 +28,6 @@
 		8A19B7D91E7FD8CC00B7A275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B7D81E7FD8CC00B7A275 /* AppDelegate.swift */; };
 		8A19B7DE1E7FD8CC00B7A275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */; };
 		8A19B7E01E7FD8CC00B7A275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A19B7DF1E7FD8CC00B7A275 /* Assets.xcassets */; };
-		8A19B7E31E7FD8CC00B7A275 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A19B7E11E7FD8CC00B7A275 /* LaunchScreen.storyboard */; };
 		8A19B7EC1E80D1FA00B7A275 /* TidesChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */; };
 		8A61B3301E9F0BE1004A8747 /* MoonAgeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61B32F1E9F0BE1004A8747 /* MoonAgeController.swift */; };
 		8A61B3331E9F18CC004A8747 /* MoonPhaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61B3311E9F18CC004A8747 /* MoonPhaseCell.swift */; };
@@ -55,6 +55,7 @@
 		7B267B491EACF38E000BC16C /* weatherDateCatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weatherDateCatcher.swift; sourceTree = "<group>"; };
 		7B267B4B1EACF663000BC16C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Tides-edxccbsjpwdoonczdtrhhzpwovax/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		7B9535781EADF340001A6066 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		7B95357A1EAE32C2001A6066 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		7B95949B1EA75B2A006163C0 /* LocationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
 		8366772A2BBA975E5209C408 /* Pods-Tides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tides/Pods-Tides.debug.xcconfig"; sourceTree = "<group>"; };
 		8A045F161E84DE7100DFC708 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Tides-dthqtsiogjbxrgfsocmontjbwvfj/Build/Products/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
@@ -70,7 +71,6 @@
 		8A19B7D81E7FD8CC00B7A275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A19B7DD1E7FD8CC00B7A275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A19B7DF1E7FD8CC00B7A275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8A19B7E21E7FD8CC00B7A275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A19B7E41E7FD8CC00B7A275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A19B7EB1E80D1FA00B7A275 /* TidesChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidesChartViewController.swift; sourceTree = "<group>"; };
 		8A61B32F1E9F0BE1004A8747 /* MoonAgeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonAgeController.swift; sourceTree = "<group>"; };
@@ -95,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B95357B1EAE32C2001A6066 /* AdSupport.framework in Frameworks */,
 				7B267B4C1EACF663000BC16C /* Alamofire.framework in Frameworks */,
 				8AF5E9031E8BBFA8009151BA /* CoreLocation.framework in Frameworks */,
 				8A75F1641E8642EA00A6F5F3 /* JTAppleCalendar.framework in Frameworks */,
@@ -145,7 +146,6 @@
 				7B267B3E1EAC541F000BC16C /* Calendar */,
 				8A19B7DF1E7FD8CC00B7A275 /* Assets.xcassets */,
 				8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */,
-				8A19B7E11E7FD8CC00B7A275 /* LaunchScreen.storyboard */,
 				8A19B7E41E7FD8CC00B7A275 /* Info.plist */,
 				8A0759851E824D7A00E15693 /* GoogleService-Info.plist */,
 			);
@@ -208,6 +208,7 @@
 		A805EE903706DF9AD6DE9FFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B95357A1EAE32C2001A6066 /* AdSupport.framework */,
 				7B267B4B1EACF663000BC16C /* Alamofire.framework */,
 				8AF5E9021E8BBFA8009151BA /* CoreLocation.framework */,
 				8A75F1631E8642EA00A6F5F3 /* JTAppleCalendar.framework */,
@@ -230,7 +231,8 @@
 				8A19B7D31E7FD8CC00B7A275 /* Resources */,
 				5EA25EC6BCF00D1A05FE878C /* [CP] Embed Pods Frameworks */,
 				486715D70BA48190305A9860 /* [CP] Copy Pods Resources */,
-				8A19B7EA1E80CCB800B7A275 /* ShellScript */,
+				8A19B7EA1E80CCB800B7A275 /* SwiftLint */,
+				7BAD9B1B1EAEE15B006DB809 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -253,7 +255,7 @@
 				TargetAttributes = {
 					8A19B7D41E7FD8CC00B7A275 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 99E6PZ48K5;
+						DevelopmentTeam = 7RBAC4M77J;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -282,7 +284,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A61B3341E9F18CC004A8747 /* MoonPhaseCell.xib in Resources */,
-				8A19B7E31E7FD8CC00B7A275 /* LaunchScreen.storyboard in Resources */,
 				8AF5E91B1E8E18D6009151BA /* TideAnnotationView.xib in Resources */,
 				8A0759861E824D7A00E15693 /* GoogleService-Info.plist in Resources */,
 				8A19B7E01E7FD8CC00B7A275 /* Assets.xcassets in Resources */,
@@ -326,13 +327,28 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tides/Pods-Tides-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8A19B7EA1E80CCB800B7A275 /* ShellScript */ = {
+		7BAD9B1B1EAEE15B006DB809 /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" cad20e803dfe5de698fe60b3e8458a4bb6cd6f56 a8ab141ffaf1ad68a9f87b9a97aefe0358bcdb61d78d85e3f45664793f37d7c9";
+		};
+		8A19B7EA1E80CCB800B7A275 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,14 +412,6 @@
 				8A19B7DD1E7FD8CC00B7A275 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8A19B7E11E7FD8CC00B7A275 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A19B7E21E7FD8CC00B7A275 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -505,15 +513,17 @@
 			baseConfigurationReference = 8366772A2BBA975E5209C408 /* Pods-Tides.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 99E6PZ48K5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7RBAC4M77J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/JTAppleCalendar",
 				);
 				INFOPLIST_FILE = Tides/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TerryLion.Tides;
+				PRODUCT_BUNDLE_IDENTIFIER = TerryLion.Tides.tw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -523,15 +533,17 @@
 			baseConfigurationReference = 44BDC1BF2F6807E53B2CA086 /* Pods-Tides.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 99E6PZ48K5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7RBAC4M77J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/JTAppleCalendar",
 				);
 				INFOPLIST_FILE = Tides/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TerryLion.Tides;
+				PRODUCT_BUNDLE_IDENTIFIER = TerryLion.Tides.tw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

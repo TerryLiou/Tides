@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 class WeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 

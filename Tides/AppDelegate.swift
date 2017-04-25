@@ -8,12 +8,16 @@
 
 import UIKit
 import Firebase
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+
     let formatter = DateFormatter()
+
     let currentDate = Date()
 
     override init() {
@@ -24,46 +28,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        setUpAppInitionalData()
+
+        Fabric.with([Crashlytics.self])
+
+        return true
+
+    }
+
+    func setUpAppInitionalData() {
+
         let vc = UIViewController()
+
+        let lunchImageView = UIImageView(frame: vc.view.bounds)
+
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+
         let chartVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
 
         formatter.dateFormat = "yyyy-MM-dd"
-        
+
         let today = formatter.string(from: currentDate)
-        let lunchImageView = UIImageView(frame: vc.view.bounds)
-
-        lunchImageView.contentMode = .scaleAspectFill
-        lunchImageView.image = #imageLiteral(resourceName: "tidesBackgroud")
-
-        vc.view.addSubview(lunchImageView)
         
         Constant.selectedDateFromCalenderView = today
+
+        lunchImageView.contentMode = .scaleAspectFill
+
+        lunchImageView.image = #imageLiteral(resourceName: "tidesBackgroud")
+        
+        vc.view.addSubview(lunchImageView)
 
         window?.rootViewController = vc
 
         FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView!, stationName: Constant.selectedStationNameFromMapView) { (tidesData, tidesDataCount) in
-
+            
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount
-
+            
             guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
-
+            
             delegate.window?.rootViewController = chartVC
-
+            
         }
-
+        
         WeatherDataCatcher.shared.getWeatherFromAPI { (weatherDatas) in
-
+            
             Constant.wertherDatas = weatherDatas
-
+            
             Constant.initWertherData = weatherDatas[0]
-
+            
         }
 
         DateManager.shared.getFirstDay()
-
-        return true
 
     }
 }

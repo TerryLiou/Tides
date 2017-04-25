@@ -15,6 +15,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
     // MARK: - Property
 
     @IBOutlet weak var tidesTableView: UITableView!
+
     var searchController: UISearchController?
     var resultsController = UITableViewController()
     var filteredArea = [String]()
@@ -22,6 +23,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
     var isSatelliteMode = false
 
     // MARK: - View Life Cycle
+
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -68,7 +70,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         if tableView === tidesTableView {
 
-//            return TidesDataArray.cityOrder.count
             return LocationList().citys.count
 
         } else {
@@ -82,7 +83,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         if tableView === tidesTableView {
 
-//            return dataAmount[section]
             let cityName = LocationList().citys[section]
             let townAmount = LocationList().towns[cityName]
 
@@ -114,6 +114,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
             cell.tidesStationName.text = filteredArea[indexPath.row]
 
         }
+
         return cell
     }
 
@@ -128,9 +129,11 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
         if tableView === tidesTableView {
 
             let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 25))
+
             headerView.backgroundColor = Constant.ColorCode.oceanBoatBlue
 
             let label = UILabel(frame: CGRect(x: 10, y: 5, width: view.bounds.width, height: 20))
+
             label.text = LocationList().citys[section]
             label.textColor = UIColor.white
 
@@ -180,22 +183,28 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
     func setTabBarVisible(visible: Bool, animated: Bool) {
 
         // hide tab bar
+
         let frame = self.tabBarController?.tabBar.frame
         let height = frame?.size.height
         let offsetY = (visible ? -height! : height)
 
         // zero duration means no animation
+
         let duration: TimeInterval = (animated ? 0.3 : 0.0)
 
         // animate tabBar
+
         if frame != nil {
 
             UIView.animate(withDuration: duration) {
+
                 self.tabBarController?.tabBar.frame = frame!.offsetBy(dx: 0, dy: offsetY!)
                 self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height + offsetY!)
                 self.view.setNeedsDisplay()
                 self.view.layoutIfNeeded()
+
                 return
+
             }
         }
     }
@@ -226,6 +235,8 @@ extension TidesSearchTableViewController: UISearchResultsUpdating {
         definesPresentationContext = true
 
         for city in LocationList().citys {
+
+            // Force Case: Unrap town name list from dictionary in Contant file alway successed.
 
             let townName = LocationList().towns[city]!
 
