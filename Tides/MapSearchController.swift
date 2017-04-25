@@ -19,7 +19,7 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
     let locationManager = CLLocationManager()
     var userCoordinate = CLLocation()
     var tidesForMap = [Annotations]()
-
+    
     // MARk: - Life Cycle
 
     override func viewDidLoad() {
@@ -30,6 +30,13 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+
+        super.viewWillAppear(animated)
+
+        print("viewWillAppear")
+
+    }
     override func viewDidDisappear(_ animated: Bool) {
 
         super.viewDidDisappear(animated)
@@ -63,33 +70,39 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
         locationManager.delegate = self
 
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-        locationManager.requestWhenInUseAuthorization()
 
-        if CLLocationManager.authorizationStatus() == .notDetermined {
-
-            locationManager.startUpdatingLocation()
-            locationManager.requestWhenInUseAuthorization()
-
-        } else if CLLocationManager.authorizationStatus() == .denied {
-
-            let alertController = UIAlertController(title: "定位權限已關閉",
-                                                    message: "如果要變更權限，請至設定 > 隱私權 > 定位服務 開啟",
-                                                    preferredStyle: .alert)
-
-            let okAction = UIAlertAction(title: "確認", style: .default, handler: nil)
-
-            alertController.addAction(okAction)
-
-            self.present(alertController, animated: true, completion: nil)
-
-        } else if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-
-            locationManager.startUpdatingLocation()
-
-        }
+        getAuthorization()
 
         locationManager.distanceFilter = CLLocationDistance(10)
 
+    }
+
+    func getAuthorization() {
+
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+
+            locationManager.requestWhenInUseAuthorization()
+
+            locationManager.startUpdatingLocation()
+            
+        } else if CLLocationManager.authorizationStatus() == .denied || CLLocationManager.authorizationStatus() == .restricted {
+            
+            let alertController = UIAlertController(title: "定位權限已關閉",
+                                                    message: "如果要變更權限，請至設定 > 隱私權 > 定位服務 開啟",
+                                                    preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "確認", style: .default, handler: nil)
+            
+            alertController.addAction(okAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+        } else if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            
+            locationManager.startUpdatingLocation()
+            
+        }
+        
     }
 
     func addAnnotations() {

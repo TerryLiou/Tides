@@ -44,7 +44,7 @@ class MoonAgeController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
 
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
 
         moonPhaseCollection.selectItem(at: Constant.firstDayMoonCellIndexPath!, animated: true, scrollPosition: .centeredHorizontally)
 

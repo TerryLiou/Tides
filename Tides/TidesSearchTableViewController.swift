@@ -33,6 +33,14 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        print("viewWillAppear01")
+        
+    }
+
     // MARK: - UITableViewDelegate
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -237,7 +245,6 @@ extension TidesSearchTableViewController: UISearchResultsUpdating {
         for city in LocationList().citys {
 
             // Force Case: Unrap town name list from dictionary in Contant file alway successed.
-
             let townName = LocationList().towns[city]!
 
             for town in townName {

@@ -16,6 +16,7 @@
 		7B9535791EADF340001A6066 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9535781EADF340001A6066 /* DateManager.swift */; };
 		7B95357B1EAE32C2001A6066 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B95357A1EAE32C2001A6066 /* AdSupport.framework */; };
 		7B95949C1EA75B2A006163C0 /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B95949B1EA75B2A006163C0 /* LocationList.swift */; };
+		7BAD9B3D1EAF556D006DB809 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAD9B3C1EAF556D006DB809 /* LaunchScreen.storyboard */; };
 		8A045F171E84DE7100DFC708 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A045F161E84DE7100DFC708 /* Charts.framework */; };
 		8A045F191E8512E200DFC708 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045F181E8512E200DFC708 /* Constant.swift */; };
 		8A0759841E82070100E15693 /* TidesDataMobel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0759831E82070100E15693 /* TidesDataMobel.swift */; };
@@ -57,6 +58,7 @@
 		7B9535781EADF340001A6066 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		7B95357A1EAE32C2001A6066 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		7B95949B1EA75B2A006163C0 /* LocationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
+		7BAD9B3C1EAF556D006DB809 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8366772A2BBA975E5209C408 /* Pods-Tides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tides/Pods-Tides.debug.xcconfig"; sourceTree = "<group>"; };
 		8A045F161E84DE7100DFC708 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Tides-dthqtsiogjbxrgfsocmontjbwvfj/Build/Products/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
 		8A045F181E8512E200DFC708 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				7B267B3E1EAC541F000BC16C /* Calendar */,
 				8A19B7DF1E7FD8CC00B7A275 /* Assets.xcassets */,
 				8A19B7DC1E7FD8CC00B7A275 /* Main.storyboard */,
+				7BAD9B3C1EAF556D006DB809 /* LaunchScreen.storyboard */,
 				8A19B7E41E7FD8CC00B7A275 /* Info.plist */,
 				8A0759851E824D7A00E15693 /* GoogleService-Info.plist */,
 			);
@@ -283,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BAD9B3D1EAF556D006DB809 /* LaunchScreen.storyboard in Resources */,
 				8A61B3341E9F18CC004A8747 /* MoonPhaseCell.xib in Resources */,
 				8AF5E91B1E8E18D6009151BA /* TideAnnotationView.xib in Resources */,
 				8A0759861E824D7A00E15693 /* GoogleService-Info.plist in Resources */,
@@ -520,6 +524,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/JTAppleCalendar",
 				);
 				INFOPLIST_FILE = Tides/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TerryLion.Tides.tw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -540,6 +545,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/JTAppleCalendar",
 				);
 				INFOPLIST_FILE = Tides/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TerryLion.Tides.tw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
