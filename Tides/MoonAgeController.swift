@@ -42,6 +42,14 @@ class MoonAgeController: UIViewController {
 
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+
+        super.viewDidAppear(true)
+
+        moonPhaseCollection.selectItem(at: Constant.firstDayMoonCellIndexPath!, animated: true, scrollPosition: .centeredHorizontally)
+
+    }
+
     // MARK: - setUp Surroundings
 
     func initLunarView() {
@@ -143,9 +151,7 @@ extension MoonAgeController: UICollectionViewDelegate, UICollectionViewDataSourc
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoonPhaseCell", for: indexPath) as! MoonPhaseCell
         // swiftlint:enable force_cast
 
-        cell.configCell(IndexPath: indexPath)
-
-        return cell
+        return cell.configCell(IndexPath: indexPath.row)
 
     }
 

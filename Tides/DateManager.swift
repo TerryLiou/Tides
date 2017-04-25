@@ -31,6 +31,7 @@ class DateManager {
             let firstDay = normalCalendar.date(byAdding: .day, value: -indexRow, to: currentDate)
 
             Constant.firstDay = firstDay!
+            Constant.firstDayMoonCellIndexPath = IndexPath(row: indexRow, section: 0)
 
         } else {
 
@@ -39,6 +40,7 @@ class DateManager {
             let firstDay = normalCalendar.date(byAdding: .day, value: -indexRow, to: currentDate)
 
             Constant.firstDay = firstDay!
+            Constant.firstDayMoonCellIndexPath = IndexPath(row: indexRow, section: 0)
 
         }
     }

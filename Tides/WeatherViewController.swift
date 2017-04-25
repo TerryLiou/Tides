@@ -11,6 +11,8 @@ import Crashlytics
 
 class WeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    //MARK: - Property
+
     @IBOutlet weak var mainWeatherImage: UIImageView!
     @IBOutlet weak var weatherCollectionView: UICollectionView!
     @IBOutlet weak var rainFall: UILabel!
@@ -24,7 +26,9 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
     let testCalendar = Calendar.current
     let formetter = DateFormatter()
     var rotatedAngle: Float = 0.0
-    
+
+    //MARK: - Life Cycle
+
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -119,16 +123,21 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
         weatherCollectionView.delegate = self
         weatherCollectionView.dataSource = self
         weatherCollectionView.backgroundColor = UIColor.white
+
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 100, height: 110)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+
         weatherCollectionView.collectionViewLayout = layout
+
         let weatherCollectionViewCell = UINib.init(nibName: "WeatherCollectionViewCell", bundle: nil)
         weatherCollectionView.register(weatherCollectionViewCell, forCellWithReuseIdentifier: "WeatherCollectionViewCell")
 
     }
+
+    //MARK: - CollectionView DataSource
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
@@ -141,14 +150,17 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
         // swiftlint:disable force_cast
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell", for: indexPath) as! WeatherCollectionViewCell
         // swiftlint:enable force_cast
-        cell.backgroundColor = UIColor.white
-        cell.setUpCellView(indexPath.row)
 
-        return cell
+        cell.backgroundColor = UIColor.white
+
+        return cell.setUpCellView(indexPath.row)
     }
+
+    //MARK: - CollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+        // Force Case: Date from calendar by currentDate always successed.
         let cellMoment = testCalendar.date(byAdding: .hour, value: indexPath.row, to: currentDate)!
         
         for weatherData in Constant.wertherDatas {

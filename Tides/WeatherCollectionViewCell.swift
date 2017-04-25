@@ -23,8 +23,9 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
     }
 
-    func setUpCellView(_ rowNumber: Int) {
+    func setUpCellView(_ rowNumber: Int) -> WeatherCollectionViewCell {
 
+        // Force Case: Date from calendar by currentDate always successed.
         let cellMoment = testCalendar.date(byAdding: .hour, value: rowNumber, to: currentDate)!
 
         for weatherData in Constant.wertherDatas {
@@ -32,7 +33,17 @@ class WeatherCollectionViewCell: UICollectionViewCell {
             if cellMoment >= weatherData.startTime && cellMoment <= weatherData.endTime {
 
                 formetter.dateFormat = "HH:00"
-                momentLabel.text = formetter.string(from: cellMoment)
+
+                if rowNumber == 0 {
+
+                    momentLabel.text = "現在"
+
+                } else {
+
+                    momentLabel.text = formetter.string(from: cellMoment)
+    
+                }
+
                 tempertureLabel.text = weatherData.temperature + "°C"
                 
                 if weatherData.status.characters.contains("雨") {
@@ -53,5 +64,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
                 }
             }
         }
+
+        return self
     }
 }

@@ -14,6 +14,7 @@ class MoonPhaseCell: UICollectionViewCell {
     @IBOutlet weak var date: UILabel!
     let normalCalendar = Calendar.current
     let formatter = DateFormatter()
+    let currentDate = Date()
 
     override func awakeFromNib() {
 
@@ -21,17 +22,30 @@ class MoonPhaseCell: UICollectionViewCell {
 
     }
 
-    func configCell(IndexPath indexPath: IndexPath) {
+    func configCell(IndexPath indexPathRow: Int) -> UICollectionViewCell {
 
-        moonPhase.image = UIImage(named: String(indexPath.row))
+        moonPhase.image = UIImage(named: String(indexPathRow))
 
-        let showedDate = normalCalendar.date(byAdding: .day, value: indexPath.row, to: Constant.firstDay!)!
+        let showedDate = normalCalendar.date(byAdding: .day, value: indexPathRow, to: Constant.firstDay!)!
 
         formatter.dateFormat = "MM/dd"
 
         let showedDateString = formatter.string(from: showedDate)
 
-        date.text = showedDateString
+        let todayDateString = formatter.string(from: currentDate)
+
+        if todayDateString == showedDateString {
+
+            date.text = "今天"
+
+        } else {
+
+            date.text = showedDateString
+
+        }
+
+        return self
+
     }
 
 }
