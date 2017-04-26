@@ -9,6 +9,11 @@
 import Foundation
 import MapKit
 
+protocol AuthorizationHandlar: class {
+
+    
+}
+
 class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     // MARK: - Property
@@ -77,13 +82,15 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     }
 
-    func getAuthorization() {
+    func getAuthorization() -> UIAlertController? {
 
         if CLLocationManager.authorizationStatus() == .notDetermined {
 
             locationManager.requestWhenInUseAuthorization()
 
             locationManager.startUpdatingLocation()
+            
+            return nil
             
         } else if CLLocationManager.authorizationStatus() == .denied || CLLocationManager.authorizationStatus() == .restricted {
             
@@ -95,13 +102,17 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
             
             alertController.addAction(okAction)
             
-            self.present(alertController, animated: true, completion: nil)
+            return alertController
             
         } else if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             
             locationManager.startUpdatingLocation()
             
+            return nil
+            
         }
+        
+        return nil 
         
     }
 

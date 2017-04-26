@@ -178,6 +178,17 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         default:
 
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let MapViewCV = storyboard.instantiateViewController(withIdentifier: "MapSearchController") as? MapSearchController else { return }
+
+            if let alert = MapViewCV.getAuthorization() {
+                
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+
+            
+            
             tidesTableView.isHidden = true
 
         }

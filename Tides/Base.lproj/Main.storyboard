@@ -166,8 +166,8 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="484"/>
                                 <color key="backgroundColor" red="0.88305467367172241" green="0.79311203956604004" blue="0.59421372413635254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2017-03-20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzY-l2-eGi">
-                                <rect key="frame" x="15" y="556" width="156" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-03-20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzY-l2-eGi">
+                                <rect key="frame" x="15" y="556" width="84" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Oha-W4-NhC"/>
                                 </constraints>
@@ -175,10 +175,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="潮差－中潮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpN-ZC-dhd">
-                                <rect key="frame" x="15" y="589" width="156" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="潮差－中潮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpN-ZC-dhd">
+                                <rect key="frame" x="15" y="589" width="150" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="J3S-dk-Pog"/>
+                                    <constraint firstAttribute="width" constant="150" id="UP6-V3-bR6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -254,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UYn-Ai-BvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2109.5999999999999" y="274.81259370314842"/>
+            <point key="canvasLocation" x="2109.5" y="274.5"/>
         </scene>
         <!--Tides Search Table View Controller-->
         <scene sceneID="LVq-6s-N2G">
