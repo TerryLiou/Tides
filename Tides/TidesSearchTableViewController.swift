@@ -21,6 +21,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
     var filteredArea = [String]()
     var filterArea = [String]()
     var isSatelliteMode = false
+    let mapSearchController = GetController.controller.mapSearch
 
     // MARK: - View Life Cycle
 
@@ -30,6 +31,8 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         setUpTableView()
         searchBarSetUp()
+
+        mapSearchController.delegate = self
 
     }
 
@@ -157,43 +160,34 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
     }
 
+    // MARK: - IBAction
+    
+    @IBAction func swiftMode(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+            
+        case 0:
+            
+            tidesTableView.isHidden = false
+            
+        default:
+
+            mapSearchController.getAuthorization()
+
+            tidesTableView.isHidden = true
+            
+        }
+        
+        setTabBarVisible(visible: !tabBarIsVisible(), animated: true)
+        
+    }
+
     // MARK: - setUpTableView
 
     func setUpTableView() {
 
         let tableViewCell = UINib(nibName: "TidesSearchTableViewCell", bundle: nil)
         tidesTableView.register(tableViewCell, forCellReuseIdentifier: "TidesSearchTableViewCell")
-
-    }
-
-    // MARK: - IBAction
-
-    @IBAction func swiftMode(_ sender: UISegmentedControl) {
-
-        switch sender.selectedSegmentIndex {
-
-        case 0:
-
-            tidesTableView.isHidden = false
-
-        default:
-
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let MapViewCV = storyboard.instantiateViewController(withIdentifier: "MapSearchController") as? MapSearchController else { return }
-
-            if let alert = MapViewCV.getAuthorization() {
-                
-                self.present(alert, animated: true, completion: nil)
-                
-            }
-
-            
-            
-            tidesTableView.isHidden = true
-
-        }
-
-        setTabBarVisible(visible: !tabBarIsVisible(), animated: true)
 
     }
 
@@ -286,4 +280,14 @@ extension TidesSearchTableViewController: UISearchResultsUpdating {
         resultsController.tableView.reloadData()
 
     }
+}
+
+extension TidesSearchTableViewController: AuthorizationHandlar {
+    
+    func handlar(controller: MapSearchController, presentAlert: UIAlertController) {
+        
+        self.present(presentAlert, animated: true, completion: nil)
+
+    }
+
 }

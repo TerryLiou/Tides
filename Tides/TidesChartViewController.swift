@@ -112,34 +112,51 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         switch TidesDataArray.amountOfData {
 
         case 2:
+
             if TidesDataArray.data[0].height < 0 {
+
                 highTideTime = TidesDataArray.data[1].time
                 lowTideTime = TidesDataArray.data[0].time
+
             } else {
+
                 highTideTime = TidesDataArray.data[0].time
                 lowTideTime = TidesDataArray.data[1].time
+
             }
 
         case 3:
+
             if TidesDataArray.data[0].height < 0 {
+
                 highTideTime = TidesDataArray.data[1].time
                 lowTideTime = TidesDataArray.data[0].time + "\n" + TidesDataArray.data[2].time
+
             } else {
+
                 highTideTime = TidesDataArray.data[0].time + "\n" + TidesDataArray.data[2].time
                 lowTideTime = TidesDataArray.data[1].time
+
             }
 
         case 4:
+
             if TidesDataArray.data[0].height < 0 {
+
                 highTideTime = TidesDataArray.data[1].time + "\n" + TidesDataArray.data[3].time
                 lowTideTime = TidesDataArray.data[0].time + "\n" + TidesDataArray.data[2].time
+
             } else {
+
                 highTideTime = TidesDataArray.data[0].time + "\n" + TidesDataArray.data[2].time
                 lowTideTime = TidesDataArray.data[1].time + "\n" + TidesDataArray.data[3].time
+
             }
 
         default:
+
             break
+
         }
 
         timeOfdry.text = lowTideTime
@@ -153,15 +170,14 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
         let calendarImage = #imageLiteral(resourceName: "calendar").withRenderingMode(.alwaysOriginal)
         let calendarItem = UIBarButtonItem(image: calendarImage, style: .plain, target: self, action: #selector(self.showCalendar))
+
         self.navigationItem.rightBarButtonItem = calendarItem
 
     }
 
     func showCalendar() {
 
-        let storyboard = UIStoryboard(name: "CalendarViewController", bundle: nil)
-
-        guard let calendarViewController = storyboard.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController else { return }
+        let calendarViewController = GetController.controller.calendarView
 
         calendarViewController.modalPresentationStyle = .overCurrentContext
 
