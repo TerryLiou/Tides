@@ -73,8 +73,6 @@ class WeatherDataCatcher {
                             }
                         }
                         
-                        print(characterIndex)
-                        
                         var status = ""
                         var rainfall = ""
                         var temperature = ""
@@ -90,57 +88,27 @@ class WeatherDataCatcher {
 
                                 case 0:
 
-                                    let startIndex = elementValue.startIndex
-                                    let endIndex = elementValue.index(startIndex, offsetBy: characterIndex[0])
-                                    let range = startIndex ..< endIndex
-
-                                    status = elementValue.substring(with: range)
-                                    print(status)
+                                    status = elementValue.substring(with: startIndex ..< elementValue.getIndexFromStart(to: characterIndex[0]))
 
                                 case 1:
 
-                                    let startIndex = elementValue.index(elementValue.startIndex,
-                                                                        offsetBy: characterIndex[0] + 7)
-                                    let endIndex = elementValue.index(elementValue.startIndex, offsetBy: characterIndex[1])
-                                    let range = startIndex ..< endIndex
-
-                                    rainfall = elementValue.substring(with: range)
+                                    rainfall = elementValue.substring(with: elementValue.getIndexFromStart(to: characterIndex[0] + 7) ..< elementValue.getIndexFromStart(to: characterIndex[1]))
 
                                 case 2:
 
-                                    let startIndex = elementValue.index(elementValue.startIndex,
-                                                                        offsetBy: characterIndex[1] + 6)
-                                    let endIndex = elementValue.index(elementValue.startIndex, offsetBy: characterIndex[2] - 1)
-                                    let range = startIndex ..< endIndex
-
-                                    temperature = elementValue.substring(with: range)
+                                    temperature = elementValue.substring(with: elementValue.getIndexFromStart(to: characterIndex[1] + 6) ..< elementValue.getIndexFromStart(to: characterIndex[2] - 1))
 
                                 case 3:
 
-                                    let startIndex = elementValue.index(elementValue.startIndex,
-                                                                        offsetBy: characterIndex[3] + 2)
-                                    let endIndex = elementValue.index(elementValue.startIndex, offsetBy: characterIndex[3] + 5)
-                                    let range = startIndex ..< endIndex
-
-                                    windDiraction = elementValue.substring(with: range)
+                                    windDiraction = elementValue.substring(with: elementValue.getIndexFromStart(to: characterIndex[3] + 2) ..< elementValue.getIndexFromStart(to: characterIndex[3] + 5))
 
                                 case 4:
 
-                                    let startIndex = elementValue.index(elementValue.startIndex,
-                                                                        offsetBy: characterIndex[3] + 6)
-                                    let endIndex = elementValue.index(elementValue.startIndex, offsetBy: characterIndex[4])
-                                    let range = startIndex ..< endIndex
-
-                                    windSpeed = elementValue.substring(with: range)
+                                    windSpeed = elementValue.substring(with: elementValue.getIndexFromStart(to: characterIndex[3] + 6) ..< elementValue.getIndexFromStart(to: characterIndex[4]))
 
                                 case 5:
 
-                                    let startIndex = elementValue.index(elementValue.startIndex,
-                                                                        offsetBy: characterIndex[5] - 3)
-                                    let endIndex = elementValue.index(elementValue.startIndex, offsetBy: characterIndex[5])
-                                    let range = startIndex ..< endIndex
-
-                                    humidity = elementValue.substring(with: range)
+                                    humidity = elementValue.substring(with: elementValue.getIndexFromStart(to: characterIndex[5] - 3) ..< elementValue.getIndexFromStart(to: characterIndex[5]))
 
                                 default: break
 
@@ -155,47 +123,23 @@ class WeatherDataCatcher {
 
                                 case 0:
 
-                                    let startIndex = elementValue.startIndex
-                                    let endIndex = elementValue.index(startIndex, offsetBy: characterIndex[0])
-                                    let range = startIndex ..< endIndex
-
-                                    status = elementValue.substring(with: range)
+                                    status = elementValue.substring(with: startIndex ..< elementValue.getIndexFromStart(to: characterIndex[0]))
 
                                 case 1:
 
-                                    let startIndex = elementValue.index(elementValue.startIndex,
-                                                                        offsetBy: characterIndex[0] + 6)
-                                    let endIndex = elementValue.index(elementValue.startIndex, offsetBy: characterIndex[1] - 1)
-                                    let range = startIndex ..< endIndex
-
-                                    temperature = elementValue.substring(with: range)
+                                    temperature = elementValue.substring(with: elementValue.getIndexFromStart(to: characterIndex[0] + 6) ..< elementValue.getIndexFromStart(to: characterIndex[1] - 1))
 
                                 case 2:
 
-                                    let startIndex = elementValue.index(elementValue.startIndex,
-                                                                        offsetBy: characterIndex[2] + 2)
-                                    let endIndex = elementValue.index(elementValue.startIndex, offsetBy: characterIndex[2] + 5)
-                                    let range = startIndex ..< endIndex
-
-                                    windDiraction = elementValue.substring(with: range)
+                                    windDiraction = elementValue.substring(with: elementValue.getIndexFromStart(to: characterIndex[2] + 2) ..< elementValue.getIndexFromStart(to: characterIndex[2] + 5))
 
                                 case 3:
 
-                                    let startIndex = elementValue.index(elementValue.startIndex,
-                                                                        offsetBy: characterIndex[2] + 6)
-                                    let endIndex = elementValue.index(elementValue.startIndex, offsetBy: characterIndex[3])
-                                    let range = startIndex ..< endIndex
-
-                                    windSpeed = elementValue.substring(with: range)
+                                    windSpeed = elementValue.substring(with: elementValue.getIndexFromStart(to: characterIndex[2] + 6) ..< elementValue.getIndexFromStart(to: characterIndex[3]))
 
                                 case 4:
 
-                                    let startIndex = elementValue.index(elementValue.startIndex,
-                                                                        offsetBy: characterIndex[4] - 3)
-                                    let endIndex = elementValue.index(elementValue.startIndex, offsetBy: characterIndex[4])
-                                    let range = startIndex ..< endIndex
-
-                                    humidity = elementValue.substring(with: range)
+                                    humidity = elementValue.substring(with: elementValue.getIndexFromStart(to: characterIndex[4] - 3) ..< elementValue.getIndexFromStart(to: characterIndex[4]))
 
                                 default: break
 

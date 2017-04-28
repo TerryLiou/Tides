@@ -24,50 +24,65 @@ class DateManager {
 
         let chineseDay = chineseCalendar.component(.day, from: currentDate)
 
+        var chineseMonth = chineseCalendar.component(.month, from: currentDate)
+
         let year = normalCalendar.component(.year, from: currentDate)
 
         let hexYearCode = Constant.hexYear.yearCode[String(year)]!
 
-        let yearCode = Int(hexYearCode, radix: 16)!
-
-        let binaryYearCode = String(yearCode, radix: 2)
-
-        let startIndex = binaryYearCode.startIndex
+        var binaryYearCode = String(Int(hexYearCode, radix: 16)!, radix: 2)
         
-        let midIndex = binaryYearCode.index(binaryYearCode.endIndex, offsetBy: -4)
+        var dayOfMonth = binaryYearCode.substring(with: binaryYearCode.startIndex ..< binaryYearCode.getIndexFromEnd(to: -4))
 
-        let endIndex = binaryYearCode.endIndex
-        
-        let dayOfMonth = binaryYearCode.substring(with: startIndex ..< midIndex)
+        let binaryExtraMonth = binaryYearCode.substring(with: binaryYearCode.getIndexFromEnd(to: -4) ..< binaryYearCode.endIndex)
 
-        let binaryExtraMonth = binaryYearCode.substring(with: midIndex ..< endIndex)
+        if binaryYearCode.characters.count == 15 {   // if binaryYearCode count is 15, means first month is small month.
 
-        if binaryYearCode.characters.count == 16 {
+            dayOfMonth = "0" + dayOfMonth
 
-            if binaryExtraMonth != "0000" || binaryExtraMonth != "1111" {
+        }
 
-                let extraMonth = Int(binaryYearCode, radix: 2)
+        // if less 4 bit isn't "0000" or "1111" means this year have extra month
+        if binaryExtraMonth != "0000" && binaryExtraMonth != "1111" {
+
+            let extraMonth = Int(binaryExtraMonth, radix: 2)!
                 
-                let nextYear = year + 1
+            let nextYear = year + 1
 
-                let hexNextYearCode = Constant.hexYear.yearCode[String(nextYear)]!
+            let hexNextYearCode = Constant.hexYear.yearCode[String(nextYear)]!
 
-                let fromIndex = binaryYearCode.index(binaryYearCode.endIndex, offsetBy: -4)
-                
-                let toIndex = binaryYearCode.endIndex
+            let binaryNextYearCode = String(Int(hexNextYearCode, radix: 16)!, radix: 2)
 
-                let dayOfExtraMonth = binaryYearCode.substring(with: fromIndex ..< toIndex)
+            let dayOfExtraMonth = binaryNextYearCode.substring(with: binaryNextYearCode.getIndexFromEnd(to: -4) ..< binaryNextYearCode.endIndex)
 
-                if dayOfExtraMonth == "1111" {
+            if dayOfExtraMonth == "1111" {
 
-                    
-                }
+                dayOfMonth.insert(contentsOf: "1".characters, at: dayOfMonth.getIndexFromStart(to: extraMonth))
+
+            } else {
+
+                dayOfMonth.insert(contentsOf: "0".characters, at: dayOfMonth.getIndexFromStart(to: extraMonth))
+
             }
         }
 
-        if chineseDay >= 16 {
+        // extra month will appear twice, when that heppen. The indexRow need +1
+        formatter.dateStyle = .medium
+    
+        let mediumDateString = formatter.string(from: currentDate)
+        
+        for i in 0 ..< mediumDateString.characters.count {
+            
+            if mediumDateString.characters[mediumDateString.getIndexFromStart(to: i)] == "閏" {
+                
+                chineseMonth += 1
 
-            let indexRow = chineseDay - 16
+            }
+        }
+
+        if chineseDay >= 17 {
+
+            let indexRow = chineseDay - 17
 
             let firstDay = normalCalendar.date(byAdding: .day, value: -indexRow, to: currentDate)
 
@@ -76,13 +91,23 @@ class DateManager {
 
         } else {
 
-            let indexRow = chineseDay + 14
+            if dayOfMonth.characters[dayOfMonth.getIndexFromStart(to: chineseMonth - 1)] == "1" {
 
-            let firstDay = normalCalendar.date(byAdding: .day, value: -indexRow, to: currentDate)
+                let indexRow = chineseDay + 13
+                let firstDay = normalCalendar.date(byAdding: .day, value: -indexRow, to: currentDate)
+                
+                Constant.firstDay = firstDay!
+                Constant.firstDayMoonCellIndexPath = IndexPath(row: indexRow, section: 0)
 
-            Constant.firstDay = firstDay!
-            Constant.firstDayMoonCellIndexPath = IndexPath(row: indexRow, section: 0)
+            } else {
 
+                let indexRow = chineseDay + 12
+                let firstDay = normalCalendar.date(byAdding: .day, value: -indexRow, to: currentDate)
+                
+                Constant.firstDay = firstDay!
+                Constant.firstDayMoonCellIndexPath = IndexPath(row: indexRow, section: 0)
+
+            }
         }
     }
 }
@@ -95,21 +120,9 @@ extension String {
 
     }
 
+    func getIndexFromEnd(to index: Int) -> Index {
+
+        return self.index(endIndex, offsetBy: index)
+
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
