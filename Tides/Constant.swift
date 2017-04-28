@@ -54,4 +54,13 @@ struct Constant {
         static let type = "type"
         static let stationID = "stationID"
     }
+
+    struct hexYear {
+
+        static let yearCode = ["2017": "5176", "2018": "52bf", "2019": "a930", "2020": "7954",
+                               "2021": "6aa0", "2022": "ad50", "2023": "5b52", "2024": "4b60",
+                               "2025": "a6e6", "2026": "a4e0", "2027": "d260", "2028": "ea65",
+                               "2029": "d530", "2030": "5aa0"]
+
+    }
 }

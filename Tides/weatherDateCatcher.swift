@@ -160,7 +160,6 @@ class WeatherDataCatcher {
                                     let range = startIndex ..< endIndex
 
                                     status = elementValue.substring(with: range)
-                                    print(status)
 
                                 case 1:
 
