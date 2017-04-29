@@ -31,7 +31,6 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
         self.updateChartWithData()
         navigationSetUp()
-        view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "paperBackground"))
 
         self.imformationSetUp()
 
@@ -64,7 +63,7 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         chartData.setDrawValues(true)
 
-        chartDataSet.colors = [UIColor.brown]
+        chartDataSet.colors = [Constant.ColorCode.oceanBoatBlue]
         chartDataSet.setCircleColor(UIColor.blue)
         chartDataSet.circleHoleColor = UIColor.clear
         chartDataSet.lineWidth = 2
@@ -73,11 +72,18 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         chartDataSet.mode = .cubicBezier
         chartDataSet.cubicIntensity = 0.2
         chartDataSet.drawCirclesEnabled = true
-        chartDataSet.valueFont = UIFont(name: "Helvetica", size: 12.0)!
+        chartDataSet.valueFont = UIFont(name: "Helvetica", size: 15.0)!
 
         // Axes setup
 
-        lineChartView.xAxis.labelPosition = .bottomInside
+        if xValue.count != 4 {
+            
+            lineChartView.xAxis.drawLabelsEnabled = false
+            
+        }
+
+        lineChartView.xAxis.labelPosition = .bottom
+        lineChartView.xAxis.labelFont = UIFont(name: "Helvetica", size: 15.0)!
         lineChartView.xAxis.drawGridLinesEnabled = false
 
         lineChartView.chartDescription?.enabled = false
@@ -87,6 +93,7 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
         lineChartView.leftAxis.drawGridLinesEnabled = false
         lineChartView.leftAxis.drawTopYLabelEntryEnabled = true
+        lineChartView.leftAxis.labelFont = UIFont(name: "Helvetica", size: 15.0)!
 
         lineChartView.snapshotView(afterScreenUpdates: false)
 
@@ -94,8 +101,9 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         lineChartView.scaleYEnabled = false
 
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xValue)
+        lineChartView.xAxis.granularity = 1.0
+
         lineChartView.extraRightOffset = 25.0
-        lineChartView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "paperBackground"))
 
     }
 
