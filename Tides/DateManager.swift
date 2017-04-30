@@ -111,18 +111,3 @@ class DateManager {
         }
     }
 }
-
-extension String {
-
-    func getIndexFromStart(to index: Int) -> Index {
-
-        return self.index(startIndex, offsetBy: index)
-
-    }
-
-    func getIndexFromEnd(to index: Int) -> Index {
-
-        return self.index(endIndex, offsetBy: index)
-
-    }
-}

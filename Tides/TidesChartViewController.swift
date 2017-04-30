@@ -62,13 +62,13 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         lineChartView.data = chartData
         lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         chartData.setDrawValues(true)
-
+        
         chartDataSet.colors = [Constant.ColorCode.oceanBoatBlue]
-        chartDataSet.setCircleColor(UIColor.blue)
-        chartDataSet.circleHoleColor = UIColor.clear
-        chartDataSet.lineWidth = 2
-        chartDataSet.circleRadius = 4.5
-        chartDataSet.circleHoleRadius = 3.5
+        chartDataSet.setCircleColor(Constant.ColorCode.oceanBoatBlue)
+        chartDataSet.circleHoleColor = UIColor.init(colorWithHexvalue: 0x99feff)
+        chartDataSet.lineWidth = 2.5
+        chartDataSet.circleRadius = 9
+        chartDataSet.circleHoleRadius = 5
         chartDataSet.mode = .cubicBezier
         chartDataSet.cubicIntensity = 0.2
         chartDataSet.drawCirclesEnabled = true
@@ -76,17 +76,15 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
         // Axes setup
 
-        if xValue.count != 4 {
-            
-            lineChartView.xAxis.drawLabelsEnabled = false
-            
-        }
-
         lineChartView.xAxis.labelPosition = .bottom
         lineChartView.xAxis.labelFont = UIFont(name: "Helvetica", size: 15.0)!
         lineChartView.xAxis.drawGridLinesEnabled = false
 
-        lineChartView.chartDescription?.enabled = false
+//        lineChartView.chartDescription?.enabled = false
+        lineChartView.chartDescription?.font = UIFont(name: "Helvetica", size: 15.0)!
+        lineChartView.chartDescription?.text = "高度(cm)-時間"
+        lineChartView.noDataText = "資料顯示中..."
+        lineChartView.noDataFont = UIFont(name: "Helvetica", size: 18.0)!
 
         lineChartView.legend.enabled = false
         lineChartView.rightAxis.enabled = false
