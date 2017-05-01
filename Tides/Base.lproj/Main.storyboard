@@ -173,7 +173,19 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0j6-vB-GXQ" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="10" y="74" width="355" height="474"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高度(cm)-時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63i-65-hy2">
+                                        <rect key="frame" x="245.5" y="10" width="99.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.6960068412" green="0.97998005470000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="63i-65-hy2" firstAttribute="top" secondItem="0j6-vB-GXQ" secondAttribute="top" constant="10" id="Xwt-ae-yAz"/>
+                                    <constraint firstAttribute="trailing" secondItem="63i-65-hy2" secondAttribute="trailing" constant="10" id="tgn-VR-r6A"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-03-20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzY-l2-eGi">
                                 <rect key="frame" x="15" y="556" width="84" height="21"/>

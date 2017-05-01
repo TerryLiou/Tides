@@ -20,7 +20,6 @@ class MoonAgeController: UIViewController {
 
     let lunarScene = SCNScene()
     let lunarNode = SCNNode()
-    let geometryNode = SCNNode()
     let lightNode = SCNNode()
     var cameraOrbit = SCNNode()
     var beginPosition: Float = 0.0
@@ -94,7 +93,7 @@ class MoonAgeController: UIViewController {
     func initLightNode() {
 
         lightNode.light = SCNLight()
-        lightNode.light?.type = .directional
+        lightNode.light?.type = .omni
         lightNode.light?.color = UIColor(white: 1, alpha: 1)
         lightNode.position = SCNVector3Make(0, 0, 20)
         lunarScene.rootNode.addChildNode(lightNode)

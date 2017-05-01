@@ -76,12 +76,11 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
         // Axes setup
 
-        lineChartView.xAxis.labelPosition = .bottom
+        lineChartView.xAxis.labelPosition = .bottomInside
         lineChartView.xAxis.labelFont = UIFont(name: "Helvetica", size: 15.0)!
         lineChartView.xAxis.drawGridLinesEnabled = false
+        lineChartView.chartDescription?.enabled = false
 
-        lineChartView.chartDescription?.font = UIFont(name: "Helvetica", size: 15.0)!
-        lineChartView.chartDescription?.text = "高度(cm)-時間"
         lineChartView.noDataText = "資料顯示中..."
         lineChartView.noDataFont = UIFont(name: "Helvetica", size: 18.0)!
 
@@ -98,6 +97,7 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         lineChartView.scaleYEnabled = false
 
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xValue)
+//        lineChartView.xAxis.yOffset = -10
         lineChartView.xAxis.granularity = 1.0
 
         lineChartView.extraRightOffset = 25.0
