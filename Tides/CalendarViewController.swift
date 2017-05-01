@@ -177,9 +177,9 @@ class CalendarViewController: UIViewController {
 
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
 
-            Constant.selectedDateFromCalenderView = selectedDate
+            Constant.selectedDateFromCalenderView = selectedDate!
 
-            FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView!, stationName: Constant.selectedStationNameFromMapView ) { (tidesData, tidesDataCount) in
+            FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView, stationName: Constant.selectedStationNameFromMapView ) { (tidesData, tidesDataCount) in
                 
                 TidesDataArray.data = tidesData
                 TidesDataArray.amountOfData = tidesDataCount

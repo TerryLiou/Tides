@@ -65,7 +65,7 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
         Constant.selectedStationNameFromMapView = selectedCell.tidesStationName.text!
 
-        FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView!, stationName: selectedCell.tidesStationName.text!) { (tidesData, tidesDataCount) in
+        FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView, stationName: selectedCell.tidesStationName.text!) { (tidesData, tidesDataCount) in
 
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount

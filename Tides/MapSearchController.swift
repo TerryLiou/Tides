@@ -229,7 +229,7 @@ class MapSearchController: UIViewController, MKMapViewDelegate, CLLocationManage
 
         Constant.selectedStationNameFromMapView = TidesStation.stationName[areaIDIndex]
 
-        FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView!, stationName: TidesStation.stationName[areaIDIndex]) { (tidesData, tidesDataCount) in
+        FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView, stationName: TidesStation.stationName[areaIDIndex]) { (tidesData, tidesDataCount) in
 
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount

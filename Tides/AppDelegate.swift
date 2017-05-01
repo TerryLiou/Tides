@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = vc
 
-        FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView!, stationName: Constant.selectedStationNameFromMapView) { (tidesData, tidesDataCount) in
+        FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView, stationName: Constant.selectedStationNameFromMapView) { (tidesData, tidesDataCount) in
             
             TidesDataArray.data = tidesData
             TidesDataArray.amountOfData = tidesDataCount

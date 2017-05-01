@@ -66,9 +66,9 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         chartDataSet.colors = [Constant.ColorCode.oceanBoatBlue]
         chartDataSet.setCircleColor(Constant.ColorCode.oceanBoatBlue)
         chartDataSet.circleHoleColor = UIColor.init(colorWithHexvalue: 0x99feff)
-        chartDataSet.lineWidth = 2.5
-        chartDataSet.circleRadius = 9
-        chartDataSet.circleHoleRadius = 5
+        chartDataSet.lineWidth = 3
+        chartDataSet.circleRadius = 8
+        chartDataSet.circleHoleRadius = 3.5
         chartDataSet.mode = .cubicBezier
         chartDataSet.cubicIntensity = 0.2
         chartDataSet.drawCirclesEnabled = true
@@ -80,7 +80,6 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         lineChartView.xAxis.labelFont = UIFont(name: "Helvetica", size: 15.0)!
         lineChartView.xAxis.drawGridLinesEnabled = false
 
-//        lineChartView.chartDescription?.enabled = false
         lineChartView.chartDescription?.font = UIFont(name: "Helvetica", size: 15.0)!
         lineChartView.chartDescription?.text = "高度(cm)-時間"
         lineChartView.noDataText = "資料顯示中..."

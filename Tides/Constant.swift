@@ -12,7 +12,7 @@ import UIKit
 struct Constant {
 
     static var selectedStationNameFromMapView = "宜蘭縣蘇澳鎮"
-    static var selectedDateFromCalenderView: String?
+    static var selectedDateFromCalenderView = ""
     static var wertherDatas = [WeatherDateAPI]()
     static var initWertherData: WeatherDateAPI?
     static var firstDay: Date?

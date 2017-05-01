@@ -39,3 +39,17 @@ extension String {
         
     }
 }
+
+extension Date {
+
+    static func getTodayDateOfString(_ text: String) -> String {
+
+        let formatter = DateFormatter()
+        let currentDate = Date()
+
+        formatter.dateFormat = text
+
+        return formatter.string(from: currentDate)
+
+    }
+}

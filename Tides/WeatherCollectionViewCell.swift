@@ -19,6 +19,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     let formetter = DateFormatter()
 
     override func awakeFromNib() {
+
         super.awakeFromNib()
 
     }
@@ -37,6 +38,11 @@ class WeatherCollectionViewCell: UICollectionViewCell {
                 if rowNumber == 0 {
 
                     momentLabel.text = "現在"
+                } else if formetter.string(from: cellMoment) == "00:00" {
+
+                    formetter.dateFormat = "MM/dd"
+
+                    momentLabel.text = formetter.string(from: cellMoment)
 
                 } else {
 

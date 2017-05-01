@@ -20,6 +20,7 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var windStatus: UILabel!
     @IBOutlet weak var humitity: UILabel!
     @IBOutlet weak var mianTemperature: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
 
     let layout = UICollectionViewFlowLayout()
     let currentDate = Date()
@@ -40,6 +41,8 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     func setUpInformation(byWeatherData data: WeatherDateAPI) {
 
+        dateLabel.text = Date.getTodayDateOfString("yyyy-MM-dd")
+        dateLabel.textColor = Constant.ColorCode.oceanBoatBlue
         rainFall.text = data.rainfall
         windStatus.text = data.windSpeed
         humitity.text = data.humidity
@@ -122,7 +125,7 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
 
         weatherCollectionView.delegate = self
         weatherCollectionView.dataSource = self
-        weatherCollectionView.backgroundColor = UIColor.white
+        weatherCollectionView.backgroundColor = Constant.ColorCode.oceanBoatBlue
 
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 100, height: 110)
@@ -151,7 +154,7 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell", for: indexPath) as! WeatherCollectionViewCell
         // swiftlint:enable force_cast
 
-        cell.backgroundColor = UIColor.white
+        cell.backgroundColor = Constant.ColorCode.oceanBoatBlue
 
         return cell.setUpCellView(indexPath.row)
     }

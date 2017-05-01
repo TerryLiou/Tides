@@ -49,19 +49,19 @@ enum TabBarItemTypes: Int {
 
         case .chart:
 
-            return #imageLiteral(resourceName: "tides").withRenderingMode(.alwaysOriginal)
+            return #imageLiteral(resourceName: "sea").withRenderingMode(.alwaysTemplate)
 
         case .search:
 
-            return #imageLiteral(resourceName: "search").withRenderingMode(.alwaysOriginal)
+            return #imageLiteral(resourceName: "search").withRenderingMode(.alwaysTemplate)
 
         case .weather:
 
-            return #imageLiteral(resourceName: "weather").withRenderingMode(.alwaysOriginal)
+            return #imageLiteral(resourceName: "weather").withRenderingMode(.alwaysTemplate)
 
         case .moonAge:
 
-            return #imageLiteral(resourceName: "moon").withRenderingMode(.alwaysOriginal)
+            return #imageLiteral(resourceName: "moon").withRenderingMode(.alwaysTemplate)
 
         }
     }
