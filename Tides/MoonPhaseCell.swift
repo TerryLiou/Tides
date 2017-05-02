@@ -12,9 +12,10 @@ class MoonPhaseCell: UICollectionViewCell {
 
     @IBOutlet weak var moonPhase: UIImageView!
     @IBOutlet weak var date: UILabel!
+
     let normalCalendar = Calendar.current
-    let formatter = DateFormatter()
     let currentDate = Date()
+    let todayIndexRow = (Constant.todayMoonCellIndexPath?.row)!
 
     override func awakeFromNib() {
 
@@ -24,23 +25,36 @@ class MoonPhaseCell: UICollectionViewCell {
 
     func configCell(IndexPath indexPathRow: Int) -> UICollectionViewCell {
 
-        moonPhase.image = UIImage(named: String(indexPathRow))
+        if Constant.chineseMonthRange == "1" {
 
-        let showedDate = normalCalendar.date(byAdding: .day, value: indexPathRow, to: Constant.firstDay!)!
+            moonPhase.image = UIImage(named: String(indexPathRow))
+            
+        } else {
 
-        formatter.dateFormat = "MM/dd"
+            moonPhase.image = UIImage(named: String(indexPathRow + 1))
 
-        let showedDateString = formatter.string(from: showedDate)
+        }
 
-        let todayDateString = formatter.string(from: currentDate)
+        moonPhase.layer.cornerRadius = moonPhase.frame.height / 2
+        moonPhase.clipsToBounds = true
 
-        if todayDateString == showedDateString {
+        if indexPathRow < todayIndexRow {
+
+            let showedDate = normalCalendar.date(byAdding: .day, value: indexPathRow, to: Constant.firstDay!)!
+
+            date.text = Date.getTodayDateOfStringAndDate("MM/dd", showedDate)
+
+        } else if indexPathRow == todayIndexRow {
 
             date.text = "今天"
 
         } else {
 
-            date.text = showedDateString
+            let offSetDay = indexPathRow - todayIndexRow
+
+            let showedDate = normalCalendar.date(byAdding: .day, value: offSetDay, to: currentDate)!
+            
+            date.text = Date.getTodayDateOfStringAndDate("MM/dd", showedDate)
 
         }
 

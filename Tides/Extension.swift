@@ -52,4 +52,15 @@ extension Date {
         return formatter.string(from: currentDate)
 
     }
+
+    static func getTodayDateOfStringAndDate(_ text: String, _ date: Date) -> String {
+        
+        let formatter = DateFormatter()
+        let date = date
+        
+        formatter.dateFormat = text
+        
+        return formatter.string(from: date)
+        
+    }
 }

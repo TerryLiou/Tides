@@ -79,33 +79,62 @@ class DateManager {
 
             }
         }
+        
+        if dayOfMonth.characters[dayOfMonth.getIndexFromStart(to: chineseMonth - 1)] == "1" {
 
-        if chineseDay >= 17 {
+            Constant.chineseMonthRange = String(dayOfMonth.characters[dayOfMonth.getIndexFromStart(to: chineseMonth - 1)])
 
-            let indexRow = chineseDay - 17
+            if chineseDay < 17 {
 
-            let firstDay = normalCalendar.date(byAdding: .day, value: -indexRow, to: currentDate)
+                let offSetDay = 17 - chineseDay
 
-            Constant.firstDay = firstDay!
-            Constant.firstDayMoonCellIndexPath = IndexPath(row: indexRow, section: 0)
+                let firstDay = normalCalendar.date(byAdding: .day, value: offSetDay, to: currentDate)
 
-        } else {
-
-            if dayOfMonth.characters[dayOfMonth.getIndexFromStart(to: chineseMonth - 1)] == "1" {
-
-                let indexRow = chineseDay + 13
-                let firstDay = normalCalendar.date(byAdding: .day, value: -indexRow, to: currentDate)
-                
                 Constant.firstDay = firstDay!
-                Constant.firstDayMoonCellIndexPath = IndexPath(row: indexRow, section: 0)
+
+                let indexRow = 29 - offSetDay + 1
+
+                Constant.todayMoonCellIndexPath = IndexPath(row: indexRow, section: 0)
 
             } else {
 
-                let indexRow = chineseDay + 12
-                let firstDay = normalCalendar.date(byAdding: .day, value: -indexRow, to: currentDate)
-                
+                let offSetDay = 30 - chineseDay + 17
+
+                let firstDay = normalCalendar.date(byAdding: .day, value: offSetDay, to: currentDate)
+
                 Constant.firstDay = firstDay!
-                Constant.firstDayMoonCellIndexPath = IndexPath(row: indexRow, section: 0)
+
+                let indexRow = chineseDay - 17
+
+                Constant.todayMoonCellIndexPath = IndexPath(row: indexRow, section: 0)
+
+            }
+
+        } else {
+
+            if chineseDay < 17 {
+
+                let offSetDay = 17 - chineseDay
+
+                let firstDay = normalCalendar.date(byAdding: .day, value: offSetDay, to: currentDate)
+
+                Constant.firstDay = firstDay!
+
+                let indexRow = 28 - offSetDay + 1
+
+                Constant.todayMoonCellIndexPath = IndexPath(row: indexRow, section: 0)
+
+            } else {
+
+                let offSetDay = 29 - chineseDay + 17
+
+                let firstDay = normalCalendar.date(byAdding: .day, value: offSetDay, to: currentDate)
+
+                Constant.firstDay = firstDay!
+
+                let indexRow = chineseDay - 17
+
+                Constant.todayMoonCellIndexPath = IndexPath(row: indexRow, section: 0)
 
             }
         }

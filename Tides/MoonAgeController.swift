@@ -45,7 +45,7 @@ class MoonAgeController: UIViewController {
 
         super.viewDidAppear(animated)
 
-        moonPhaseCollection.selectItem(at: Constant.firstDayMoonCellIndexPath!, animated: true, scrollPosition: .centeredHorizontally)
+        moonPhaseCollection.selectItem(at: Constant.todayMoonCellIndexPath!, animated: true, scrollPosition: .centeredHorizontally)
 
     }
 
@@ -140,8 +140,15 @@ extension MoonAgeController: UICollectionViewDelegate, UICollectionViewDataSourc
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return 30
+        if Constant.chineseMonthRange == "1" {
 
+            return 30
+
+        } else {
+
+            return 29
+
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -158,7 +165,16 @@ extension MoonAgeController: UICollectionViewDelegate, UICollectionViewDataSourc
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        endPosition = Float(((Double(indexPath.row)) * Double.pi) / 15.0)
+        if Constant.chineseMonthRange == "1" {
+
+            endPosition = Float(((Double(indexPath.row)) * Double.pi) / 15.0)
+
+        } else {
+
+            endPosition = Float(((2.0 * Double.pi) / 29.0) * Double(indexPath.row))
+
+        }
+
         spinAnimation()
         beginPosition = endPosition
 

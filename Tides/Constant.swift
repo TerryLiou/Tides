@@ -16,7 +16,8 @@ struct Constant {
     static var wertherDatas = [WeatherDateAPI]()
     static var initWertherData: WeatherDateAPI?
     static var firstDay: Date?
-    static var firstDayMoonCellIndexPath: IndexPath?
+    static var todayMoonCellIndexPath: IndexPath?
+    static var chineseMonthRange = "0"
 
     struct ColorCode {
 

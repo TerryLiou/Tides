@@ -165,7 +165,9 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
 
         // Force Case: Date from calendar by currentDate always successed.
         let cellMoment = testCalendar.date(byAdding: .hour, value: indexPath.row, to: currentDate)!
-        
+
+        dateLabel.text = Date.getTodayDateOfStringAndDate("yyyy-MM-dd", cellMoment)
+
         for weatherData in Constant.wertherDatas {
             
             if cellMoment >= weatherData.startTime && cellMoment <= weatherData.endTime {

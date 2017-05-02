@@ -79,6 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
 
+        // get chinese Month situation 
         DateManager.shared.getFirstDay()
 
     }
