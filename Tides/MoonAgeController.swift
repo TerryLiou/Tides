@@ -38,6 +38,7 @@ class MoonAgeController: UIViewController {
         initLunarNode()
         initLightNode()
         setUpCollectionView()
+        moonRotate(byIndexPath: (Constant.todayMoonCellIndexPath?.row)!)
 
     }
 
@@ -45,7 +46,9 @@ class MoonAgeController: UIViewController {
 
         super.viewDidAppear(animated)
 
-        moonPhaseCollection.selectItem(at: Constant.todayMoonCellIndexPath!, animated: true, scrollPosition: .centeredHorizontally)
+        moonPhaseCollection.selectItem(at: Constant.todayMoonCellIndexPath!,
+                                       animated: true,
+                                       scrollPosition: .centeredHorizontally)
 
     }
 
@@ -71,9 +74,12 @@ class MoonAgeController: UIViewController {
     func initCamera() {
 
         let camera = SCNCamera()
+
         camera.usesOrthographicProjection = true
         camera.orthographicScale = 3
+
         let cameraNode = SCNNode()
+
         cameraNode.camera = camera
         cameraNode.position = SCNVector3.init(0, 0, 10)
         cameraOrbit.addChildNode(cameraNode)
@@ -103,6 +109,7 @@ class MoonAgeController: UIViewController {
     func spinAnimation() {
 
         let spin = CABasicAnimation(keyPath: "rotation")
+
         spin.fromValue = NSValue(scnVector4: SCNVector4Make(0, 1, 0, beginPosition))
         spin.toValue = NSValue(scnVector4: SCNVector4Make(0, 1, 0, endPosition))
         spin.duration = 1
@@ -165,16 +172,22 @@ extension MoonAgeController: UICollectionViewDelegate, UICollectionViewDataSourc
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+        moonRotate(byIndexPath: indexPath.row)
+
+    }
+
+    func moonRotate(byIndexPath indexPathRow: Int) {
+
         if Constant.chineseMonthRange == "1" {
-
-            endPosition = Float(((Double(indexPath.row)) * Double.pi) / 15.0)
-
+            
+            endPosition = Float(((Double(indexPathRow)) * Double.pi) / 15.0)
+            
         } else {
-
-            endPosition = Float(((2.0 * Double.pi) / 29.0) * Double(indexPath.row))
-
+            
+            endPosition = Float(((2.0 * Double.pi) / 29.0) * Double(indexPathRow))
+            
         }
-
+        
         spinAnimation()
         beginPosition = endPosition
 

@@ -24,8 +24,7 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     let layout = UICollectionViewFlowLayout()
     let currentDate = Date()
-    let testCalendar = Calendar.current
-    let formetter = DateFormatter()
+    let normalCalendar = Calendar.current
     var rotatedAngle: Float = 0.0
 
     //MARK: - Life Cycle
@@ -164,15 +163,15 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         // Force Case: Date from calendar by currentDate always successed.
-        let cellMoment = testCalendar.date(byAdding: .hour, value: indexPath.row, to: currentDate)!
-
-        dateLabel.text = Date.getTodayDateOfStringAndDate("yyyy-MM-dd", cellMoment)
+        let cellMoment = normalCalendar.date(byAdding: .hour, value: indexPath.row, to: currentDate)!
 
         for weatherData in Constant.wertherDatas {
             
             if cellMoment >= weatherData.startTime && cellMoment <= weatherData.endTime {
 
                 self.setUpInformation(byWeatherData: weatherData)
+                dateLabel.text = Date.getTodayDateOfStringAndDate("yyyy-MM-dd", cellMoment)
+
             }
         }
     }

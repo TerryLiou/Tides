@@ -31,6 +31,7 @@ class Annotations: NSObject, MKAnnotation {
 }
 
 struct TidesStation {
+
     static let title = ["基隆", "麟鼻山", "淡水", "臺北港", "竹圍", "新竹", "外埔", "臺中港", "箔子寮", "澎湖", "塭港", "東石", "將軍", "高雄", "東港", "小琉球", "後壁湖", "龍洞", "福隆", "烏石", "蘇澳", "花蓮", "成功", "蘭嶼", "馬祖"]
 
     static let subtitle = ["基隆港西33號碼頭", "麟山鼻漁港", "淡水河油車口", "臺北港第3港埠", "桃園竹圍漁港", "新竹南寮漁港", "外埔漁港", "臺中港4號碼頭", "箔子寮漁港", "澎湖馬公港", "嘉義塭港漁港", "嘉義東石港", "台南將軍漁港", "高雄港10號碼頭", "屏東東港漁港", "屏東琉球漁港", "後壁湖漁港", "南口遊艇港", "福隆漁港碼頭", "宜蘭烏石港", "蘇澳港內碼頭", "花蓮港內", "臺東成功漁港", "蘭嶼開元漁港", "福澳港"]
@@ -56,23 +57,40 @@ struct TidesStation {
 class AnnotationView: MKAnnotationView {
 
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+
         let hitView = super.hitTest(point, with: event)
+
         if hitView != nil {
+
             self.superview?.bringSubview(toFront: self)
+
         }
+
         return hitView
+
     }
+
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+
         let rect = self.bounds
+
         var isInside: Bool = rect.contains(point)
+
         if !isInside {
+
             for view in self.subviews {
+
                 isInside = view.frame.contains(point)
+
                 if isInside {
+
                     break
+
                 }
             }
         }
+
         return isInside
+
     }
 }

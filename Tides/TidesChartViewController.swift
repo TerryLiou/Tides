@@ -29,10 +29,18 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
         super.viewDidLoad()
 
+        if Reachability.isConnectedToNetwork() != true {
+
+            checkInternet()
+
+        } else {
+
         self.updateChartWithData()
         navigationSetUp()
 
         self.imformationSetUp()
+
+        }
 
     }
 
@@ -97,10 +105,27 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
         lineChartView.scaleYEnabled = false
 
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xValue)
-//        lineChartView.xAxis.yOffset = -10
         lineChartView.xAxis.granularity = 1.0
 
         lineChartView.extraRightOffset = 25.0
+
+    }
+
+    func checkInternet() {
+
+        let alertController = UIAlertController(title: "偵測無網路服務",
+                                                message: "親愛的用戶，本應用程式必須有網路服務才能正常使用，請開啟網路服務後重新啟動以確保功能正常，按下確定關閉應用程式。",
+                                                preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "確認", style: .default) { (okAction) in
+
+            exit(0)
+
+        }
+
+        alertController.addAction(okAction)
+
+        self.present(alertController, animated: true, completion: nil)
 
     }
 

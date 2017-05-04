@@ -36,14 +36,6 @@ class TidesSearchTableViewController: UIViewController, UITableViewDelegate, UIT
 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        
-        super.viewWillAppear(animated)
-        
-        print("viewWillAppear01")
-        
-    }
-
     // MARK: - UITableViewDelegate
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -242,6 +234,7 @@ extension TidesSearchTableViewController: UISearchResultsUpdating {
         self.resultsController.tableView.register(tableViewCell, forCellReuseIdentifier: "TidesSearchTableViewCell")
         self.resultsController.tableView.backgroundColor = UIColor.lightGray
         self.searchController = UISearchController(searchResultsController: self.resultsController)
+        self.searchController?.searchBar.barTintColor = Constant.ColorCode.prussianBlue
         self.tidesTableView.tableHeaderView = self.searchController?.searchBar
         self.searchController?.searchResultsUpdater = self
         self.searchController?.dimsBackgroundDuringPresentation = false

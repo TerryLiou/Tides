@@ -60,27 +60,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = vc
 
-        FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView, stationName: Constant.selectedStationNameFromMapView) { (tidesData, tidesDataCount) in
+        if Reachability.isConnectedToNetwork() == true {
+
+            FirebaseDataManager.shared.getTidesData(byDate: Constant.selectedDateFromCalenderView, stationName: Constant.selectedStationNameFromMapView) { (tidesData, tidesDataCount) in
             
-            TidesDataArray.data = tidesData
-            TidesDataArray.amountOfData = tidesDataCount
+                TidesDataArray.data = tidesData
+                TidesDataArray.amountOfData = tidesDataCount
             
+                guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            
+                delegate.window?.rootViewController = chartVC
+            
+            }
+        
+            WeatherDataCatcher.shared.getWeatherFromAPI { (weatherDatas) in
+            
+                Constant.wertherDatas = weatherDatas
+            
+                Constant.initWertherData = weatherDatas[0]
+            
+            }
+
+            // get chinese Month situation
+            DateManager.shared.getFirstDay()
+
+        } else {
+
             guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
             
             delegate.window?.rootViewController = chartVC
-            
-        }
-        
-        WeatherDataCatcher.shared.getWeatherFromAPI { (weatherDatas) in
-            
-            Constant.wertherDatas = weatherDatas
-            
-            Constant.initWertherData = weatherDatas[0]
-            
-        }
 
-        // get chinese Month situation 
-        DateManager.shared.getFirstDay()
-
+        }
     }
 }
