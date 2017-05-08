@@ -53,22 +53,21 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
                 tempertureLabel.text = weatherData.temperature + "°C"
                 
-                if weatherData.status.characters.contains("雨") {
-                    
-                    weatherImage.image = #imageLiteral(resourceName: "storm")
-                    
-                } else if weatherData.status.characters.contains("雲") && weatherData.status.characters.contains("晴"){
-                    
-                    weatherImage.image = #imageLiteral(resourceName: "clouded")
-                    
-                } else if weatherData.status.characters.contains("晴") {
-                    
-                    weatherImage.image = #imageLiteral(resourceName: "sun")
-                    
-                } else {
-                    
-                    weatherImage.image = #imageLiteral(resourceName: "cloud")
-                }
+//                if weatherData.status.characters.contains("雨") {
+//                    
+//                    weatherImage.image = #imageLiteral(resourceName: "storm")
+//                    
+//                } else if weatherData.status.characters.contains("雲") && weatherData.status.characters.contains("晴"){
+//                    
+//                    weatherImage.image = #imageLiteral(resourceName: "clouded")
+//                    
+//                } else if weatherData.status.characters.contains("晴") {
+//                    
+//                    weatherImage.image = #imageLiteral(resourceName: "sun")
+//                    
+//                } else {
+//                    
+                    weatherImage.image = weatherData.weatherImage
             }
         }
 

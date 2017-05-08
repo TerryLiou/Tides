@@ -46,27 +46,7 @@ class WeatherViewController: UIViewController, UICollectionViewDelegate, UIColle
         windStatus.text = data.windSpeed
         humitity.text = data.humidity
         mianTemperature.text = data.temperature + "˚C"
-
-        if data.status.characters.contains("雨") {
-                
-            mainWeatherImage.image = #imageLiteral(resourceName: "largeStorm")
-
-        } else if data.status.characters.contains("雷") {
-
-            mainWeatherImage.image = #imageLiteral(resourceName: "largeThunderRain")
-
-        } else if data.status.characters.contains("雲") && data.status.characters.contains("晴"){
-                
-            mainWeatherImage.image = #imageLiteral(resourceName: "largeClouded")
-                
-        } else if data.status.characters.contains("晴") {
-                
-            mainWeatherImage.image = #imageLiteral(resourceName: "largeSun")
-                
-        } else {
-                
-            mainWeatherImage.image = #imageLiteral(resourceName: "largeCloudy")
-        }
+        mainWeatherImage.image = data.weatherImage
 
         windDiractionImage.transform = windDiractionImage.transform.rotated(by: CGFloat(-rotatedAngle))
 

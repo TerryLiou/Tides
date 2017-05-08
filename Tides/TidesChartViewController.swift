@@ -35,10 +35,10 @@ class TidesChartViewController: UIViewController, ChartViewDelegate {
 
         } else {
 
-        self.updateChartWithData()
-        navigationSetUp()
+            self.updateChartWithData()
+            navigationSetUp()
 
-        self.imformationSetUp()
+            self.imformationSetUp()
 
         }
 
