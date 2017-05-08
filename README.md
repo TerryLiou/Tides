@@ -1,4 +1,4 @@
-#Tides / 潮戲
+# Tides / 潮戲
 
 Tides 是一個查詢台灣潮汐的 App ，之所以以 “戲” 命名是希望這款 App 相較於一般的資料查詢工具多了互動性。
 
@@ -19,7 +19,7 @@ Tides 是一個查詢台灣潮汐的 App ，之所以以 “戲” 命名是希�
 ![MapView](https://github.com/TerryLiou/Tides/blob/master/screenShot/map.png?raw=true)
 
 * 天氣資訊
-  * 通常想知道潮汐的使用者也會關心地點的天氣資訊，所以 Tides 也提供了氣候相關的資訊 
+  * 通常想知道潮汐的使用者也會關心地點的天氣資訊，所以 Tides 也提供了氣候相關的資訊
   * 左上角顯示的是降雨機率，右上角顯示的是濕度
   * 左下角顯示的是風向，以及風級風速的描述
   * Collection View 顯示未來 24 小時的天氣，點選 Cell 更新頁面資訊
